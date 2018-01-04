@@ -1,0 +1,788 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5EA7663-214B-499E-98BC-15AB8DE3DDF0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GYM</RootNamespace>
+    <AssemblyName>GYM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>C:\Works\Build\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/GYM/</UpdateUrl>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Lifetech.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>EA83C31C9B1855C7531599760029673CD9741E97</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GYM_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClassLibraryCommon">
+      <HintPath>..\ClassLibraryCommon\bin\Debug\ClassLibraryCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Docs.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v15.2.Drawing, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v15.2.UI, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v15.2.Wizard, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v15.2.Extensions, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v15.2, Version=15.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ClsCommonDB.cs" />
+    <Compile Include="Common\ClsCommonProcess.cs" />
+    <Compile Include="Common\ClsCommonReport.cs" />
+    <Compile Include="Common\ClsParameter.cs" />
+    <Compile Include="Common\EnumConstant.cs" />
+    <Compile Include="Common\ResourceHelper.cs" />
+    <Compile Include="CompanyInfo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyInfo.resx</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmAuditLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmAuditLog.Designer.cs">
+      <DependentUpon>frmAuditLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmAuthoriseMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmAuthoriseMenu.Designer.cs">
+      <DependentUpon>frmAuthoriseMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmBackupAndRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmBackupAndRestore.Designer.cs">
+      <DependentUpon>frmBackupAndRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmBackupRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmBackupRestore.Designer.cs">
+      <DependentUpon>frmBackupRestore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmEmployee.Designer.cs">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmFail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmFail.Designer.cs">
+      <DependentUpon>frmFail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmGroupUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmGroupUser.Designer.cs">
+      <DependentUpon>frmGroupUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmJourney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmJourney.Designer.cs">
+      <DependentUpon>frmJourney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmLience.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmLience.Designer.cs">
+      <DependentUpon>frmLience.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmManageCommon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmManageCommon.Designer.cs">
+      <DependentUpon>frmManageCommon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmPlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmPlace.Designer.cs">
+      <DependentUpon>frmPlace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmReportParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmReportParameters.Designer.cs">
+      <DependentUpon>frmReportParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmScreenMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmScreenMain.Designer.cs">
+      <DependentUpon>frmScreenMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmScreenTrustGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmScreenTrustGroup.Designer.cs">
+      <DependentUpon>frmScreenTrustGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmScreenTrustStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmScreenTrustStore.Designer.cs">
+      <DependentUpon>frmScreenTrustStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmSuccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmSuccess.Designer.cs">
+      <DependentUpon>frmSuccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmTrust.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmTrust.Designer.cs">
+      <DependentUpon>frmTrust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmUserChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmUserChangePass.Designer.cs">
+      <DependentUpon>frmUserChangePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmUserResetPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmUserResetPass.Designer.cs">
+      <DependentUpon>frmUserResetPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmYesNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmYesNo.Designer.cs">
+      <DependentUpon>frmYesNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\COMPANY.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\COMPANY.Designer.cs">
+      <DependentUpon>COMPANY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DsReport.cs">
+      <DependentUpon>DsReport.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\DsReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EMP01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\EMP01.Designer.cs">
+      <DependentUpon>EMP01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT001.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT001.Designer.cs">
+      <DependentUpon>RPT001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT002.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT002.Designer.cs">
+      <DependentUpon>RPT002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT003.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT003.Designer.cs">
+      <DependentUpon>RPT003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT004.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT004.Designer.cs">
+      <DependentUpon>RPT004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT005.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT005.Designer.cs">
+      <DependentUpon>RPT005.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT006.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT006.Designer.cs">
+      <DependentUpon>RPT006.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT007.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT007.Designer.cs">
+      <DependentUpon>RPT007.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT008.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT008.Designer.cs">
+      <DependentUpon>RPT008.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RPT009.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPT009.Designer.cs">
+      <DependentUpon>RPT009.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\US001.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\US001.Designer.cs">
+      <DependentUpon>US001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReferenceDuyTan\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CompanyInfo.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CompanyInfo.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmAuditLog.resx">
+      <DependentUpon>frmAuditLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmAuthoriseMenu.resx">
+      <DependentUpon>frmAuthoriseMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmBackupAndRestore.resx">
+      <DependentUpon>frmBackupAndRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmBackupRestore.resx">
+      <DependentUpon>frmBackupRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmEmployee.resx">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmFail.resx">
+      <DependentUpon>frmFail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmGroupUser.resx">
+      <DependentUpon>frmGroupUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmJourney.resx">
+      <DependentUpon>frmJourney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmLience.resx">
+      <DependentUpon>frmLience.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmManageCommon.resx">
+      <DependentUpon>frmManageCommon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmPlace.resx">
+      <DependentUpon>frmPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmReportParameters.resx">
+      <DependentUpon>frmReportParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmScreenMain.resx">
+      <DependentUpon>frmScreenMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmScreenTrustGroup.resx">
+      <DependentUpon>frmScreenTrustGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmScreenTrustStore.resx">
+      <DependentUpon>frmScreenTrustStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmSuccess.resx">
+      <DependentUpon>frmSuccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmTrust.resx">
+      <DependentUpon>frmTrust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmUserChangePass.resx">
+      <DependentUpon>frmUserChangePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmUserResetPass.resx">
+      <DependentUpon>frmUserResetPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmYesNo.resx">
+      <DependentUpon>frmYesNo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\COMPANY.resx">
+      <DependentUpon>COMPANY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EMP01.resx">
+      <DependentUpon>EMP01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT001.resx">
+      <DependentUpon>RPT001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT002.resx">
+      <DependentUpon>RPT002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT003.resx">
+      <DependentUpon>RPT003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT004.resx">
+      <DependentUpon>RPT004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT005.resx">
+      <DependentUpon>RPT005.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT006.resx">
+      <DependentUpon>RPT006.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT007.resx">
+      <DependentUpon>RPT007.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT008.resx">
+      <DependentUpon>RPT008.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPT009.resx">
+      <DependentUpon>RPT009.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\US001.resx">
+      <DependentUpon>US001.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="GYM_TemporaryKey.pfx" />
+    <None Include="Reports\HDGym-FInal.bin" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Reports\DsReport.xsc">
+      <DependentUpon>DsReport.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DsReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DsReport.xss">
+      <DependentUpon>DsReport.xsd</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.AuthorizeMenuObjectList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.EmployeeObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.FileObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.GroupUserObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.JourneyObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.MenuObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.MenuObjectList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.PlaceObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.ReportObjects.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.ReportParaObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.SalaryObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.TrustObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\GYM.ServiceReferenceDuyTan.UserObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\WebServiceDuyTan.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\48px-Crystal_Clear_app_artscontrol.png" />
+    <Content Include="Image\48px-Crystal_Clear_app_desktop_enhancements.png" />
+    <Content Include="Image\accept.ico" />
+    <Content Include="Image\add to basket.ico" />
+    <Content Include="Image\add.ico" />
+    <Content Include="Image\address book.ico" />
+    <Content Include="Image\alarm.ico" />
+    <Content Include="Image\application form.ico" />
+    <Content Include="Image\Back.ico" />
+    <Content Include="Image\bar chart.ico" />
+    <Content Include="Image\basket.ico" />
+    <Content Include="Image\bell.ico" />
+    <Content Include="Image\bol-de-riz-plein-icon.png" />
+    <Content Include="Image\book.ico" />
+    <Content Include="Image\bookmark.ico" />
+    <Content Include="Image\box.ico" />
+    <Content Include="Image\boy.ico" />
+    <Content Include="Image\brick house.ico" />
+    <Content Include="Image\bricks.ico" />
+    <Content Include="Image\brick_wall.ico" />
+    <Content Include="Image\briefcase.ico" />
+    <Content Include="Image\calculator.ico" />
+    <Content Include="Image\calendar.ico" />
+    <Content Include="Image\Cancel.ico" />
+    <Content Include="Image\clien list.ico" />
+    <Content Include="Image\clipboard.ico" />
+    <Content Include="Image\clock.ico" />
+    <Content Include="Image\coins.ico" />
+    <Content Include="Image\comment.ico" />
+    <Content Include="Image\computer.ico" />
+    <Content Include="Image\conference.ico" />
+    <Content Include="Image\connect.ico" />
+    <Content Include="Image\construction.ico" />
+    <Content Include="Image\create.ico" />
+    <Content Include="Image\database.ico" />
+    <Content Include="Image\DeleteXP.ico" />
+    <Content Include="Image\design.ico" />
+    <Content Include="Image\diagram.ico" />
+    <Content Include="Image\document.ico" />
+    <Content Include="Image\documents.ico" />
+    <Content Include="Image\dollar.ico" />
+    <Content Include="Image\down.ico" />
+    <Content Include="Image\download.ico" />
+    <Content Include="Image\edit.ico" />
+    <Content Include="Image\Email.ico" />
+    <Content Include="Image\exit.ico" />
+    <Content Include="Image\favourites.ico" />
+    <Content Include="Image\fax.ico" />
+    <Content Include="Image\Find-Xp.ico" />
+    <Content Include="Image\folder_add.ico" />
+    <Content Include="Image\FPEDITAX_DLL_3.ico" />
+    <Content Include="Image\GaoChuaDongGoi.jpg" />
+    <Content Include="Image\GaoDongGoi.jpg" />
+    <Content Include="Image\gear.ico" />
+    <Content Include="Image\handshake.ico" />
+    <Content Include="Image\HelpXP.ico" />
+    <Content Include="Image\hierarchy.ico" />
+    <Content Include="Image\home.ico" />
+    <Content Include="Image\icon1.ico" />
+    <Content Include="Image\industry.ico" />
+    <Content Include="Image\info.ico" />
+    <Content Include="Image\Key manager.ico" />
+    <Content Include="Image\key.ico" />
+    <Content Include="Image\label - Copy.ico" />
+    <Content Include="Image\left.ico" />
+    <Content Include="Image\letter.ico" />
+    <Content Include="Image\Line Chart.ico" />
+    <Content Include="Image\list - Copy.ico" />
+    <Content Include="Image\Load.ico" />
+    <Content Include="Image\lock.ico" />
+    <Content Include="Image\log out .ico" />
+    <Content Include="Image\login.ico" />
+    <Content Include="Image\LogOff - Copy.ico" />
+    <Content Include="Image\mail_sent.ico" />
+    <Content Include="Image\milestone.ico" />
+    <Content Include="Image\Modify.ico" />
+    <Content Include="Image\money.ico" />
+    <Content Include="Image\moneybox.ico" />
+    <Content Include="Image\monitor.ico" />
+    <Content Include="Image\New16XP.ico" />
+    <Content Include="Image\Next.ico" />
+    <Content Include="Image\OK.ico" />
+    <Content Include="Image\open file.ico" />
+    <Content Include="Image\open folder.ico" />
+    <Content Include="Image\open lock.ico" />
+    <Content Include="Image\payment.ico" />
+    <Content Include="Image\peace.ico" />
+    <Content Include="Image\print preview.ico" />
+    <Content Include="Image\print.ico" />
+    <Content Include="Image\printer.ico" />
+    <Content Include="Image\process.ico" />
+    <Content Include="Image\Profile.ico" />
+    <Content Include="Image\red star.ico" />
+    <Content Include="Image\refresh.ico" />
+    <Content Include="Image\remove from basket.ico" />
+    <Content Include="Image\report.ico" />
+    <Content Include="Image\right.ico" />
+    <Content Include="Image\Run.ico" />
+    <Content Include="Image\save.ico" />
+    <Content Include="Image\service.ico" />
+    <Content Include="Image\Sesame-Grinder-icon.png" />
+    <Content Include="Image\shopping.ico" />
+    <Content Include="Image\statistics.ico" />
+    <Content Include="Image\task list.ico" />
+    <Content Include="Image\unlock.ico" />
+    <Content Include="Image\user group.ico" />
+    <Content Include="Image\user.ico" />
+    <Content Include="Image\users.ico" />
+    <Content Include="Image\UserXP.ico" />
+    <Content Include="libs\zkemkeeper.dll" />
+    <Content Include="Lifetech.ico" />
+    <None Include="Service References\ServiceReferenceDuyTan\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReferenceDuyTan\configuration.svcinfo" />
+    <None Include="Service References\ServiceReferenceDuyTan\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferenceDuyTan\WebServiceDuyTan.disco" />
+    <None Include="Resources\FingerPrint2.jpg" />
+    <None Include="Resources\fingerprint_reader_icon.jpg" />
+    <None Include="Resources\Fingerprint_cross.jpg" />
+    <None Include="Resources\Fingerprint_checkmark.jpg" />
+    <None Include="Resources\Fingerprint_blank.jpg" />
+    <None Include="Resources\Fingerprint_3.jpg" />
+    <None Include="Resources\Fingerprint_2.jpg" />
+    <None Include="Resources\Fingerprint_1.jpg" />
+    <None Include="Resources\business_user_search.png" />
+    <None Include="Resources\business_user_delete.png" />
+    <None Include="Resources\business_user_accept.png" />
+    <None Include="Resources\open lock.ico" />
+    <None Include="Resources\lock.ico" />
+    <None Include="Resources\Cancel.ico" />
+    <None Include="Resources\FPEDITAX_DLL_3.ico" />
+    <None Include="Resources\Modify.ico" />
+    <None Include="Resources\list - Copy.ico" />
+    <None Include="Resources\add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReferenceDuyTan\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

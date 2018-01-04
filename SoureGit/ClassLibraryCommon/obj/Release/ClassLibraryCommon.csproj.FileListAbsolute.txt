@@ -1,0 +1,5 @@
+C:\Works\GYM4\GYM\ClassLibraryCommon\bin\Release\ClassLibraryCommon.dll
+C:\Works\GYM4\GYM\ClassLibraryCommon\bin\Release\ClassLibraryCommon.pdb
+C:\Works\GYM4\GYM\ClassLibraryCommon\obj\Release\ClassLibraryCommon.csprojResolveAssemblyReference.cache
+C:\Works\GYM4\GYM\ClassLibraryCommon\obj\Release\ClassLibraryCommon.dll
+C:\Works\GYM4\GYM\ClassLibraryCommon\obj\Release\ClassLibraryCommon.pdb

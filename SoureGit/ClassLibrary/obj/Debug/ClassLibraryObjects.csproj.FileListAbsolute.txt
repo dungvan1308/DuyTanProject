@@ -1,0 +1,32 @@
+C:\Works\GYM4\GYM\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Works\GYM4\GYM\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Works\GYM4\GYM\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Works\GYM4\GYM\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Works\GYM4\GYM\ClassLibrary\obj\Debug\ClassLibraryObjects.csprojResolveAssemblyReference.cache
+c:\Works\GYM\SourceCode\GYMV5\ClassLibrary\bin\Debug\ClassLibrary.dll
+c:\Works\GYM\SourceCode\GYMV5\ClassLibrary\bin\Debug\ClassLibrary.pdb
+c:\Works\GYM\SourceCode\GYMV5\ClassLibrary\obj\Debug\ClassLibraryObjects.csprojResolveAssemblyReference.cache
+c:\Works\GYM\SourceCode\GYMV5\ClassLibrary\obj\Debug\ClassLibrary.dll
+c:\Works\GYM\SourceCode\GYMV5\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Works\GYM\GYMV7\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Works\GYM\GYMV7\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Works\GYM\GYMV7\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Works\GYM\GYMV7\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Works\GYM\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Works\GYM\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Works\GYM\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Works\GYM\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Works\NhuaDuyTan\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Works\NhuaDuyTan\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Works\NhuaDuyTan\SourceCode\ClassLibrary\obj\Debug\ClassLibraryObjects.csprojResolveAssemblyReference.cache
+C:\Works\NhuaDuyTan\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Works\NhuaDuyTan\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.pdb
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.dll
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.pdb
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibrary\obj\Debug\ClassLibraryObjects.csprojResolveAssemblyReference.cache
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.dll
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Works\DuyTan\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Works\DuyTan\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Works\DuyTan\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Works\DuyTan\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.pdb

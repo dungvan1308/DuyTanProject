@@ -1,0 +1,181 @@
+﻿/****** Object:  StoredProcedure [dbo].[proc_InsertUpdateContract]    Script Date: 5/8/2016 1:53:19 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[proc_InsertUpdateContract]
+	@RowID int,
+	@ContractID varchar(5),
+	@ContractName nvarchar(100),
+	@FromDate date,
+	@ToDate date,
+	@ContractDate date,
+	@CustID varchar(5),
+	@CategoryID varchar(2),
+	@ProductID varchar(5),
+	@Term int,
+	@TermPromotion int,
+	@Price numeric(18, 0),
+	@Discount numeric(18, 0),
+	@PriceWithDiscount numeric(18, 0),
+	@Paid numeric(18, 0),
+	@PaymentMethodID char(1),
+	@Seller varchar(5),
+	@Trainer varchar(5),
+	@MaxAssigned int,
+	@Assigned int,
+	@AssignToMember nvarchar(5),
+	@Status char(1),
+	@CreateBy varchar(5)
+AS
+
+SET NOCOUNT ON
+	IF EXISTS(SELECT ROWID FROM Contact WHERE RowID = @RowID)
+	BEGIN
+		UPDATE [dbo].[Contact] SET
+			[ContractID] = @ContractID,
+			[ContractName] = @ContractName,
+			[FromDate] = @FromDate,
+			[ToDate] = @ToDate,
+			[ContractDate] = @ContractDate,
+			[CustID] = @CustID,
+			[CategoryID] = @CategoryID,
+			[ProductID] = @ProductID,
+			[Term] = @Term,
+			[TermPromotion] = @TermPromotion,
+			[Price] = @Price,
+			[Discount] = @Discount,
+			[PriceWithDiscount] = @PriceWithDiscount,
+			[Paid] = @Paid,
+			[PaymentMethodID] = @PaymentMethodID,
+			[Seller] = @Seller,
+			[Trainer] = @Trainer,
+			[MaxAssigned] = @MaxAssigned,
+			[Assigned] = @Assigned,
+			[AssignToMember] = @AssignToMember,
+			[Status] = @Status,			
+			[ModifyBy] = @CreateBy,
+			[ModifyDate] = SYSDATETIME()
+		OUTPUT INSERTED.*  
+		WHERE
+			[RowID] = @RowID
+	END
+	ELSE
+	BEGIN
+		INSERT INTO [dbo].[Contact] (
+			[ContractID],
+			[ContractName],
+			[FromDate],
+			[ToDate],
+			[ContractDate],
+			[CustID],
+			[CategoryID],
+			[ProductID],
+			[Term],
+			[TermPromotion],
+			[Price],
+			[Discount],
+			[PriceWithDiscount],
+			[Paid],
+			[PaymentMethodID],
+			[Seller],
+			[Trainer],
+			[MaxAssigned],
+			[Assigned],
+			[AssignToMember],
+			[Status],
+			[CreateBy],
+			[CreateDate]
+		) OUTPUT INSERTED.* VALUES (
+			@ContractID,
+			@ContractName,
+			@FromDate,
+			@ToDate,
+			@ContractDate,
+			@CustID,
+			@CategoryID,
+			@ProductID,
+			@Term,
+			@TermPromotion,
+			@Price,
+			@Discount,
+			@PriceWithDiscount,
+			@Paid,
+			@PaymentMethodID,
+			@Seller,
+			@Trainer,
+			@MaxAssigned,
+			@Assigned,
+			@AssignToMember,
+			@Status,
+			@CreateBy,
+			SYSDATETIME()
+		)
+	END
+	SET @RowID = SCOPE_IDENTITY()
+
+GO
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+---------------------------------------------------------------
+---------------------------------------------------------------
+---------------------------------------------------------------
+CREATE PROCEDURE [dbo].[proc_SelectGroupCustomeDynamic]
+	@WhereCondition nvarchar(max),
+	@OrderByExpression nvarchar(max) = NULL
+AS
+
+SET NOCOUNT ON
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED
+
+DECLARE @SQL nvarchar(3250)
+DECLARE @SQLROWNUM NVARCHAR(3250)
+
+SET @SQL = '[GROUPCUSTID]
+      ,[GROUPCUSTNAME]
+      ,[ADDRESS]
+      ,[REFCUSTNAME]
+      ,[REFPHONE]
+      ,[CREATEBY]
+      ,[CREATEDATE]
+      ,[MODIFIEDBY]
+      ,[MODIFIEDDATE]
+FROM
+	[dbo].[GROUPCUSTOMER]
+WHERE 1=1' 
+
+if @WhereCondition is not null and LEN(@WhereCondition) > 2
+	begin 
+		set @SQL = @SQL + ' and ' + @WhereCondition
+	end 
+-- Order by 
+IF @OrderByExpression IS NOT NULL AND LEN(@OrderByExpression) >2
+		BEGIN
+			SET @SQLROWNUM = ' select ROW_NUMBER ( ) over (order by ' + @OrderByExpression + ') STT , ' 
+		END 
+ELSE
+		BEGIN 
+			SET @SQLROWNUM = ' select ROW_NUMBER ( ) over (order by GROUPCUSTID) STT , ' 
+		END 
+
+SET @SQL = @SQLROWNUM + @SQL
+print @SQL
+EXEC sp_executesql @SQL
+
+
+INSERT INTO ALLCODE VALUES ('ASSIGNED', 0, N'Không được chuyển nhượng', 'CONTRACT', 0);
+INSERT INTO ALLCODE VALUES ('ASSIGNED', 1, N'Cho phép chuyển nhượng', 'CONTRACT', 1);
+INSERT INTO ALLCODE VALUES ('ASSIGNED', 2, N'Chuyển nhượng không giới hạn', 'CONTRACT', 2);
+INSERT INTO ALLCODE VALUES ('PAYMENT', 0, N'Tiền mặt', 'CONTRACT', 0);
+INSERT INTO ALLCODE VALUES ('PAYMENT', 1, N'Thẻ tín dụng', 'CONTRACT', 1);
+INSERT INTO ALLCODE VALUES ('PAYMENT', 2, N'Thẻ nội địa', 'CONTRACT', 2);
+INSERT INTO ALLCODE VALUES ('PAYMENT', 3, N'Thẻ nội địa', 'CONTRACT', 3);
+INSERT INTO ALLCODE VALUES ('STATUS', 0, N'Mở', 'CONTRACT', 0);
+INSERT INTO ALLCODE VALUES ('STATUS', 1, N'Đóng', 'CONTRACT', 1);
+INSERT INTO ALLCODE VALUES ('STATUS', 0, N'Mở', 'PROGRAM', 0);
+INSERT INTO ALLCODE VALUES ('STATUS', 1, N'Đóng', 'PROGRAM', 1);

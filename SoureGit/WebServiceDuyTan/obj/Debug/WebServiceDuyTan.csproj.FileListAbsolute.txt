@@ -1,0 +1,55 @@
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\bin\WebServiceDuyTan.dll.config
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\bin\WebServiceDuyTan.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\bin\WebServiceDuyTan.pdb
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\bin\ClassLibrary.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\bin\ClassLibraryCommon.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\bin\Microsoft.ApplicationBlocks.Data.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\bin\ClassLibrary.pdb
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\bin\ClassLibraryCommon.pdb
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\obj\Debug\WebServiceDuyTan.csprojResolveAssemblyReference.cache
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\obj\Debug\WebServiceDuyTan.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceGym\obj\Debug\WebServiceDuyTan.pdb
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.dll.config
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.pdb
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\bin\ClassLibrary.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\bin\ClassLibraryCommon.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\bin\Microsoft.ApplicationBlocks.Data.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\bin\ClassLibrary.pdb
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\bin\ClassLibraryCommon.pdb
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.dll
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.pdb
+C:\Works\NhuaDuyTan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.csprojResolveAssemblyReference.cache
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.dll.config
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.dll
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.pdb
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\ClassLibrary.dll
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\ClassLibraryCommon.dll
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\Microsoft.ApplicationBlocks.Data.dll
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\ClassLibrary.pdb
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\ClassLibraryCommon.pdb
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.csprojResolveAssemblyReference.cache
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.dll
+F:\00 Private\02 Projects\03_Nhua Duy Tan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.pdb
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.dll.config
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.dll
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.pdb
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\ClassLibrary.dll
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\ClassLibraryCommon.dll
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\Microsoft.ApplicationBlocks.Data.dll
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\ClassLibrary.pdb
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\bin\ClassLibraryCommon.pdb
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.csprojResolveAssemblyReference.cache
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.dll
+F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.pdb
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.dll.config
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.dll
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\bin\WebServiceDuyTan.pdb
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\bin\ClassLibrary.dll
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\bin\ClassLibraryCommon.dll
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\bin\Microsoft.ApplicationBlocks.Data.dll
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\bin\ClassLibrary.pdb
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\bin\ClassLibraryCommon.pdb
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.csprojResolveAssemblyReference.cache
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.dll
+C:\Works\DuyTan\SourceCode\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.pdb
