@@ -26,7 +26,7 @@ namespace WebServiceDuyTan.DbObjects
             Double dec = 0;
 
 
-            SqlParameter[] aParams = new SqlParameter[31];
+            SqlParameter[] aParams = new SqlParameter[21];
 
 
             aParams[0] = new SqlParameter("@JourneyID", System.Data.SqlDbType.Int);
@@ -53,76 +53,54 @@ namespace WebServiceDuyTan.DbObjects
             aParams[7] = new SqlParameter("@StartTimePlan1", System.Data.SqlDbType.DateTime);
             aParams[7].Value = obj.StartTimePlan1;
 
-            aParams[8] = new SqlParameter("@StartTime1", System.Data.SqlDbType.DateTime);
-            aParams[8].Value = obj.StartTime1;
-
-            aParams[9] = new SqlParameter("@DeliveryPlace1", System.Data.SqlDbType.Int);
-            aParams[9].Value = obj.DeliveryPlace1;
-
-            aParams[10] = new SqlParameter("@ArrivalTimePlan1", System.Data.SqlDbType.DateTime);
-            aParams[10].Value = obj.ArrivalTimePlan1;
-
-            aParams[11] = new SqlParameter("@ArrivalTime1", System.Data.SqlDbType.DateTime);
-            aParams[11].Value = obj.ArrivalTime1;
-
-            aParams[12] = new SqlParameter("@StartTimePlan2", System.Data.SqlDbType.DateTime);
-            aParams[12].Value = obj.StartTimePlan2;
-
-            aParams[13] = new SqlParameter("@StartTime2", System.Data.SqlDbType.DateTime);
-            aParams[13].Value = obj.StartTime2;
-
-            aParams[14] = new SqlParameter("@DeliveryPlace2", System.Data.SqlDbType.Int);
-            aParams[14].Value = obj.DeliveryPlace2;
-
-            aParams[15] = new SqlParameter("@ArrivalTimePlan2", System.Data.SqlDbType.DateTime);
-            aParams[15].Value = obj.ArrivalTimePlan2;
-
-            aParams[16] = new SqlParameter("@ArrivalTime2", System.Data.SqlDbType.DateTime);
-            aParams[16].Value = obj.ArrivalTime2;
-
-            aParams[17] = new SqlParameter("@StartTimePlan3", System.Data.SqlDbType.DateTime);
-            aParams[17].Value = obj.StartTimePlan3;
-
-            aParams[18] = new SqlParameter("@StartTime3", System.Data.SqlDbType.DateTime);
-            aParams[18].Value = obj.StartTime3;
-
-            aParams[19] = new SqlParameter("@DeliveryPlace3", System.Data.SqlDbType.Int);
-            aParams[19].Value = obj.DeliveryPlace3;
-
-            aParams[20] = new SqlParameter("@ArrivalTimePlan3", System.Data.SqlDbType.DateTime);
-            aParams[20].Value = obj.ArrivalTimePlan3;
-
-            aParams[21] = new SqlParameter("@ArrivalTime3", System.Data.SqlDbType.DateTime);
-            aParams[21].Value = obj.ArrivalTime3;
-
-            aParams[22] = new SqlParameter("@StartGoHomePlan", System.Data.SqlDbType.DateTime);
-            aParams[22].Value = obj.StartGoHomePlan;
-
-            aParams[23] = new SqlParameter("@StartGoHome", System.Data.SqlDbType.DateTime);
-            aParams[23].Value = obj.StartGoHome;
-
-            aParams[24] = new SqlParameter("@TimeGoHome", System.Data.SqlDbType.DateTime);
-            aParams[24].Value = obj.TimeGoHome;
 
 
-            aParams[25] = new SqlParameter("@Status", System.Data.SqlDbType.Char);
-            aParams[25].Value = obj.Status;
+            aParams[8] = new SqlParameter("@DeliveryPlace1", System.Data.SqlDbType.Int);
+            aParams[8].Value = obj.DeliveryPlace1;
 
-            aParams[26] = new SqlParameter("@Gate", System.Data.SqlDbType.Char);
-            aParams[26].Value = obj.Gate;
-
-            aParams[27] = new SqlParameter("@Note", System.Data.SqlDbType.NVarChar);
-            aParams[27].Value = obj.Note;
+            aParams[9] = new SqlParameter("@ArrivalTimePlan1", System.Data.SqlDbType.DateTime);
+            aParams[9].Value = obj.ArrivalTimePlan1;
 
 
-            aParams[28] = new SqlParameter("@CreateBy", System.Data.SqlDbType.VarChar);
-            aParams[28].Value = obj.CreateBy;
+            aParams[10] = new SqlParameter("@StartTimePlan2", System.Data.SqlDbType.DateTime);
+            aParams[10].Value = obj.StartTimePlan2;
 
-            aParams[29] = new SqlParameter("@ModifyBy", System.Data.SqlDbType.VarChar);
-            aParams[29].Value = obj.ModifyBy;
 
-            aParams[30] = new SqlParameter("@TimesUpdate", System.Data.SqlDbType.Int);
-            aParams[30].Value = obj.TimesUpdate;
+            aParams[11] = new SqlParameter("@DeliveryPlace2", System.Data.SqlDbType.Int);
+            aParams[11].Value = obj.DeliveryPlace2;
+
+            aParams[12] = new SqlParameter("@ArrivalTimePlan2", System.Data.SqlDbType.DateTime);
+            aParams[12].Value = obj.ArrivalTimePlan2;
+
+            aParams[13] = new SqlParameter("@StartTimePlan3", System.Data.SqlDbType.DateTime);
+            aParams[13].Value = obj.StartTimePlan3;
+
+
+            aParams[14] = new SqlParameter("@DeliveryPlace3", System.Data.SqlDbType.Int);
+            aParams[14].Value = obj.DeliveryPlace3;
+
+            aParams[15] = new SqlParameter("@ArrivalTimePlan3", System.Data.SqlDbType.DateTime);
+            aParams[15].Value = obj.ArrivalTimePlan3;
+
+
+            aParams[16] = new SqlParameter("@Status", System.Data.SqlDbType.Char);
+            aParams[16].Value = obj.Status;
+
+            aParams[17] = new SqlParameter("@Gate", System.Data.SqlDbType.Char);
+            aParams[17].Value = obj.Gate;
+
+            aParams[18] = new SqlParameter("@Note", System.Data.SqlDbType.NVarChar);
+            aParams[18].Value = obj.Note;
+
+
+            aParams[19] = new SqlParameter("@CreateBy", System.Data.SqlDbType.VarChar);
+            aParams[19].Value = obj.CreateBy;
+
+            aParams[20] = new SqlParameter("@ModifyBy", System.Data.SqlDbType.VarChar);
+            aParams[20].Value = obj.ModifyBy;
+
+            //aParams[20] = new SqlParameter("@TimesUpdate", System.Data.SqlDbType.Int);
+            //aParams[20].Value = obj.TimesUpdate;
            
             try
             {

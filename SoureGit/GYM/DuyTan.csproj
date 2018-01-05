@@ -195,6 +195,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm\frmAddJourney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmAddJourney.Designer.cs">
+      <DependentUpon>frmAddJourney.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm\frmAuditLog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmAddJourney.resx">
+      <DependentUpon>frmAddJourney.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm\frmAuditLog.resx">
       <DependentUpon>frmAuditLog.cs</DependentUpon>

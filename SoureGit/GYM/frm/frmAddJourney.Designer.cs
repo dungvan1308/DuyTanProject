@@ -1,6 +1,6 @@
 ﻿namespace GYM.frm
 {
-    partial class frmJourney
+    partial class frmAddJourney
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmJourney));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddJourney));
             this.grpInfo = new DevExpress.XtraEditors.GroupControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.StartTimePlan1 = new System.Windows.Forms.DateTimePicker();
@@ -51,13 +51,11 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.StartGoHomePlan = new System.Windows.Forms.DateTimePicker();
             this.ArrivalTimePlan3 = new System.Windows.Forms.DateTimePicker();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.searchLookUpDeliveryPlace3 = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.StartTimePlan3 = new System.Windows.Forms.DateTimePicker();
             this.ArrivalTimePlan2 = new System.Windows.Forms.DateTimePicker();
@@ -74,17 +72,15 @@
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.bttSave = new DevExpress.XtraEditors.SimpleButton();
             this.imgLst = new System.Windows.Forms.ImageList(this.components);
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.toolStripJourney = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.bttUpdate = new System.Windows.Forms.ToolStripButton();
-            this.bttDelete = new System.Windows.Forms.ToolStripButton();
-            this.gridControlMain = new DevExpress.XtraGrid.GridControl();
-            this.dtgResult = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemButtonStart = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.lookUpStartPlace = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.bttNext = new DevExpress.XtraEditors.SimpleButton();
+            this.bttSave = new DevExpress.XtraEditors.SimpleButton();
+            this.bbExit = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grpInfo)).BeginInit();
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -112,12 +108,9 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpDeliveryPlace1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            this.toolStripJourney.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgResult)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpStartPlace.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grpInfo
@@ -126,14 +119,18 @@
             this.grpInfo.Controls.Add(this.panelControl3);
             this.grpInfo.Controls.Add(this.panelControl2);
             this.grpInfo.Controls.Add(this.panelControl1);
-            this.grpInfo.Location = new System.Drawing.Point(12, 12);
+            this.grpInfo.Location = new System.Drawing.Point(2, 12);
             this.grpInfo.Name = "grpInfo";
-            this.grpInfo.Size = new System.Drawing.Size(277, 541);
-            this.grpInfo.TabIndex = 0;
+            this.grpInfo.Size = new System.Drawing.Size(825, 262);
+            this.grpInfo.TabIndex = 1;
             this.grpInfo.Text = "Thông tin hành trình";
             // 
             // panelControl4
             // 
+            this.panelControl4.Controls.Add(this.textEdit1);
+            this.panelControl4.Controls.Add(this.labelControl11);
+            this.panelControl4.Controls.Add(this.labelControl10);
+            this.panelControl4.Controls.Add(this.lookUpStartPlace);
             this.panelControl4.Controls.Add(this.StartTimePlan1);
             this.panelControl4.Controls.Add(this.searchLookUpTrust);
             this.panelControl4.Controls.Add(this.labelControl1);
@@ -150,16 +147,16 @@
             this.panelControl4.Controls.Add(this.labelControl4);
             this.panelControl4.Location = new System.Drawing.Point(5, 28);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(263, 202);
+            this.panelControl4.Size = new System.Drawing.Size(810, 120);
             this.panelControl4.TabIndex = 57;
             // 
             // StartTimePlan1
             // 
             this.StartTimePlan1.CustomFormat = "dd/MM/yyyy hh:mm tt";
             this.StartTimePlan1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.StartTimePlan1.Location = new System.Drawing.Point(108, 143);
+            this.StartTimePlan1.Location = new System.Drawing.Point(364, 65);
             this.StartTimePlan1.Name = "StartTimePlan1";
-            this.StartTimePlan1.Size = new System.Drawing.Size(147, 21);
+            this.StartTimePlan1.Size = new System.Drawing.Size(146, 21);
             this.StartTimePlan1.TabIndex = 55;
             // 
             // searchLookUpTrust
@@ -172,7 +169,6 @@
             this.searchLookUpTrust.Properties.View = this.gridView5;
             this.searchLookUpTrust.Size = new System.Drawing.Size(146, 20);
             this.searchLookUpTrust.TabIndex = 54;
-            this.searchLookUpTrust.Click += new System.EventHandler(this.searchLookUpTrust_Click);
             // 
             // gridView5
             // 
@@ -212,11 +208,11 @@
             // cmbPosition
             // 
             this.cmbPosition.EditValue = "";
-            this.cmbPosition.Location = new System.Drawing.Point(108, 169);
+            this.cmbPosition.Location = new System.Drawing.Point(596, 39);
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbPosition.Size = new System.Drawing.Size(101, 20);
+            this.cmbPosition.Size = new System.Drawing.Size(100, 20);
             this.cmbPosition.TabIndex = 53;
             this.cmbPosition.Tag = "TERM";
             // 
@@ -230,7 +226,7 @@
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(5, 172);
+            this.labelControl16.Location = new System.Drawing.Point(516, 46);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(38, 13);
             this.labelControl16.TabIndex = 38;
@@ -246,7 +242,6 @@
             this.lookUpDriver.Properties.View = this.gridView1;
             this.lookUpDriver.Size = new System.Drawing.Size(146, 20);
             this.lookUpDriver.TabIndex = 13;
-            this.lookUpDriver.Click += new System.EventHandler(this.lookUpDriver_Click);
             // 
             // gridView1
             // 
@@ -257,7 +252,7 @@
             // 
             // searchLookUpEmp1
             // 
-            this.searchLookUpEmp1.Location = new System.Drawing.Point(109, 91);
+            this.searchLookUpEmp1.Location = new System.Drawing.Point(364, 13);
             this.searchLookUpEmp1.Name = "searchLookUpEmp1";
             this.searchLookUpEmp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -265,7 +260,6 @@
             this.searchLookUpEmp1.Properties.View = this.gridView2;
             this.searchLookUpEmp1.Size = new System.Drawing.Size(146, 20);
             this.searchLookUpEmp1.TabIndex = 14;
-            this.searchLookUpEmp1.Click += new System.EventHandler(this.searchLookUpEmp1_Click);
             // 
             // gridView2
             // 
@@ -276,15 +270,15 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(5, 146);
+            this.labelControl6.Location = new System.Drawing.Point(261, 68);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(92, 13);
+            this.labelControl6.Size = new System.Drawing.Size(81, 13);
             this.labelControl6.TabIndex = 18;
-            this.labelControl6.Text = "Thời gian khởi hành";
+            this.labelControl6.Text = "Giờ xuất phát KH";
             // 
             // searchLookUpEmp2
             // 
-            this.searchLookUpEmp2.Location = new System.Drawing.Point(109, 117);
+            this.searchLookUpEmp2.Location = new System.Drawing.Point(364, 39);
             this.searchLookUpEmp2.Name = "searchLookUpEmp2";
             this.searchLookUpEmp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -292,7 +286,6 @@
             this.searchLookUpEmp2.Properties.View = this.gridView3;
             this.searchLookUpEmp2.Size = new System.Drawing.Size(146, 20);
             this.searchLookUpEmp2.TabIndex = 15;
-            this.searchLookUpEmp2.Click += new System.EventHandler(this.searchLookUpEmp2_Click);
             // 
             // gridView3
             // 
@@ -303,41 +296,30 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(5, 120);
+            this.labelControl5.Location = new System.Drawing.Point(261, 46);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(57, 13);
             this.labelControl5.TabIndex = 17;
-            this.labelControl5.Text = "Nhân viên 2";
+            this.labelControl5.Text = "Giao hàng 2";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(5, 94);
+            this.labelControl4.Location = new System.Drawing.Point(261, 16);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(57, 13);
             this.labelControl4.TabIndex = 16;
-            this.labelControl4.Text = "Nhân viên 1";
+            this.labelControl4.Text = "Giao hàng 1";
             // 
             // panelControl3
             // 
-            this.panelControl3.Controls.Add(this.StartGoHomePlan);
             this.panelControl3.Controls.Add(this.ArrivalTimePlan3);
             this.panelControl3.Controls.Add(this.labelControl20);
             this.panelControl3.Controls.Add(this.searchLookUpDeliveryPlace3);
             this.panelControl3.Controls.Add(this.labelControl21);
-            this.panelControl3.Controls.Add(this.labelControl22);
-            this.panelControl3.Location = new System.Drawing.Point(5, 436);
+            this.panelControl3.Location = new System.Drawing.Point(552, 154);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(263, 94);
+            this.panelControl3.Size = new System.Drawing.Size(263, 68);
             this.panelControl3.TabIndex = 56;
-            // 
-            // StartGoHomePlan
-            // 
-            this.StartGoHomePlan.CustomFormat = "dd/MM/yyyy hh:mm tt";
-            this.StartGoHomePlan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.StartGoHomePlan.Location = new System.Drawing.Point(108, 64);
-            this.StartGoHomePlan.Name = "StartGoHomePlan";
-            this.StartGoHomePlan.Size = new System.Drawing.Size(147, 21);
-            this.StartGoHomePlan.TabIndex = 31;
             // 
             // ArrivalTimePlan3
             // 
@@ -366,7 +348,6 @@
             this.searchLookUpDeliveryPlace3.Properties.View = this.gridView8;
             this.searchLookUpDeliveryPlace3.Size = new System.Drawing.Size(146, 20);
             this.searchLookUpDeliveryPlace3.TabIndex = 20;
-            this.searchLookUpDeliveryPlace3.Click += new System.EventHandler(this.searchLookUpDeliveryPlace3_Click);
             // 
             // gridView8
             // 
@@ -379,17 +360,9 @@
             // 
             this.labelControl21.Location = new System.Drawing.Point(5, 40);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(64, 13);
+            this.labelControl21.Size = new System.Drawing.Size(61, 13);
             this.labelControl21.TabIndex = 23;
-            this.labelControl21.Text = "Thời gian đến";
-            // 
-            // labelControl22
-            // 
-            this.labelControl22.Location = new System.Drawing.Point(5, 66);
-            this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(54, 13);
-            this.labelControl22.TabIndex = 25;
-            this.labelControl22.Text = "Thời gian đi";
+            this.labelControl21.Text = "Giờ đến KH 3";
             // 
             // panelControl2
             // 
@@ -399,10 +372,11 @@
             this.panelControl2.Controls.Add(this.searchLookUpDeliveryPlace2);
             this.panelControl2.Controls.Add(this.labelControl18);
             this.panelControl2.Controls.Add(this.labelControl19);
-            this.panelControl2.Location = new System.Drawing.Point(5, 336);
+            this.panelControl2.Location = new System.Drawing.Point(274, 154);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(263, 94);
             this.panelControl2.TabIndex = 55;
+            this.panelControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl2_Paint);
             // 
             // StartTimePlan3
             // 
@@ -440,7 +414,6 @@
             this.searchLookUpDeliveryPlace2.Properties.View = this.gridView7;
             this.searchLookUpDeliveryPlace2.Size = new System.Drawing.Size(146, 20);
             this.searchLookUpDeliveryPlace2.TabIndex = 20;
-            this.searchLookUpDeliveryPlace2.Click += new System.EventHandler(this.searchLookUpDeliveryPlace2_Click);
             // 
             // gridView7
             // 
@@ -453,17 +426,17 @@
             // 
             this.labelControl18.Location = new System.Drawing.Point(5, 40);
             this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(64, 13);
+            this.labelControl18.Size = new System.Drawing.Size(61, 13);
             this.labelControl18.TabIndex = 23;
-            this.labelControl18.Text = "Thời gian đến";
+            this.labelControl18.Text = "Giờ đến KH 2";
             // 
             // labelControl19
             // 
             this.labelControl19.Location = new System.Drawing.Point(5, 66);
             this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(54, 13);
+            this.labelControl19.Size = new System.Drawing.Size(51, 13);
             this.labelControl19.TabIndex = 25;
-            this.labelControl19.Text = "Thời gian đi";
+            this.labelControl19.Text = "Giờ đi KH 3";
             // 
             // panelControl1
             // 
@@ -473,7 +446,7 @@
             this.panelControl1.Controls.Add(this.searchLookUpDeliveryPlace1);
             this.panelControl1.Controls.Add(this.labelControl8);
             this.panelControl1.Controls.Add(this.labelControl9);
-            this.panelControl1.Location = new System.Drawing.Point(5, 236);
+            this.panelControl1.Location = new System.Drawing.Point(5, 154);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(263, 94);
             this.panelControl1.TabIndex = 54;
@@ -514,7 +487,6 @@
             this.searchLookUpDeliveryPlace1.Properties.View = this.gridView4;
             this.searchLookUpDeliveryPlace1.Size = new System.Drawing.Size(146, 20);
             this.searchLookUpDeliveryPlace1.TabIndex = 20;
-            this.searchLookUpDeliveryPlace1.Click += new System.EventHandler(this.searchLookUpDeliveryPlace1_Click);
             // 
             // gridView4
             // 
@@ -527,28 +499,17 @@
             // 
             this.labelControl8.Location = new System.Drawing.Point(5, 40);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(64, 13);
+            this.labelControl8.Size = new System.Drawing.Size(61, 13);
             this.labelControl8.TabIndex = 23;
-            this.labelControl8.Text = "Thời gian đến";
+            this.labelControl8.Text = "Giờ đến KH 1";
             // 
             // labelControl9
             // 
             this.labelControl9.Location = new System.Drawing.Point(5, 66);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(54, 13);
+            this.labelControl9.Size = new System.Drawing.Size(51, 13);
             this.labelControl9.TabIndex = 25;
-            this.labelControl9.Text = "Thời gian đi";
-            // 
-            // bttSave
-            // 
-            this.bttSave.ImageIndex = 3;
-            this.bttSave.ImageList = this.imgLst;
-            this.bttSave.Location = new System.Drawing.Point(214, 559);
-            this.bttSave.Name = "bttSave";
-            this.bttSave.Size = new System.Drawing.Size(75, 23);
-            this.bttSave.TabIndex = 1;
-            this.bttSave.Text = "Lưu";
-            this.bttSave.Click += new System.EventHandler(this.bttSave_Click);
+            this.labelControl9.Text = "Giờ đi KH 2";
             // 
             // imgLst
             // 
@@ -559,110 +520,92 @@
             this.imgLst.Images.SetKeyName(2, "Next.ico");
             this.imgLst.Images.SetKeyName(3, "save.ico");
             // 
-            // groupControl1
+            // labelControl10
             // 
-            this.groupControl1.Controls.Add(this.toolStripJourney);
-            this.groupControl1.Controls.Add(this.gridControlMain);
-            this.groupControl1.Location = new System.Drawing.Point(295, 12);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1000, 570);
-            this.groupControl1.TabIndex = 2;
-            this.groupControl1.Text = "Danh sách hành trình";
+            this.labelControl10.Location = new System.Drawing.Point(516, 16);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(74, 13);
+            this.labelControl10.TabIndex = 57;
+            this.labelControl10.Text = "Điểm xuất phát";
             // 
-            // toolStripJourney
+            // lookUpStartPlace
             // 
-            this.toolStripJourney.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.bttUpdate,
-            this.bttDelete});
-            this.toolStripJourney.Location = new System.Drawing.Point(2, 20);
-            this.toolStripJourney.Name = "toolStripJourney";
-            this.toolStripJourney.Size = new System.Drawing.Size(996, 25);
-            this.toolStripJourney.TabIndex = 4;
-            this.toolStripJourney.Text = "toolStrip1";
+            this.lookUpStartPlace.Location = new System.Drawing.Point(596, 13);
+            this.lookUpStartPlace.Name = "lookUpStartPlace";
+            this.lookUpStartPlace.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpStartPlace.Properties.NullText = "Chọn điểm giao hàng";
+            this.lookUpStartPlace.Properties.View = this.gridView6;
+            this.lookUpStartPlace.Size = new System.Drawing.Size(173, 20);
+            this.lookUpStartPlace.TabIndex = 56;
             // 
-            // toolStripButton1
+            // gridView6
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Bắt đầu";
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
             // 
-            // bttUpdate
+            // labelControl11
             // 
-            this.bttUpdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bttUpdate.Image = ((System.Drawing.Image)(resources.GetObject("bttUpdate.Image")));
-            this.bttUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bttUpdate.Name = "bttUpdate";
-            this.bttUpdate.Size = new System.Drawing.Size(23, 22);
-            this.bttUpdate.Text = "Cập nhập";
+            this.labelControl11.Location = new System.Drawing.Point(5, 97);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(35, 13);
+            this.labelControl11.TabIndex = 58;
+            this.labelControl11.Text = "Ghi chú";
             // 
-            // bttDelete
+            // textEdit1
             // 
-            this.bttDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bttDelete.Image = global::GYM.CompanyInfo.Cancel;
-            this.bttDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.bttDelete.Name = "bttDelete";
-            this.bttDelete.Size = new System.Drawing.Size(23, 22);
-            this.bttDelete.Text = "Xóa";
-            // 
-            // gridControlMain
-            // 
-            this.gridControlMain.Location = new System.Drawing.Point(5, 48);
-            this.gridControlMain.MainView = this.dtgResult;
-            this.gridControlMain.Name = "gridControlMain";
-            this.gridControlMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemButtonStart});
-            this.gridControlMain.Size = new System.Drawing.Size(990, 517);
-            this.gridControlMain.TabIndex = 3;
-            this.gridControlMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dtgResult});
-            // 
-            // dtgResult
-            // 
-            this.dtgResult.GridControl = this.gridControlMain;
-            this.dtgResult.Name = "dtgResult";
-            this.dtgResult.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            this.dtgResult.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-            this.dtgResult.OptionsBehavior.Editable = false;
-            this.dtgResult.OptionsBehavior.ReadOnly = true;
-            this.dtgResult.OptionsView.ColumnAutoWidth = false;
-            this.dtgResult.RowCellStyle += new DevExpress.XtraGrid.Views.Grid.RowCellStyleEventHandler(this.dtgResult_RowCellStyle);
-            // 
-            // repositoryItemButtonStart
-            // 
-            this.repositoryItemButtonStart.AutoHeight = false;
-            this.repositoryItemButtonStart.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonStart.Name = "repositoryItemButtonStart";
-            this.repositoryItemButtonStart.NullText = "Bắt đầu";
+            this.textEdit1.Location = new System.Drawing.Point(109, 91);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(401, 20);
+            this.textEdit1.TabIndex = 59;
             // 
             // bttNext
             // 
             this.bttNext.ImageIndex = 2;
             this.bttNext.ImageList = this.imgLst;
-            this.bttNext.Location = new System.Drawing.Point(133, 559);
+            this.bttNext.Location = new System.Drawing.Point(590, 280);
             this.bttNext.Name = "bttNext";
             this.bttNext.Size = new System.Drawing.Size(75, 23);
-            this.bttNext.TabIndex = 3;
+            this.bttNext.TabIndex = 5;
             this.bttNext.Text = "Tiếp";
-            this.bttNext.Click += new System.EventHandler(this.bttNext_Click);
             // 
-            // frmJourney
+            // bttSave
+            // 
+            this.bttSave.ImageIndex = 3;
+            this.bttSave.ImageList = this.imgLst;
+            this.bttSave.Location = new System.Drawing.Point(671, 280);
+            this.bttSave.Name = "bttSave";
+            this.bttSave.Size = new System.Drawing.Size(75, 23);
+            this.bttSave.TabIndex = 4;
+            this.bttSave.Text = "Lưu";
+            this.bttSave.Click += new System.EventHandler(this.bttSave_Click);
+            // 
+            // bbExit
+            // 
+            this.bbExit.ImageIndex = 0;
+            this.bbExit.ImageList = this.imgLst;
+            this.bbExit.Location = new System.Drawing.Point(752, 280);
+            this.bbExit.Name = "bbExit";
+            this.bbExit.Size = new System.Drawing.Size(75, 23);
+            this.bbExit.TabIndex = 9;
+            this.bbExit.Text = "&Thoát";
+            this.bbExit.Click += new System.EventHandler(this.bbExit_Click);
+            // 
+            // frmAddJourney
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1307, 590);
+            this.ClientSize = new System.Drawing.Size(839, 318);
+            this.Controls.Add(this.bbExit);
             this.Controls.Add(this.bttNext);
-            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.bttSave);
             this.Controls.Add(this.grpInfo);
-            this.Name = "frmJourney";
+            this.Name = "frmAddJourney";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmJourney";
-            this.Load += new System.EventHandler(this.frmJourney_Load);
+            this.Text = "Điều độ xe ";
+            this.Load += new System.EventHandler(this.frmAddJourney_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grpInfo)).EndInit();
             this.grpInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
@@ -694,14 +637,9 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpDeliveryPlace1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
-            this.toolStripJourney.ResumeLayout(false);
-            this.toolStripJourney.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgResult)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpStartPlace.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -709,59 +647,55 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl grpInfo;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private System.Windows.Forms.DateTimePicker StartTimePlan1;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpTrust;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.DateEdit dateExpireDate;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbPosition;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEmp2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEmp1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.SearchLookUpEdit lookUpDriver;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpDeliveryPlace1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEmp1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LabelControl labelControl16;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbPosition;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpEmp2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.PanelControl panelControl3;
+        private System.Windows.Forms.DateTimePicker ArrivalTimePlan3;
         private DevExpress.XtraEditors.LabelControl labelControl20;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpDeliveryPlace3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView8;
         private DevExpress.XtraEditors.LabelControl labelControl21;
-        private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraEditors.PanelControl panelControl2;
+        private System.Windows.Forms.DateTimePicker StartTimePlan3;
+        private System.Windows.Forms.DateTimePicker ArrivalTimePlan2;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpDeliveryPlace2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView7;
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton bttSave;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.PanelControl panelControl4;
-        private DevExpress.XtraGrid.GridControl gridControlMain;
-        private DevExpress.XtraGrid.Views.Grid.GridView dtgResult;
-        private System.Windows.Forms.ImageList imgLst;
-        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpTrust;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
-        private System.Windows.Forms.DateTimePicker ArrivalTimePlan1;
         private System.Windows.Forms.DateTimePicker StartTimePlan2;
-        private System.Windows.Forms.DateTimePicker StartGoHomePlan;
-        private System.Windows.Forms.DateTimePicker ArrivalTimePlan3;
-        private System.Windows.Forms.DateTimePicker StartTimePlan3;
-        private System.Windows.Forms.DateTimePicker ArrivalTimePlan2;
-        private System.Windows.Forms.DateTimePicker StartTimePlan1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonStart;
-        private System.Windows.Forms.ToolStrip toolStripJourney;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton bttUpdate;
-        private System.Windows.Forms.ToolStripButton bttDelete;
+        private System.Windows.Forms.DateTimePicker ArrivalTimePlan1;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpDeliveryPlace1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private System.Windows.Forms.ImageList imgLst;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.SearchLookUpEdit lookUpStartPlace;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.SimpleButton bttNext;
+        private DevExpress.XtraEditors.SimpleButton bttSave;
+        private DevExpress.XtraEditors.SimpleButton bbExit;
     }
 }
