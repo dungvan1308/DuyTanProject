@@ -38,8 +38,8 @@ namespace WebServiceDuyTan.DbObjects
             aParams[2] = new SqlParameter("@VehicleNumber", System.Data.SqlDbType.NVarChar);
             aParams[2].Value = obj.VehicleNumber;
 
-            aParams[3] = new SqlParameter("@DriverName", System.Data.SqlDbType.NVarChar);
-            aParams[3].Value = obj.DriverName;
+            aParams[3] = new SqlParameter("@Driver", System.Data.SqlDbType.NVarChar);
+            aParams[3].Value = obj.Driver;
 
             aParams[4] = new SqlParameter("@Employee1", System.Data.SqlDbType.Int);
             aParams[4].Value = obj.Employee1;
@@ -144,7 +144,7 @@ namespace WebServiceDuyTan.DbObjects
 
                         obj.DeliveryPlace2 = Int32.Parse(ds.Tables[0].Rows[0]["DeliveryPlace2"].ToString(), 0);
                         obj.DeliveryPlace3 = Int32.Parse(ds.Tables[0].Rows[0]["DeliveryPlace3"].ToString(), 0);
-                        obj.DriverName = ds.Tables[0].Rows[0]["DriverName"].ToString();
+                        obj.Driver = Int32.Parse( ds.Tables[0].Rows[0]["Driver"].ToString(),0);
                         obj.Employee1 = Int32.Parse(ds.Tables[0].Rows[0]["Employee1"].ToString(), 0);
                         obj.Employee2 = Int32.Parse(ds.Tables[0].Rows[0]["Employee2"].ToString(), 0);
                         obj.Gate = ds.Tables[0].Rows[0]["Gate"].ToString();
@@ -153,24 +153,25 @@ namespace WebServiceDuyTan.DbObjects
                         obj.Note = ds.Tables[0].Rows[0]["Note"].ToString();
 
                         obj.Status = ds.Tables[0].Rows[0]["Status"].ToString();
-                        obj.ArrivalTime1 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["ArrivalTime1"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.ArrivalTime2 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["ArrivalTime2"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.ArrivalTime3 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["ArrivalTime3"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.TimeGoHome = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["TimeGoHome"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.ArrivalTimePlan1 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["ArrivalTimePlan1"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.ArrivalTimePlan2 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["ArrivalTimePlan2"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.ArrivalTimePlan3 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["ArrivalTimePlan3"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+                        //obj.ArrivalTime1 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["ArrivalTime1"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+                        obj.ArrivalTime1 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime1"].ToString());
+                        obj.ArrivalTime2 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime2"].ToString());
+                        obj.ArrivalTime3 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime3"].ToString());
+                        obj.TimeGoHome = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime3"].ToString());
+                        obj.ArrivalTimePlan1 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan1"].ToString());
+                        obj.ArrivalTimePlan2 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan2"].ToString());
+                        obj.ArrivalTimePlan3 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan3"].ToString());
                         obj.StartPlace = ds.Tables[0].Rows[0]["StartPlace"].ToString();
                         obj.TimesUpdate = Int32.Parse(ds.Tables[0].Rows[0]["TimesUpdate"].ToString(), 0);
                         obj.VehicleNumber = ds.Tables[0].Rows[0]["VehicleNumber"].ToString();
-                        obj.StartTime1 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["StartTime2"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+                        obj.StartTime1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime1"].ToString());
 
 
-                        obj.StartTime2 =clsCommon.convertStringToDate( ds.Tables[0].Rows[0]["StartTime2"].ToString(),clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.StartTime3 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["StartTime2"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.StartTimePlan1 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["StartTime2"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.StartTimePlan2 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["StartTime2"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
-                        obj.StartTimePlan3 = clsCommon.convertStringToDate(ds.Tables[0].Rows[0]["StartTime2"].ToString(), clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+                        obj.StartTime2 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime2"].ToString());
+                        obj.StartTime3 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime3"].ToString());
+                        obj.StartTimePlan1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan1"].ToString());
+                        obj.StartTimePlan2 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan2"].ToString());
+                        obj.StartTimePlan3 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan3"].ToString());
                         obj.Status = ds.Tables[0].Rows[0]["Status"].ToString();
                         
 

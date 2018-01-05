@@ -14,7 +14,8 @@ namespace WebServiceDuyTan.DbObjects
 
         public const string SYSTEM_DATE_FORMAT = "dd/MM/yyyy";
 
-        public const string DATE_FORMAT_DD_MM_YYYY_HH_MM_SS = "dd/MM/yyyy HH:mm:ss";
+        //public const string DATE_FORMAT_DD_MM_YYYY_HH_MM_SS = "dd/MM/yyyy hh:mm:ss tt";
+        public const string DATE_FORMAT_DD_MM_YYYY_HH_MM_SS = "dd/MM/yyyy hh:mm tt";
         public const string LOGIN_STATUS = "1";
         public const string LOGOUT_STATUS = "0";
         public const string MODULE_CONTRACT = "CONTRACT";
@@ -35,7 +36,10 @@ namespace WebServiceDuyTan.DbObjects
 
         public static DateTime convertStringToDate(string strDate, string FormatDate)
         {
-            CultureInfo provider = CultureInfo.InvariantCulture;
+            //CultureInfo provider = CultureInfo.InvariantCulture;
+            //CultureInfo provider = CultureInfo.CurrentCulture;
+            IFormatProvider provider = new CultureInfo("en-US", true); 
+            
 
             try
             {

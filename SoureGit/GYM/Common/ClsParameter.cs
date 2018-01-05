@@ -9,6 +9,7 @@ namespace GYM.Common
     {
         public const string SQL_BACKUP_PATH = @"C:\Backup\";
         public const string SYSTEM_DATE_FORMAT = "dd/MM/yyyy";
+        public const string DATE_FORMAT_DD_MM_YYYY_HH_MM_SS = "dd/MM/yyyy HH:mm:ss tt";
         public const string SQL_SET_DATE_FORMAT = " SET DATEFORMAT DMY ";
         public const string OBJECT_EXIST_CODE = "99999";
         public const string OBJECT_DELETE_SUCCESSFUL = "11111";

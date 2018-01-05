@@ -30,3 +30,7 @@ C:\Works\DuyTan\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.dll
 C:\Works\DuyTan\SourceCode\ClassLibrary\bin\Debug\ClassLibrary.pdb
 C:\Works\DuyTan\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.dll
 C:\Works\DuyTan\SourceCode\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibrary\obj\Debug\ClassLibrary.pdb

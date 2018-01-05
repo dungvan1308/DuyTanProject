@@ -10,7 +10,7 @@ namespace ClassLibraryObjects
         private int _journeyID;
         private DateTime _journeyDate;
         private string _vehicleNumber = String.Empty;
-        private string _driverName = String.Empty;
+        private int _driver;
         private int _employee1;
         private int _employee2;
         private string _startPlace;
@@ -60,10 +60,10 @@ namespace ClassLibraryObjects
             set { _vehicleNumber = value; }
         }
 
-        public string DriverName
+        public int Driver
         {
-            get { return _driverName; }
-            set { _driverName = value; }
+            get { return _driver; }
+            set { _driver = value; }
         }
 
         public int Employee1

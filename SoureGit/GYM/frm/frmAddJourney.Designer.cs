@@ -32,11 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddJourney));
             this.grpInfo = new DevExpress.XtraEditors.GroupControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.txtNote = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.lookUpStartPlace = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.StartTimePlan1 = new System.Windows.Forms.DateTimePicker();
             this.searchLookUpTrust = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dateExpireDate = new DevExpress.XtraEditors.DateEdit();
+            this.dateJourneyDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.cmbPosition = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -73,22 +78,22 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.imgLst = new System.Windows.Forms.ImageList(this.components);
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpStartPlace = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.bttNext = new DevExpress.XtraEditors.SimpleButton();
             this.bttSave = new DevExpress.XtraEditors.SimpleButton();
             this.bbExit = new DevExpress.XtraEditors.SimpleButton();
+            this.txtJourneyId = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.grpInfo)).BeginInit();
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpStartPlace.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpTrust.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateExpireDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateExpireDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateJourneyDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateJourneyDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPosition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -108,9 +113,7 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpDeliveryPlace1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpStartPlace.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJourneyId.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // grpInfo
@@ -127,14 +130,16 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Controls.Add(this.textEdit1);
+            this.panelControl4.Controls.Add(this.txtNote);
+            this.panelControl4.Controls.Add(this.labelControl12);
             this.panelControl4.Controls.Add(this.labelControl11);
+            this.panelControl4.Controls.Add(this.txtJourneyId);
             this.panelControl4.Controls.Add(this.labelControl10);
             this.panelControl4.Controls.Add(this.lookUpStartPlace);
             this.panelControl4.Controls.Add(this.StartTimePlan1);
             this.panelControl4.Controls.Add(this.searchLookUpTrust);
             this.panelControl4.Controls.Add(this.labelControl1);
-            this.panelControl4.Controls.Add(this.dateExpireDate);
+            this.panelControl4.Controls.Add(this.dateJourneyDate);
             this.panelControl4.Controls.Add(this.labelControl2);
             this.panelControl4.Controls.Add(this.cmbPosition);
             this.panelControl4.Controls.Add(this.labelControl3);
@@ -150,18 +155,59 @@
             this.panelControl4.Size = new System.Drawing.Size(810, 120);
             this.panelControl4.TabIndex = 57;
             // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(364, 88);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Size = new System.Drawing.Size(438, 20);
+            this.txtNote.TabIndex = 59;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(261, 91);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(35, 13);
+            this.labelControl11.TabIndex = 58;
+            this.labelControl11.Text = "Ghi chú";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(516, 16);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(74, 13);
+            this.labelControl10.TabIndex = 57;
+            this.labelControl10.Text = "Điểm xuất phát";
+            // 
+            // lookUpStartPlace
+            // 
+            this.lookUpStartPlace.Location = new System.Drawing.Point(596, 13);
+            this.lookUpStartPlace.Name = "lookUpStartPlace";
+            this.lookUpStartPlace.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpStartPlace.Properties.NullText = "Chọn điểm giao hàng";
+            this.lookUpStartPlace.Properties.View = this.gridView6;
+            this.lookUpStartPlace.Size = new System.Drawing.Size(173, 20);
+            this.lookUpStartPlace.TabIndex = 56;
+            // 
+            // gridView6
+            // 
+            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
             // StartTimePlan1
             // 
             this.StartTimePlan1.CustomFormat = "dd/MM/yyyy hh:mm tt";
             this.StartTimePlan1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.StartTimePlan1.Location = new System.Drawing.Point(364, 65);
+            this.StartTimePlan1.Location = new System.Drawing.Point(364, 61);
             this.StartTimePlan1.Name = "StartTimePlan1";
             this.StartTimePlan1.Size = new System.Drawing.Size(146, 21);
             this.StartTimePlan1.TabIndex = 55;
             // 
             // searchLookUpTrust
             // 
-            this.searchLookUpTrust.Location = new System.Drawing.Point(109, 39);
+            this.searchLookUpTrust.Location = new System.Drawing.Point(108, 61);
             this.searchLookUpTrust.Name = "searchLookUpTrust";
             this.searchLookUpTrust.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -179,27 +225,27 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(5, 16);
+            this.labelControl1.Location = new System.Drawing.Point(5, 38);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(77, 13);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Ngày hành trình";
             // 
-            // dateExpireDate
+            // dateJourneyDate
             // 
-            this.dateExpireDate.EditValue = null;
-            this.dateExpireDate.Location = new System.Drawing.Point(109, 13);
-            this.dateExpireDate.Name = "dateExpireDate";
-            this.dateExpireDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateJourneyDate.EditValue = new System.DateTime(2018, 1, 6, 0, 57, 17, 0);
+            this.dateJourneyDate.Location = new System.Drawing.Point(108, 35);
+            this.dateJourneyDate.Name = "dateJourneyDate";
+            this.dateJourneyDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateExpireDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateJourneyDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateExpireDate.Size = new System.Drawing.Size(100, 20);
-            this.dateExpireDate.TabIndex = 9;
+            this.dateJourneyDate.Size = new System.Drawing.Size(100, 20);
+            this.dateJourneyDate.TabIndex = 9;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 39);
+            this.labelControl2.Location = new System.Drawing.Point(5, 68);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(27, 13);
             this.labelControl2.TabIndex = 10;
@@ -218,7 +264,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(5, 68);
+            this.labelControl3.Location = new System.Drawing.Point(5, 90);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(29, 13);
             this.labelControl3.TabIndex = 12;
@@ -234,7 +280,7 @@
             // 
             // lookUpDriver
             // 
-            this.lookUpDriver.Location = new System.Drawing.Point(109, 65);
+            this.lookUpDriver.Location = new System.Drawing.Point(108, 87);
             this.lookUpDriver.Name = "lookUpDriver";
             this.lookUpDriver.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -252,7 +298,7 @@
             // 
             // searchLookUpEmp1
             // 
-            this.searchLookUpEmp1.Location = new System.Drawing.Point(364, 13);
+            this.searchLookUpEmp1.Location = new System.Drawing.Point(364, 9);
             this.searchLookUpEmp1.Name = "searchLookUpEmp1";
             this.searchLookUpEmp1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -270,7 +316,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(261, 68);
+            this.labelControl6.Location = new System.Drawing.Point(261, 67);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(81, 13);
             this.labelControl6.TabIndex = 18;
@@ -278,7 +324,7 @@
             // 
             // searchLookUpEmp2
             // 
-            this.searchLookUpEmp2.Location = new System.Drawing.Point(364, 39);
+            this.searchLookUpEmp2.Location = new System.Drawing.Point(364, 35);
             this.searchLookUpEmp2.Name = "searchLookUpEmp2";
             this.searchLookUpEmp2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -296,7 +342,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(261, 46);
+            this.labelControl5.Location = new System.Drawing.Point(261, 38);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(57, 13);
             this.labelControl5.TabIndex = 17;
@@ -304,7 +350,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(261, 16);
+            this.labelControl4.Location = new System.Drawing.Point(261, 12);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(57, 13);
             this.labelControl4.TabIndex = 16;
@@ -520,47 +566,6 @@
             this.imgLst.Images.SetKeyName(2, "Next.ico");
             this.imgLst.Images.SetKeyName(3, "save.ico");
             // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(516, 16);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(74, 13);
-            this.labelControl10.TabIndex = 57;
-            this.labelControl10.Text = "Điểm xuất phát";
-            // 
-            // lookUpStartPlace
-            // 
-            this.lookUpStartPlace.Location = new System.Drawing.Point(596, 13);
-            this.lookUpStartPlace.Name = "lookUpStartPlace";
-            this.lookUpStartPlace.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpStartPlace.Properties.NullText = "Chọn điểm giao hàng";
-            this.lookUpStartPlace.Properties.View = this.gridView6;
-            this.lookUpStartPlace.Size = new System.Drawing.Size(173, 20);
-            this.lookUpStartPlace.TabIndex = 56;
-            // 
-            // gridView6
-            // 
-            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView6.Name = "gridView6";
-            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView6.OptionsView.ShowGroupPanel = false;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(5, 97);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(35, 13);
-            this.labelControl11.TabIndex = 58;
-            this.labelControl11.Text = "Ghi chú";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(109, 91);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(401, 20);
-            this.textEdit1.TabIndex = 59;
-            // 
             // bttNext
             // 
             this.bttNext.ImageIndex = 2;
@@ -593,6 +598,22 @@
             this.bbExit.Text = "&Thoát";
             this.bbExit.Click += new System.EventHandler(this.bbExit_Click);
             // 
+            // txtJourneyId
+            // 
+            this.txtJourneyId.Location = new System.Drawing.Point(108, 9);
+            this.txtJourneyId.Name = "txtJourneyId";
+            this.txtJourneyId.Properties.ReadOnly = true;
+            this.txtJourneyId.Size = new System.Drawing.Size(100, 20);
+            this.txtJourneyId.TabIndex = 60;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(5, 12);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(66, 13);
+            this.labelControl12.TabIndex = 61;
+            this.labelControl12.Text = "Mã hành trình";
+            // 
             // frmAddJourney
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,10 +632,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpStartPlace.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpTrust.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateExpireDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateExpireDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateJourneyDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateJourneyDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbPosition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -637,9 +661,7 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpDeliveryPlace1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpStartPlace.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJourneyId.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -652,7 +674,7 @@
         private DevExpress.XtraEditors.SearchLookUpEdit searchLookUpTrust;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.DateEdit dateExpireDate;
+        private DevExpress.XtraEditors.DateEdit dateJourneyDate;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.ComboBoxEdit cmbPosition;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -692,10 +714,12 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.SearchLookUpEdit lookUpStartPlace;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtNote;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.SimpleButton bttNext;
         private DevExpress.XtraEditors.SimpleButton bttSave;
         private DevExpress.XtraEditors.SimpleButton bbExit;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.TextEdit txtJourneyId;
     }
 }

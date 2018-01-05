@@ -17,6 +17,8 @@ namespace GYM.frm
     public partial class frmAddJourney : DevExpress.XtraEditors.XtraForm
     {
         public string strMode;
+        public string strCode;
+
         public frmAddJourney()
         {
             InitializeComponent();
@@ -101,8 +103,8 @@ namespace GYM.frm
             // obj.ArrivalTime1 = timeEdit1.
             //DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt")
             int iOut = 0;
-
-
+            Int32.TryParse(txtJourneyId.Text,out iOut);
+            obj.JourneyID = iOut;
             obj.ArrivalTimePlan1 = DateTime.Parse(ArrivalTimePlan1.Text);
             //obj.ArrivalTimePlan2 = DateTime.ParseExact(ArrivalTimePlan2.Text, "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
             obj.ArrivalTimePlan2 = DateTime.Parse(ArrivalTimePlan2.Text);
@@ -203,12 +205,26 @@ namespace GYM.frm
                     searchLookUpDeliveryPlace1.EditValue = obj.DeliveryPlace1;
                     searchLookUpDeliveryPlace2.EditValue = obj.DeliveryPlace2;
                     searchLookUpDeliveryPlace3.EditValue = obj.DeliveryPlace3;
+                    lookUpDriver.EditValue = obj.Driver;
+
 
                     searchLookUpEmp1.EditValue = obj.Employee1;
                     searchLookUpEmp2.EditValue = obj.Employee2;
 
 
+                    //Time 
+                    dateJourneyDate.Text = obj.JourneyDate.ToShortDateString();
 
+                    ArrivalTimePlan1.Text = ClsCommonProcess.convertDateTimeToString(obj.ArrivalTimePlan1, ClsParameter.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+                    ArrivalTimePlan2.Text = ClsCommonProcess.convertDateTimeToString(obj.ArrivalTimePlan2, ClsParameter.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+                    ArrivalTimePlan3.Text = ClsCommonProcess.convertDateTimeToString(obj.ArrivalTimePlan3, ClsParameter.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+
+                    StartTimePlan1.Text = ClsCommonProcess.convertDateTimeToString(obj.StartTimePlan1, ClsParameter.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+                    StartTimePlan2.Text = ClsCommonProcess.convertDateTimeToString(obj.StartTimePlan2, ClsParameter.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+                    StartTimePlan3.Text = ClsCommonProcess.convertDateTimeToString(obj.StartTimePlan3, ClsParameter.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
+
+                    txtNote.Text = obj.Note;
+                    
                 }
             }
             catch (Exception ex)
@@ -234,6 +250,27 @@ namespace GYM.frm
                 ClsCommonProcess.lookUpEmp(searchLookUpEmp2);
                 ClsCommonProcess.lookUpDriver(lookUpDriver);
                 ClsCommonProcess.lookUpPlace(lookUpStartPlace);
+
+
+                //Load du lieu 
+                int iOut = 0;
+                WebServiceDuyTanSoapClient ws = new WebServiceDuyTanSoapClient();
+                JourneyObject obj = new JourneyObject();
+               switch(strMode)
+               {
+                   case ClsParameter.MODE_UPDATE:
+                   case ClsParameter.MODE_VIEW:
+                       Int32.TryParse(strCode, out iOut);
+                       obj = ws.selectJourney(iOut);
+                       if(obj !=null)
+                       {
+                           loadObj(obj);
+                       }
+                       
+                       break;
+                   default:
+                       break;
+               }
 
             }
             catch(Exception ex)

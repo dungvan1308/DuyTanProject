@@ -745,7 +745,7 @@ namespace GYM.frm
 
             strCondition = "VehicleNumber like '%" + strContent + "%' or D.EmployeeName like '%" + strContent + "%' or B.EmployeeName like '%" + strContent + "%' or C.EmployeeName like '%" + strContent
                             + "%' or E.PlaceName like '%" + strContent + "%' or F.PlaceName like '%" + strContent + "%' or H.PlaceName like '%" + strContent + "%' ";
-            strOrderBy = "EMPLOYEEID";
+            strOrderBy = "JourneyID";
             DataSet ds = new DataSet();
 
 
@@ -753,7 +753,7 @@ namespace GYM.frm
 
             try
             {
-                ds = ws.selectAllCurrentJourney();
+                ds = ws.selectAllJourney(strCondition,strContent);
             }
             catch (Exception ex)
             {
@@ -1092,6 +1092,13 @@ namespace GYM.frm
                     txtContent.Text = this.strCode;
                     break;
                
+                case ClsParameter.MODULE_JOURNEY:
+                    frmAddJourney fJourney = new frmAddJourney();
+                    fJourney.strMode = ClsParameter.MODE_VIEW;
+                    fJourney.strCode = this.strCode;
+                    fJourney.ShowDialog();
+                    break;
+
              
                 default:
                     break;
@@ -1137,6 +1144,11 @@ namespace GYM.frm
                         case ClsParameter.MODULE_PLACE:
                             
                             this.strCode = dtgResult.GetRowCellValue(dtgResult.FocusedRowHandle, "PlaceID").ToString();
+
+                            break;
+                        case ClsParameter.MODULE_JOURNEY:
+
+                            this.strCode = dtgResult.GetRowCellValue(dtgResult.FocusedRowHandle, "JourneyID").ToString();
 
                             break;
                         default:
@@ -1203,7 +1215,12 @@ namespace GYM.frm
                     fPlace.strCode = this.strCode;
                     fPlace.ShowDialog();
                     break;
-              
+                case ClsParameter.MODULE_JOURNEY:
+                    frmAddJourney fJourney = new frmAddJourney();
+                    fJourney.strMode = ClsParameter.MODE_VIEW;
+                    fJourney.strCode = this.strCode;
+                    fJourney.ShowDialog();
+                    break;
                 
                 default:
                     break;

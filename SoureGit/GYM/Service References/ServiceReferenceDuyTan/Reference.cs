@@ -493,7 +493,7 @@ namespace GYM.ServiceReferenceDuyTan {
         
         private string vehicleNumberField;
         
-        private string driverNameField;
+        private int driverField;
         
         private int employee1Field;
         
@@ -591,13 +591,13 @@ namespace GYM.ServiceReferenceDuyTan {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string DriverName {
+        public int Driver {
             get {
-                return this.driverNameField;
+                return this.driverField;
             }
             set {
-                this.driverNameField = value;
-                this.RaisePropertyChanged("DriverName");
+                this.driverField = value;
+                this.RaisePropertyChanged("Driver");
             }
         }
         

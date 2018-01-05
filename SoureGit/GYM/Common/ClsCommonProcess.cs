@@ -860,7 +860,8 @@ namespace GYM.Common
             WebServiceDuyTanSoapClient ws = new WebServiceDuyTanSoapClient();
 
 
-            lookupTrust.Properties.DisplayMember = "TrustName";
+            //lookupTrust.Properties.DisplayMember = "TrustName";
+            lookupTrust.Properties.DisplayMember = "VehicleNumber";
             lookupTrust.Properties.ValueMember = "VehicleNumber";
 
             //Add butt Delete
