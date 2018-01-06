@@ -13,7 +13,7 @@ namespace ClassLibraryObjects
         private int _driver;
         private int _employee1;
         private int _employee2;
-        private string _startPlace;
+        private int _startPlace;
         private DateTime _startTimePlan1;
         private DateTime _startTime1;
         private int _deliveryPlace1;
@@ -78,7 +78,7 @@ namespace ClassLibraryObjects
             set { _employee2 = value; }
         }
 
-        public string StartPlace
+        public int StartPlace
         {
             get { return _startPlace; }
             set { _startPlace = value; }

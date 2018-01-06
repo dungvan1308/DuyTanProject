@@ -499,7 +499,7 @@ namespace GYM.ServiceReferenceDuyTan {
         
         private int employee2Field;
         
-        private string startPlaceField;
+        private int startPlaceField;
         
         private System.DateTime startTimePlan1Field;
         
@@ -627,7 +627,7 @@ namespace GYM.ServiceReferenceDuyTan {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string StartPlace {
+        public int StartPlace {
             get {
                 return this.startPlaceField;
             }

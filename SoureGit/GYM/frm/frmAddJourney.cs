@@ -127,6 +127,7 @@ namespace GYM.frm
             obj.StartTime2 = DateTime.Parse("01/01/2000");
             obj.StartTime3 = DateTime.Parse("01/01/2000");
             obj.TimeGoHome = DateTime.Parse("01/01/2000");
+            obj.Note = txtNote.Text;
 
 
 
@@ -184,6 +185,29 @@ namespace GYM.frm
                 obj.Employee2 = -1;
             }
 
+            if (lookUpDriver.EditValue != null)
+            {
+                Int32.TryParse(lookUpDriver.EditValue.ToString(), out iOut);
+                obj.Driver = iOut;
+            }
+            else
+            {
+
+                obj.Driver = -1;
+            }
+
+            if (lookUpStartPlace.EditValue != null)
+            {
+                Int32.TryParse(lookUpStartPlace.EditValue.ToString(), out iOut);
+                obj.StartPlace = iOut;
+            }
+            else
+            {
+
+                obj.StartPlace = -1;
+            }
+
+
 
             obj.CreateBy = ClsParameter.STRUCT_INFOLOGIN.UserId;
 
@@ -197,7 +221,7 @@ namespace GYM.frm
             /*
              * Dungnv : Load du lieu
              */
-
+            
             try
             {
                 if (obj != null)
@@ -205,12 +229,18 @@ namespace GYM.frm
                     searchLookUpDeliveryPlace1.EditValue = obj.DeliveryPlace1;
                     searchLookUpDeliveryPlace2.EditValue = obj.DeliveryPlace2;
                     searchLookUpDeliveryPlace3.EditValue = obj.DeliveryPlace3;
+                    
                     lookUpDriver.EditValue = obj.Driver;
+                    lookUpStartPlace.EditValue = obj.StartPlace;
+                    ClsCommonProcess.selectedComboboxDexEx(cmbGate, obj.Gate);
+
 
 
                     searchLookUpEmp1.EditValue = obj.Employee1;
                     searchLookUpEmp2.EditValue = obj.Employee2;
 
+                    searchLookUpTrust.EditValue = obj.VehicleNumber;
+                    
 
                     //Time 
                     dateJourneyDate.Text = obj.JourneyDate.ToShortDateString();
@@ -224,6 +254,8 @@ namespace GYM.frm
                     StartTimePlan3.Text = ClsCommonProcess.convertDateTimeToString(obj.StartTimePlan3, ClsParameter.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS);
 
                     txtNote.Text = obj.Note;
+                    txtJourneyId.Text = obj.JourneyID.ToString();
+                    
                     
                 }
             }
@@ -250,6 +282,7 @@ namespace GYM.frm
                 ClsCommonProcess.lookUpEmp(searchLookUpEmp2);
                 ClsCommonProcess.lookUpDriver(lookUpDriver);
                 ClsCommonProcess.lookUpPlace(lookUpStartPlace);
+                ClsCommonProcess.loadComboBoxEdit(cmbGate, "GATE", "JOURNEY");
 
 
                 //Load du lieu 
@@ -259,6 +292,15 @@ namespace GYM.frm
                switch(strMode)
                {
                    case ClsParameter.MODE_UPDATE:
+                       Int32.TryParse(strCode, out iOut);
+                       obj = ws.selectJourney(iOut);
+                       if(obj !=null)
+                       {
+                           loadObj(obj);
+                       }
+                       disableControl(false);
+                       break;
+
                    case ClsParameter.MODE_VIEW:
                        Int32.TryParse(strCode, out iOut);
                        obj = ws.selectJourney(iOut);
@@ -266,11 +308,14 @@ namespace GYM.frm
                        {
                            loadObj(obj);
                        }
+                       disableControl(true);
                        
                        break;
                    default:
                        break;
                }
+
+
 
             }
             catch(Exception ex)
@@ -278,6 +323,30 @@ namespace GYM.frm
 
             }
             
+        }
+        private void disableControl(bool bFalse)
+        {
+            txtNote.ReadOnly = bFalse;
+            dateJourneyDate.ReadOnly = bFalse;
+            if(bFalse==true)
+            {
+                ArrivalTimePlan1.Enabled = false;
+                ArrivalTimePlan2.Enabled = false;
+                ArrivalTimePlan3.Enabled = false;
+            }
+            else
+            {
+                ArrivalTimePlan1.Enabled = true;
+                ArrivalTimePlan2.Enabled = true;
+                ArrivalTimePlan3.Enabled = true;
+            }
+
+            lookUpDriver.Properties.ReadOnly = bFalse;
+            searchLookUpDeliveryPlace1.Properties.ReadOnly = bFalse;
+            searchLookUpDeliveryPlace2.Properties.ReadOnly = bFalse;
+            searchLookUpDeliveryPlace3.Properties.ReadOnly = bFalse;
+            searchLookUpDeliveryPlace3.Properties.ReadOnly = bFalse;
+
         }
     }
 }

@@ -145,6 +145,8 @@ namespace WebServiceDuyTan.DbObjects
                         obj.DeliveryPlace2 = Int32.Parse(ds.Tables[0].Rows[0]["DeliveryPlace2"].ToString(), 0);
                         obj.DeliveryPlace3 = Int32.Parse(ds.Tables[0].Rows[0]["DeliveryPlace3"].ToString(), 0);
                         obj.Driver = Int32.Parse( ds.Tables[0].Rows[0]["Driver"].ToString(),0);
+                        obj.StartPlace = Int32.Parse(ds.Tables[0].Rows[0]["StartPlace"].ToString(), 0);
+
                         obj.Employee1 = Int32.Parse(ds.Tables[0].Rows[0]["Employee1"].ToString(), 0);
                         obj.Employee2 = Int32.Parse(ds.Tables[0].Rows[0]["Employee2"].ToString(), 0);
                         obj.Gate = ds.Tables[0].Rows[0]["Gate"].ToString();
@@ -161,7 +163,7 @@ namespace WebServiceDuyTan.DbObjects
                         obj.ArrivalTimePlan1 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan1"].ToString());
                         obj.ArrivalTimePlan2 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan2"].ToString());
                         obj.ArrivalTimePlan3 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan3"].ToString());
-                        obj.StartPlace = ds.Tables[0].Rows[0]["StartPlace"].ToString();
+                        
                         obj.TimesUpdate = Int32.Parse(ds.Tables[0].Rows[0]["TimesUpdate"].ToString(), 0);
                         obj.VehicleNumber = ds.Tables[0].Rows[0]["VehicleNumber"].ToString();
                         obj.StartTime1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime1"].ToString());

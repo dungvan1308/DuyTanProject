@@ -1051,7 +1051,14 @@ namespace GYM.frm
                     fPlace.strCode = this.strCode;
                     fPlace.ShowDialog();
                     break;
-               
+                case ClsParameter.MODULE_JOURNEY:
+                    frmAddJourney fJourney = new frmAddJourney();
+                    fJourney.strMode = ClsParameter.MODE_UPDATE;
+                    fJourney.strCode = this.strCode;
+                    fJourney.ShowDialog();
+                    break;
+
+
                 default:
                     break;
             }

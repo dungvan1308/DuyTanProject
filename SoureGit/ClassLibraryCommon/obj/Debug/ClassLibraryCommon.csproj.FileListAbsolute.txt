@@ -31,3 +31,7 @@ F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibraryCommon\bin\Debu
 F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibraryCommon\bin\Debug\ClassLibraryCommon.pdb
 F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibraryCommon\obj\Debug\ClassLibraryCommon.dll
 F:\00 Private\02 Projects\03 Nhua Duy Tan\SourceCode\ClassLibraryCommon\obj\Debug\ClassLibraryCommon.pdb
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibraryCommon\bin\Debug\ClassLibraryCommon.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibraryCommon\bin\Debug\ClassLibraryCommon.pdb
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibraryCommon\obj\Debug\ClassLibraryCommon.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibraryCommon\obj\Debug\ClassLibraryCommon.pdb

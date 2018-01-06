@@ -155,7 +155,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>t/uGbRxbzf/P+zz/KNQuP3aEHLo=</dsig:DigestValue>
+        <dsig:DigestValue>5cLo0lM5Q4wxuQPao4DyAQyeVwQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1936,14 +1936,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GYM.exe" size="1044480">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GYM.exe" size="1044992">
       <assemblyIdentity name="GYM" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yVl6Y8N/8P5CdttrbXrITD4nYdA=</dsig:DigestValue>
+        <dsig:DigestValue>EAV0lMYF1tRUpgNFhF2q3qMyXDQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
