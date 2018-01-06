@@ -32,6 +32,8 @@ namespace ScheduleCommon.Execute
                         .Where(x => (int)now.Subtract(((ScheduleObject)x.Value).StartTime).TotalSeconds >= 0 && (int)now.Subtract(((ScheduleObject)x.Value).EndTime).TotalSeconds <= 0
                                 && (((ScheduleObject)x.Value).StartTime == ((ScheduleObject)x.Value).EndTime || (int)now.Subtract(((ScheduleObject)x.Value).StartTime).TotalSeconds % ((ScheduleObject)x.Value).IntervalTime == 0))
                         .ToDictionary(p => p.Key, p => p.Value)
+                        //.Where(x => true)
+                        //.ToDictionary(p => p.Key, p => p.Value)
                         .Keys;
                     foreach (string key in keys)
                     {

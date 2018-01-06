@@ -24,9 +24,7 @@ namespace ScheduleCommon.Jobs
         public override void Process()
         {
             try
-            {
-                if (flag == true) return;
-                flag = true;
+            {                
                 string _UserName = ConfigurationManager.AppSettings["UserName"];
                 string _Password = ConfigurationManager.AppSettings["Password"];
                 string _Serial = ConfigurationManager.AppSettings["Serial"];
@@ -49,7 +47,7 @@ namespace ScheduleCommon.Jobs
                     {
                         JourneyCarObj journeyCarObj = new JourneyCarObj();
                         JourneyCarSvc JourneyCarSvc = new JourneyCarSvc(1, ConnectionType.ScheduleDB);
-                        string datetime = DateTime.Now.ToString("yyyyMMddmmhhss");
+                        string importDatetime = DateTime.Now.ToString("yyyyMMddHHmmss");
                         foreach (DataRow row in ds.Tables[0].Rows)
                         {
                             journeyCarObj = new JourneyCarObj();                            
@@ -83,7 +81,17 @@ namespace ScheduleCommon.Jobs
                             journeyCarObj.Phone = row["Phone"].ToString();
                             journeyCarObj.LoaiXe = row["LoaiXe"].ToString();
                             journeyCarObj.HanKiemDinh = row["HanKiemDinh"].ToString();
-                            JourneyCarSvc.InsertData(journeyCarObj.LicenseCard, journeyCarObj.Lat, journeyCarObj.Lon, datetime);
+                            JourneyCarSvc.InsertData(journeyCarObj.LicenseCard, journeyCarObj.Lat, journeyCarObj.Lon,
+                                    journeyCarObj.Heading, journeyCarObj.Speed, journeyCarObj.MaxSpeed,
+                                    journeyCarObj.sDateTime, journeyCarObj.TotalMil, journeyCarObj.CurrentMil,
+                                    journeyCarObj.TotalTripTime, journeyCarObj.NDT, journeyCarObj.EquipmentID,
+                                    journeyCarObj.CompanyName, journeyCarObj.ConnectedFrom, journeyCarObj.Duration,
+                                    journeyCarObj.LiveStatus, journeyCarObj.sColor, journeyCarObj.IDLE,
+                                    journeyCarObj.Engine, journeyCarObj.Door, journeyCarObj.AreaName,
+                                    journeyCarObj.Fuel, journeyCarObj.MayLanh, journeyCarObj.MMC_ID,
+                                    journeyCarObj.CarGroupName, journeyCarObj.MaTaiXe, journeyCarObj.FullName,
+                                    journeyCarObj.Phone, journeyCarObj.LoaiXe, journeyCarObj.HanKiemDinh,
+                                    importDatetime);
                         }
                         JourneyCarSvc.Dispose();
                     }                    
