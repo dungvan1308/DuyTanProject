@@ -1,0 +1,12 @@
+D:\SVN\ScheduleSystem\ScheduleDBCore\bin\Debug\ScheduleDBCore.dll
+D:\SVN\ScheduleSystem\ScheduleDBCore\bin\Debug\ScheduleDBCore.pdb
+D:\SVN\ScheduleSystem\ScheduleDBCore\bin\Debug\log4net.dll
+D:\SVN\ScheduleSystem\ScheduleDBCore\bin\Debug\log4net.xml
+D:\SVN\ScheduleSystem\ScheduleDBCore\obj\Debug\ScheduleDBCore.dll
+D:\SVN\ScheduleSystem\ScheduleDBCore\obj\Debug\ScheduleDBCore.pdb
+D:\Freelancer\DuyTan\ScheduleSystem\ScheduleDBCore\bin\Debug\ScheduleDBCore.dll
+D:\Freelancer\DuyTan\ScheduleSystem\ScheduleDBCore\bin\Debug\ScheduleDBCore.pdb
+D:\Freelancer\DuyTan\ScheduleSystem\ScheduleDBCore\bin\Debug\log4net.dll
+D:\Freelancer\DuyTan\ScheduleSystem\ScheduleDBCore\bin\Debug\log4net.xml
+D:\Freelancer\DuyTan\ScheduleSystem\ScheduleDBCore\obj\Debug\ScheduleDBCore.dll
+D:\Freelancer\DuyTan\ScheduleSystem\ScheduleDBCore\obj\Debug\ScheduleDBCore.pdb
