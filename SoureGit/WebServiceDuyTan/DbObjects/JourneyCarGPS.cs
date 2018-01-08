@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Collections;
 using System.IO;
-using WebServiceDuyTan.ServiceReferenceGPS;
+
 
 namespace WebServiceDuyTan.DbObjects
 {
@@ -19,7 +19,7 @@ namespace WebServiceDuyTan.DbObjects
         private string _Password = "ndthcm062017";//string.Empty;
         private string _Serial = "NDTVHDD2678686";//string.Empty;
         private string _Version = "V3.1";// string.Empty;
-        ServiceSoapClient  _Service = null;
+     
 
 
         private void getJourneyCarGPS()
@@ -31,15 +31,17 @@ namespace WebServiceDuyTan.DbObjects
         
             //Check Login 
 
-            string kq = _Service.CheckLogin(_UserName, _Password, _Serial, _Version);
+            //string kq = _Service.CheckLogin(_UserName, _Password, _Serial, _Version);
+            /*
             string msg = GetLoginMessage(kq);
             if (!string.IsNullOrEmpty(msg))
             {
                 return;
             }
+            */
 
             //Lay du lieu GPS
-             DataSet ds = _Service.GetVehicleStatusListV3(_UserName, _Password, _Serial, _Version);
+             //DataSet ds = _Service.GetVehicleStatusListV3(_UserName, _Password, _Serial, _Version);
 
 
 
@@ -66,5 +68,5 @@ namespace WebServiceDuyTan.DbObjects
         }
 
     }
-    }
+    
 }
