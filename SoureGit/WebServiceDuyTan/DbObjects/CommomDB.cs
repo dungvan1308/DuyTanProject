@@ -26,6 +26,7 @@ namespace WebServiceDuyTan.DbObjects
              */
 
             SqlParameter[] aParams = new SqlParameter[2];
+            
             aParams[0] = new SqlParameter("@WhereCondition", System.Data.SqlDbType.NVarChar);
             aParams[0].Value = strCondition;
 
