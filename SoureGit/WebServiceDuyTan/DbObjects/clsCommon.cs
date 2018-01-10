@@ -22,6 +22,12 @@ namespace WebServiceDuyTan.DbObjects
         public const int iMaxGroupField = 2;
         public const string FIELD_NOTE = "NOTE";
         public const string MAIN_KEY = "1";
+        public const string JOURNEY_STATUS_OPEN = "O"; //Chua xuat phat 
+        public const string JOURNEY_STATUS_RUN = "R"; //Da xuat phat 
+        public const string JOURNEY_TRANSACTIONSTATUS_IMPORT = "I"; // Đang chờ nhập hàng
+        public const string JOURNEY_TRANSACTIONSTATUS_EXPORT = "E"; //Đang giao hàng
+        public const string JOURNEY_TRANSACTIONSTATUS_M="M"; //Đang giao hàng trễ
+        public const string JOURNEY_TRANSACTIONSTATUS_LATE = "L"; //Xe đi trễ
 
 
         public static string convertDateTimeToString(DateTime dateTime)

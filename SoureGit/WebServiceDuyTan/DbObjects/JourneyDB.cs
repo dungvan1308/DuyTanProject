@@ -9,6 +9,7 @@ using System.Configuration;
 using ClassLibraryObjects;
 using ClassLibraryCommon;
 
+
 namespace WebServiceDuyTan.DbObjects
 {
  
@@ -16,6 +17,17 @@ namespace WebServiceDuyTan.DbObjects
     public class JourneyDB
     {
         protected string strConection = ConfigurationManager.ConnectionStrings["SiteSqlServer"].ConnectionString;
+        protected double para_IntervalPlace	=10; 	//  Khoản cách so với điểm giao hàng gần nhất (km)
+        protected double para_IntervalTime	=10;	//  Số giờ đứng yên không di chuyển
+        protected double para_IntervalPlace_DuyTan=10;   //	Khoản cách đứng yên so với Duy Tân
+        protected double para_IntervalTime_DuyTan=	10;	 // Thời gian đứng yên xác định xe về Duy Tân
+        protected double para_TimeOut=	10; 	    //  Thời gian trễ
+        protected double para_AvgSpeed=40; //	Vận tốc trung bình (km/h)
+        protected double para_Distance=500;  //	Khoản cách khi xe rời khỏi địa điểm của Duy Tân
+        protected double para_DistanceTime=	5;  //	Thời gian khi xe rời khỏi địa điểm Duy Tân ( Để update trạng thái đã xuất phát)
+
+
+
         public bool insertUpdateJourney(JourneyObject obj)
         {
             /*
@@ -168,13 +180,13 @@ namespace WebServiceDuyTan.DbObjects
                         obj.VehicleNumber = ds.Tables[0].Rows[0]["VehicleNumber"].ToString();
                         obj.StartTime1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime1"].ToString());
 
-
                         obj.StartTime2 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime2"].ToString());
                         obj.StartTime3 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime3"].ToString());
                         obj.StartTimePlan1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan1"].ToString());
                         obj.StartTimePlan2 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan2"].ToString());
                         obj.StartTimePlan3 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan3"].ToString());
                         obj.Status = ds.Tables[0].Rows[0]["Status"].ToString();
+                        
                         
 
                         obj.CreateBy = ds.Tables[0].Rows[0]["CreateBy"].ToString();
@@ -330,6 +342,267 @@ namespace WebServiceDuyTan.DbObjects
             }
 
             return ds;
+        }
+
+        public void processJourney(JourneyObject obj,Coordinates locationStartPlace,Coordinates locationGPS,Coordinates location1,Coordinates location2,Coordinates location3)
+        {
+            /*
+             * Dungnv   : 09/01/2018
+             * Purpose  : Xu ly tinh toan, update trang thai, thoi gian cua hanh trinh
+             */
+ 
+             /*
+                “Đã Xuất Phát”: tự động update khi xe cách khỏi Địa Điểm Duy Tân Group 500m trong thời gian B phút 
+               (khoảng cách ra khỏi Duy Tân Group khác khoảng cách đã đến).
+                Xe chưa xuất phát ghi “Chưa Xuất Phát”
+              */
+
+            double db_distince = 0;
+          
+            DateTime dt_currentTime = new DateTime();
+            DateTime dt_timePlan = new DateTime();
+
+
+            db_distince = CoordinatesDistanceExtensions.DistanceTo(locationStartPlace, locationGPS, UnitOfLength.Kilometers);
+            dt_currentTime = DateTime.Now;
+            dt_timePlan = obj.StartTimePlan1;
+            dt_timePlan.AddMinutes(para_DistanceTime);
+
+          
+            #region Xử lý xe xuất phát 
+            string strsql = "";
+
+            if (dt_currentTime > dt_timePlan)
+            {
+                //Xe da chay duoc 5 phut 
+                if (db_distince > para_Distance)
+                {
+                    if (obj.Status == clsCommon.JOURNEY_STATUS_OPEN)
+                    {
+                        //Tien hanh update lai trang thai va thoi gian hanh xuat phat 
+
+                        strsql = "set dateformat dmy   update Journey set Status='R', StartTime1='" + clsCommon.convertDateTimeToString( dt_currentTime,clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS)+ "'  where JourneyID='" + obj.JourneyID + "'";
+                        
+                    }
+                }
+
+
+            }
+            #endregion 
+
+            #region Xử lý thời gian, trạng thái hành trình tại điểm đến 1
+            /*
+               * cập nhập thời gian đến điểm 1
+               * nếu như tọa độ gps cách điểm 1 trong khoản 500m và thời gian đến = null => sẽ cập nhập thời gian đến
+               */
+
+            db_distince = CoordinatesDistanceExtensions.DistanceTo(location1, locationGPS, UnitOfLength.Kilometers);
+
+            //Nếu như khoản cách < 500 và thời gian đến điểm 1 là null  => xe đang ở gần điểm Location 1
+            if(db_distince < para_Distance & obj.ArrivalTime1==null)
+            {
+                
+                strsql = "set dateformat dmy   update Journey set  ArrivalTime1='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + " d   where JourneyID='" + obj.JourneyID + "'";
+                
+            }
+           
+            //Nếu như khoản cách > 500 và thời gian hiện tại lớn hơn thời gian kế hoạch 1, và thời gian đến điểm 1 là null => Xe bị trễ
+            if(db_distince > para_Distance & obj.ArrivalTime1 ==null)
+            {
+                //Tre
+                if(dt_currentTime > obj.ArrivalTimePlan1)
+                {
+                    strsql = "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE;
+                    strsql = "',DescHistoryJourney='Cách điểm 1 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+                }
+                else //Khong tre
+                {
+                    strsql = " update Journey set  DescHistoryJourney='Cách điểm 1 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+                }
+                
+            }
+           
+
+
+            #endregion 
+
+            #region Xử lý thời gian, trạng thái hành trình tại điểm đến 2
+            /*
+               * cập nhập thời gian đến điểm 2
+               * nếu như tọa độ gps cách điểm 2 trong khoản 500m và thời gian đến  = null => sẽ cập nhập thời gian đến
+               */
+            db_distince = CoordinatesDistanceExtensions.DistanceTo(location2, locationGPS, UnitOfLength.Kilometers);
+            //Nếu như khoản cách < 500 và thời gian đến điểm 2 là null  => xe đang ở gần điểm Location 2
+            if (db_distince <= para_Distance & obj.ArrivalTime2 == null)
+            {
+
+                strsql = "set dateformat dmy   update Journey set  ArrivalTime2='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + " d   where JourneyID='" + obj.JourneyID + "'";
+
+            }
+
+            //Nếu như khoản cách > 500 và thời gian hiện tại lớn hơn thời gian kế hoạch 2, và thời gian đến điểm 2 là null => Xe bị trễ
+            if (db_distince > para_Distance & obj.ArrivalTime2 == null)
+            {
+                //Tre
+                if (dt_currentTime > obj.ArrivalTimePlan2)
+                {
+                    strsql = "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE + "'  where JourneyID='" + obj.JourneyID + "'";
+                    strsql = strsql + "update Journey set  DescHistoryJourney='Cách điểm 2 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+                    
+                }
+                else
+                {
+                    strsql = " update Journey set  DescHistoryJourney='Cách điểm 2 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+                }
+                
+            }
+
+            #endregion 
+
+            #region Xử lý thời gian, trạng thái hành trình tại điểm đến 3
+            /*
+              * cập nhập thời gian đến điểm 3
+              * nếu như tọa độ gps cách điểm 3 trong khoản 500m và thời gian đến  = null => sẽ cập nhập thời gian đến
+              */
+            db_distince = CoordinatesDistanceExtensions.DistanceTo(location3, locationGPS, UnitOfLength.Kilometers);
+            //Nếu như khoản cách < 500 và thời gian đến điểm 3 là null  => xe đang ở gần điểm Location 3
+            if (db_distince <= para_Distance & obj.ArrivalTime3 == null)
+            {
+
+                strsql = "set dateformat dmy   update Journey set  ArrivalTime3='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) ;
+                strsql ="' where JourneyID='" + obj.JourneyID + "'";
+                
+                //Cap nhap cho dau xe khi xe quay ve 
+                strsql = strsql + " update Trust set PackingPlace ='" + obj.DeliveryPlace3 + "' where VehicleNumber='" + obj.VehicleNumber + "'";
+
+
+            }
+
+            //Nếu như khoản cách > 500 và thời gian hiện tại lớn hơn thời gian kế hoạch 2, và thời gian đến điểm 2 là null => Xe bị trễ
+            if (db_distince > para_Distance & obj.ArrivalTime3 == null)
+            {
+                if(dt_currentTime > obj.ArrivalTimePlan3)
+                {
+                    strsql = "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE + "'  where JourneyID='" + obj.JourneyID + "'";
+                    strsql = strsql + "update Journey set  DescHistoryJourney='Cách điểm 3 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+
+                    //Can xu ly them viec add thoi gian ke hoach tiep theo
+                }
+                else
+                {
+                    strsql = " update Journey set  DescHistoryJourney='Cách điểm 3 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+                }
+                
+            }
+
+            #endregion 
+
+            double dec = 0;
+            try
+            {
+                if(strsql!="")
+                {
+                    dec = SqlHelper.ExecuteNonQuery(strConection, CommandType.Text, strsql);
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                dec = -1;
+            }
+
+        }
+
+        public void processJobUpdateJourney()
+        {
+            /*
+             * Dungnv   :   10/01/2018
+             * Purpose  :   Xử lý cập nhập trạng thai của hanh trình
+             *              Này nên thiết lập 1 Job định kì 
+             * 
+             */
+            DataSet ds = new DataSet();
+            try
+            {
+                ds = SqlHelper.ExecuteDataset(strConection, "usp_selectAllCurrentJourney");
+                if (ds != null)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        double db_Lat = 0;
+                        double db_Lon = 0;
+                        double db_out = 0;
+
+                        //locationStartPlace
+                       double.TryParse(row["StartPlace_Lat"].ToString(), out db_out);
+                       db_Lat = db_out;
+                       double.TryParse(row["StartPlace_Lon"].ToString(), out db_out);
+                       db_Lon = db_out;
+                       Coordinates locationStartPlace = new Coordinates(db_Lat, db_Lon);
+
+
+                       //locationGPS
+                       double.TryParse(row["Lat"].ToString(), out db_out);
+                       db_Lat = db_out;
+                       double.TryParse(row["Lon"].ToString(), out db_out);
+                       db_Lon = db_out;
+                       Coordinates locationGPS = new Coordinates(db_Lat, db_Lon);
+
+                       //location1
+                       double.TryParse(row["DeliveryPlace1_Lat"].ToString(), out db_out);
+                       db_Lat = db_out;
+                       double.TryParse(row["DeliveryPlace1_Lon"].ToString(), out db_out);
+                       db_Lon = db_out;
+                       Coordinates location1 = new Coordinates(db_Lat, db_Lon);
+
+                       //location2
+                       double.TryParse(row["DeliveryPlace2_Lat"].ToString(), out db_out);
+                       db_Lat = db_out;
+                       double.TryParse(row["DeliveryPlace2_Lon"].ToString(), out db_out);
+                       db_Lon = db_out;
+                       Coordinates location2 = new Coordinates(db_Lat, db_Lon);
+
+                       //location3
+                       double.TryParse(row["DeliveryPlace3_Lat"].ToString(), out db_out);
+                       db_Lat = db_out;
+                       double.TryParse(row["DeliveryPlace3_Lon"].ToString(), out db_out);
+                       db_Lon = db_out;
+                       Coordinates location3 = new Coordinates(db_Lat, db_Lon);
+
+                       JourneyObject obj = new JourneyObject();
+                       int ID = 0;
+
+                       // Set gia tri cho JourneyObject
+                       obj.JourneyID = Int32.Parse(ds.Tables[0].Rows[0]["JourneyID"].ToString());
+                       obj.ArrivalTime1 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime1"].ToString());
+                       obj.ArrivalTime2 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime2"].ToString());
+                       obj.ArrivalTime3 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime3"].ToString());
+
+                       obj.ArrivalTimePlan1 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan1"].ToString());
+                       obj.ArrivalTimePlan2 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan2"].ToString());
+                       obj.ArrivalTimePlan3 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan3"].ToString());
+
+                       obj.VehicleNumber = ds.Tables[0].Rows[0]["VehicleNumber"].ToString();
+                       obj.StartTime1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime1"].ToString());
+                       obj.StartTime2 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime2"].ToString());
+                       obj.StartTime3 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime3"].ToString());
+                       obj.StartTimePlan1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan1"].ToString());
+                       obj.StartTimePlan2 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan2"].ToString());
+                       obj.StartTimePlan3 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan3"].ToString());
+                       obj.Status = ds.Tables[0].Rows[0]["Status"].ToString();
+
+                        //Thực hiện update 
+                       processJourney(obj, locationStartPlace, locationGPS, location1, location2, location3);
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+
+                
         }
 
     }
