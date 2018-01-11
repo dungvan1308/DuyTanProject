@@ -50,6 +50,7 @@
     <Compile Include="FieldObject.cs" />
     <Compile Include="FileObject.cs" />
     <Compile Include="GroupUserObject.cs" />
+    <Compile Include="JourneyCarGPSObjcs.cs" />
     <Compile Include="JourneyObject.cs" />
     <Compile Include="LoginObject.cs" />
     <Compile Include="MenuObject.cs" />

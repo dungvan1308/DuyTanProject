@@ -14,6 +14,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryCommon", "ClassLibraryCommon\ClassLibraryCommon.csproj", "{0A612F4C-9BE1-45CD-A227-988112DDB414}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleSvc", "ScheduleSvc\ScheduleSvc.csproj", "{99141A29-EEF1-4B14-A44D-B39CD6620C7E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DDF62536-7BD5-4641-808F-478CFE209D9D} = {DDF62536-7BD5-4641-808F-478CFE209D9D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

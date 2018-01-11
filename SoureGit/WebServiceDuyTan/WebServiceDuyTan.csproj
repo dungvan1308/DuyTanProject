@@ -122,6 +122,7 @@
     <Compile Include="DbObjects\MenuDB.cs" />
     <Compile Include="DbObjects\PlaceDB.cs" />
     <Compile Include="DbObjects\ReportDB.cs" />
+    <Compile Include="DbObjects\ScheduleDB.cs" />
     <Compile Include="DbObjects\TrustDB.cs" />
     <Compile Include="DbObjects\UserDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -62,6 +62,8 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,6 +82,7 @@
     <Compile Include="Jobs\DummyJob.cs" />
     <Compile Include="Jobs\JobBase.cs" />
     <Compile Include="Jobs\JobFactory.cs" />
+    <Compile Include="Jobs\JourneyCarJob.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -90,13 +93,23 @@
     <Compile Include="ScheduleEntity\CacheObject.cs" />
     <Compile Include="ScheduleEntity\PropertyObject.cs" />
     <Compile Include="ScheduleEntity\ScheduleObject.cs" />
-    <Compile Include="ScheduleSvc.cs">
+    <Compile Include="ScheduleSvcJob.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ScheduleSvc.Designer.cs">
-      <DependentUpon>ScheduleSvc.cs</DependentUpon>
+    <Compile Include="ScheduleSvcJob.Designer.cs">
+      <DependentUpon>ScheduleSvcJob.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\JourneyCarWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReferenceDT\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -107,6 +120,87 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\JourneyCarWS\ScheduleSvc.JourneyCarWS.DanhSachSuKienByMaxIdMultiSiteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\JourneyCarWS\ScheduleSvc.JourneyCarWS.DanhSachSuKienByMaxIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\JourneyCarWS\Service.wsdl" />
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.AuthorizeMenuObjectList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.checkAuthorizeManageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.deleteEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.deleteGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.deleteJourneyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.deletePlaceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.deleteTrustResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.deleteUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.EmployeeObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.FileObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.GroupUserObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.insertGroupUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.insertUpdateEmployeeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.insertUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.JourneyObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.loginUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.MenuObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.MenuObjectList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.PlaceObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.ReportObjects.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.ReportParaObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.SalaryObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.TrustObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\ScheduleSvc.ServiceReferenceDT.UserObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReferenceDT\WebServiceDuyTan.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
@@ -114,21 +208,41 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ScheduleCommon\ScheduleCommon.csproj">
-      <Project>{1bd64bad-7453-4d07-87f3-cf4ce2136369}</Project>
-      <Name>ScheduleCommon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScheduleDBCore\ScheduleDBCore.csproj">
-      <Project>{4af24341-c106-4f91-a094-e8c3a722eba1}</Project>
-      <Name>ScheduleDBCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ScheduleEntity\ScheduleEntity.csproj">
-      <Project>{8eca3275-abd4-49d6-9952-93916774f3f8}</Project>
-      <Name>ScheduleEntity</Name>
-    </ProjectReference>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <WCFMetadataStorage Include="Service References\JourneyCarWS\" />
+    <WCFMetadataStorage Include="Service References\ServiceReferenceDT\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceDT\WebServiceDuyTan.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceDT\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceDT\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReferenceDT\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\JourneyCarWS\Service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\JourneyCarWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\JourneyCarWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\JourneyCarWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

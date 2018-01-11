@@ -9,88 +9,97 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/ClassLibrary.dll">
-      <publishTime>06/14/2017 08:54:20</publishTime>
+      <publishTime>01/07/2018 00:30:57</publishTime>
     </File>
     <File Include="bin/ClassLibraryCommon.dll">
-      <publishTime>06/14/2017 08:52:41</publishTime>
+      <publishTime>01/07/2018 00:30:38</publishTime>
     </File>
     <File Include="bin/Microsoft.ApplicationBlocks.Data.dll">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
+    </File>
+    <File Include="bin/WebServiceDuyTan.dll">
+      <publishTime>01/11/2018 23:04:09</publishTime>
     </File>
     <File Include="bin/WebServiceGym.dll">
       <publishTime>06/18/2017 15:20:22</publishTime>
     </File>
     <File Include="Dll/Microsoft.ApplicationBlocks.Data.dll">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
+    </File>
+    <File Include="Properties/DataSources/System.Data.DataSet.datasource">
+      <publishTime>01/07/2018 07:59:22</publishTime>
     </File>
     <File Include="Scripts/03_alter_employee.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/20160515.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/Create_Table_ContractHistory.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/GenDaTa/00_Gen_01_Menu.sql">
-      <publishTime>06/23/2016 13:28:52</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_Contract.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_FingerPrint_object.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_InsertUse.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_LoginUser.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_ResetUser.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_RPT001.sql">
-      <publishTime>06/06/2016 09:24:58</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_RPT002.sql">
-      <publishTime>06/06/2016 09:24:58</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_RPT003.sql">
-      <publishTime>06/06/2016 09:24:58</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_RPT004.sql">
-      <publishTime>06/06/2016 09:24:58</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_RPT005.sql">
-      <publishTime>06/19/2016 13:09:33</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_SelectContactsDynamic.sql">
-      <publishTime>08/22/2016 00:24:32</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_SelectCustomer.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_SelectCustomersDynamic.sql">
-      <publishTime>01/06/2016 11:54:10</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_SelectUser.sql">
-      <publishTime>01/06/2016 11:54:11</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_SelectUserDynamic.sql">
-      <publishTime>01/06/2016 11:54:11</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_UpdateCustomer.sql">
-      <publishTime>01/06/2016 11:54:11</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/proc_updateUser.sql">
-      <publishTime>01/06/2016 11:54:11</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Scripts/Script20160508.txt">
-      <publishTime>01/06/2016 11:54:11</publishTime>
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/18/2017 15:20:23</publishTime>
+      <publishTime>01/11/2018 23:04:10</publishTime>
+    </File>
+    <File Include="WebServiceDuyTan.asmx">
+      <publishTime>01/04/2018 09:00:54</publishTime>
     </File>
     <File Include="WebServiceGym.asmx">
       <publishTime>01/06/2016 11:54:09</publishTime>

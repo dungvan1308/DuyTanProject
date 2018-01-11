@@ -1,0 +1,3516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users" type="tns:UserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="USERID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FULLNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GROUPID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMPLOYEEID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ISCHANGEPASS" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LOCK" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CREATEBY" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CREATEDATE" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MODIFIEDBY" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MODIFIEDDATE" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="loginUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loginUserResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="outUser" type="tns:UserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users" type="tns:UserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertUserResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutUserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users" type="tns:UserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resetPass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users" type="tns:UserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resetPassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="resetPassResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectUserResult" type="tns:UserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectUserByUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectUserByUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectUserByUserNameResult" type="tns:UserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderby" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lookUnlokUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users" type="tns:UserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lookUnlokUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lookUnlokUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lookUpUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="lookUpUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lookUpUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteUserResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="logOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="logOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="logOutResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkLienceKey">
+        <s:complexType />
+      </s:element>
+      <s:element name="checkLienceKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="checkLienceKeyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertGroupUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupUser" type="tns:GroupUserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GroupUserObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GROUPID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GROUPNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NOTE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CREATEBY" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CREATEDATE" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MODIFIEDBY" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MODIFIEDDATE" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertGroupUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertGroupUserResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOutGroupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectGroupUserDymanic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectGroupUserDymanicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectGroupUserDymanicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectGroupUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGroupUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectGroupUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectGroupUserResult" type="tns:GroupUserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectGroupUserByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectGroupUserByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectGroupUserByNameResult" type="tns:GroupUserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateGroupUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupUsers" type="tns:GroupUserObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateGroupUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateGroupUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteGroupUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGroupUserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteGroupUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteGroupUserResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lookUpGroupUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="lookUpGroupUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lookUpGroupUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectEmployeeResult" type="tns:EmployeeObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EmployeeObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDay" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Birth_Place" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Identitycard" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Identitycard_DateIssue" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Identitycard_PlaceIssue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaritalStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Education" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateStartWork" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicenseType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifyBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectAllEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderby" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllEmployeeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strEmployeeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteEmployeeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUpdateEmployee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objEmp" type="tns:EmployeeObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUpdateEmployeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertUpdateEmployeeResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmployeeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllMenuItem">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectAllMenuItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllMenuItemResult" type="tns:MenuObjectList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MenuObjectList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="updateAuthorizeMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authorizeMenuList" type="tns:AuthorizeMenuObjectList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AuthorizeMenuObjectList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="menuIdList" type="tns:ArrayOfAnyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERGROUPID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="updateAuthorizeMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateAuthorizeMenuResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAuthorizeMenus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userGroupId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAuthorizeMenusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAuthorizeMenusResult" type="tns:AuthorizeMenuObjectList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectMenuObject">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="MenuObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MENUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MENUNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PARENTID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NOTE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MENUORDER" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AU" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectMenuObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectMenuObjectResult" type="tns:MenuObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkAuthorizeManage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strModule" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGroupID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bAdd" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bDel" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bUpd" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bVie" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkAuthorizeManageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bAdd" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bDel" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bUpd" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="bVie" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectListReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strModule" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectListReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectListReportResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecProcedureToArr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strProcedureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReportObjects">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strReportName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="arrLst" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExecProcedureToArrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecProcedureToArrResult" type="tns:ReportObjects" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectReportPara">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ReportParaObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PARA_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PARA_CONTENT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PARA_DBTYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PARA_TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PARA_VALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MASK" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PARA_SIZE" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectReportParaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectReportParaResult" type="tns:ReportParaObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectReportDatas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reportObjects" type="tns:ReportObjects" />
+            <s:element minOccurs="0" maxOccurs="1" name="procedureName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectReportDatasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectReportDatasResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_info_company">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_info_companyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_info_companyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectSalaryObject">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="SalaryObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SALARYID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMPLOYEEID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AMOUNT" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DATEEFFECT" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NOTE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectSalaryObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectSalaryObjectResult" type="tns:SalaryObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelecAllCodeDynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFieldName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelecAllCodeDynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelecAllCodeDynamicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCiTyDynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCiTyDynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectCiTyDynamicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectDistrictDynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectDistrictDynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectDistrictDynamicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectWardDynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectWardDynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectWardDynamicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCountriesDynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCountriesDynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectCountriesDynamicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectMeasurement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RowId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectMeasurementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectMeasurementResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectMeasurementsDynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectMeasurementsDynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectMeasurementsDynamicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RowId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectReservationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectReservationsDynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectReservationsDynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectReservationsDynamicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectResoure">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RowId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectResoureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectResoureResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectResouresDynamic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectResouresDynamicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectResouresDynamicResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectBySql">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectBySqlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectBySqlResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectCurrentLogin">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectCurrentLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectCurrentLoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listUserLogIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="frdate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="todate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="listUserLogInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listUserLogInResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getListFileBk">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getListFileBkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getListFileBkResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getListFileInfo">
+        <s:complexType />
+      </s:element>
+      <s:element name="getListFileInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getListFileInfoResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectFileObject">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="FileObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="strFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="strPath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dtModified" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dbSize" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectFileObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectFileObjectResult" type="tns:FileObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="backupData">
+        <s:complexType />
+      </s:element>
+      <s:element name="backupDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="backupDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restoreDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="restoreDataResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUpdateTrust">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:TrustObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TrustObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TrustID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrustName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfPurchase" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeatingNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Capicity" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpireDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupTrust" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifyBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertUpdateTrustResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertUpdateTrustResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllTrust">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderby" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllTrustResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllTrustResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectTrust">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectTrustResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectTrustResult" type="tns:TrustObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTrust">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iTrust" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteTrustResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteTrustResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUpdatePlace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:PlaceObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PlaceObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PlaceID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GpsX" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GpsY" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistrictID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistanceDuyTan" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeDuyTan" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="OfDuyTan" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifyBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertUpdatePlaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertUpdatePlaceResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllPlace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderby" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllPlaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllPlaceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPlace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectPlaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectPlaceResult" type="tns:PlaceObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deletePlace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iPlaceId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deletePlaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deletePlaceResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUpdateJourney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:JourneyObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="JourneyObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="JourneyID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="JourneyDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Driver" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Employee1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Employee2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartPlace" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTimePlan1" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime1" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryPlace1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ArrivalTimePlan1" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ArrivalTime1" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTimePlan2" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime2" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryPlace2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ArrivalTimePlan2" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ArrivalTime2" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTimePlan3" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime3" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryPlace3" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ArrivalTimePlan3" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ArrivalTime3" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartGoHomePlan" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartGoHome" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeGoHome" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifyBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimesUpdate" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertUpdateJourneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertUpdateJourneyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectJourney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectJourneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectJourneyResult" type="tns:JourneyObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteJourney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iJourney" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteJourneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteJourneyResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllJourney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strCondition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOrderby" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllJourneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllJourneyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectAllCurrentJourney">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectAllCurrentJourneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectAllCurrentJourneyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectInformationAtTrustStore">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectInformationAtTrustStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectInformationAtTrustStoreResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectInformationAtTrustGroup">
+        <s:complexType />
+      </s:element>
+      <s:element name="selectInformationAtTrustGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectInformationAtTrustGroupResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertJourneyCardGPS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obj" type="tns:JourneyCarGPSObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="JourneyCarGPSObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LicenseCard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lon" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Heading" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Speed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaxSpeed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalMil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentMil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalTripTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NDT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquipmentID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnectedFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Duration" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LiveStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDLE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Engine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Door" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fuel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MayLanh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MMC_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarGroupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaTaiXe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoaiXe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HanKiemDinh" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertJourneyCardGPSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertJourneyCardGPSResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleSystem">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetScheduleSystemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScheduleSystemResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleProperty">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSchedulePropertyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSchedulePropertyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="loginUserSoapIn">
+    <wsdl:part name="parameters" element="tns:loginUser" />
+  </wsdl:message>
+  <wsdl:message name="loginUserSoapOut">
+    <wsdl:part name="parameters" element="tns:loginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUserSoapIn">
+    <wsdl:part name="parameters" element="tns:insertUser" />
+  </wsdl:message>
+  <wsdl:message name="insertUserSoapOut">
+    <wsdl:part name="parameters" element="tns:insertUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:updateUser" />
+  </wsdl:message>
+  <wsdl:message name="updateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:updateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="resetPassSoapIn">
+    <wsdl:part name="parameters" element="tns:resetPass" />
+  </wsdl:message>
+  <wsdl:message name="resetPassSoapOut">
+    <wsdl:part name="parameters" element="tns:resetPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectUserSoapIn">
+    <wsdl:part name="parameters" element="tns:selectUser" />
+  </wsdl:message>
+  <wsdl:message name="selectUserSoapOut">
+    <wsdl:part name="parameters" element="tns:selectUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectUserByUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:selectUserByUserName" />
+  </wsdl:message>
+  <wsdl:message name="selectUserByUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:selectUserByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllUserSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllUser" />
+  </wsdl:message>
+  <wsdl:message name="selectAllUserSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="lookUnlokUserSoapIn">
+    <wsdl:part name="parameters" element="tns:lookUnlokUser" />
+  </wsdl:message>
+  <wsdl:message name="lookUnlokUserSoapOut">
+    <wsdl:part name="parameters" element="tns:lookUnlokUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="lookUpUserSoapIn">
+    <wsdl:part name="parameters" element="tns:lookUpUser" />
+  </wsdl:message>
+  <wsdl:message name="lookUpUserSoapOut">
+    <wsdl:part name="parameters" element="tns:lookUpUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteUser" />
+  </wsdl:message>
+  <wsdl:message name="deleteUserSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="logOutSoapIn">
+    <wsdl:part name="parameters" element="tns:logOut" />
+  </wsdl:message>
+  <wsdl:message name="logOutSoapOut">
+    <wsdl:part name="parameters" element="tns:logOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkLienceKeySoapIn">
+    <wsdl:part name="parameters" element="tns:checkLienceKey" />
+  </wsdl:message>
+  <wsdl:message name="checkLienceKeySoapOut">
+    <wsdl:part name="parameters" element="tns:checkLienceKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertGroupUserSoapIn">
+    <wsdl:part name="parameters" element="tns:insertGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="insertGroupUserSoapOut">
+    <wsdl:part name="parameters" element="tns:insertGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectGroupUserDymanicSoapIn">
+    <wsdl:part name="parameters" element="tns:selectGroupUserDymanic" />
+  </wsdl:message>
+  <wsdl:message name="selectGroupUserDymanicSoapOut">
+    <wsdl:part name="parameters" element="tns:selectGroupUserDymanicResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectGroupUserSoapIn">
+    <wsdl:part name="parameters" element="tns:selectGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="selectGroupUserSoapOut">
+    <wsdl:part name="parameters" element="tns:selectGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectGroupUserByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:selectGroupUserByName" />
+  </wsdl:message>
+  <wsdl:message name="selectGroupUserByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:selectGroupUserByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateGroupUserSoapIn">
+    <wsdl:part name="parameters" element="tns:updateGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="updateGroupUserSoapOut">
+    <wsdl:part name="parameters" element="tns:updateGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteGroupUserSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="deleteGroupUserSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="lookUpGroupUserSoapIn">
+    <wsdl:part name="parameters" element="tns:lookUpGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="lookUpGroupUserSoapOut">
+    <wsdl:part name="parameters" element="tns:lookUpGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:selectEmployee" />
+  </wsdl:message>
+  <wsdl:message name="selectEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:selectEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllEmployee" />
+  </wsdl:message>
+  <wsdl:message name="selectAllEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="deleteEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUpdateEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:insertUpdateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="insertUpdateEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:insertUpdateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllMenuItemSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllMenuItem" />
+  </wsdl:message>
+  <wsdl:message name="selectAllMenuItemSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllMenuItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateAuthorizeMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:updateAuthorizeMenu" />
+  </wsdl:message>
+  <wsdl:message name="updateAuthorizeMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:updateAuthorizeMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAuthorizeMenusSoapIn">
+    <wsdl:part name="parameters" element="tns:getAuthorizeMenus" />
+  </wsdl:message>
+  <wsdl:message name="getAuthorizeMenusSoapOut">
+    <wsdl:part name="parameters" element="tns:getAuthorizeMenusResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectMenuObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:selectMenuObject" />
+  </wsdl:message>
+  <wsdl:message name="selectMenuObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:selectMenuObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkAuthorizeManageSoapIn">
+    <wsdl:part name="parameters" element="tns:checkAuthorizeManage" />
+  </wsdl:message>
+  <wsdl:message name="checkAuthorizeManageSoapOut">
+    <wsdl:part name="parameters" element="tns:checkAuthorizeManageResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectListReportSoapIn">
+    <wsdl:part name="parameters" element="tns:selectListReport" />
+  </wsdl:message>
+  <wsdl:message name="selectListReportSoapOut">
+    <wsdl:part name="parameters" element="tns:selectListReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecProcedureToArrSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecProcedureToArr" />
+  </wsdl:message>
+  <wsdl:message name="ExecProcedureToArrSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecProcedureToArrResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectReportParaSoapIn">
+    <wsdl:part name="parameters" element="tns:selectReportPara" />
+  </wsdl:message>
+  <wsdl:message name="selectReportParaSoapOut">
+    <wsdl:part name="parameters" element="tns:selectReportParaResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectReportDatasSoapIn">
+    <wsdl:part name="parameters" element="tns:selectReportDatas" />
+  </wsdl:message>
+  <wsdl:message name="selectReportDatasSoapOut">
+    <wsdl:part name="parameters" element="tns:selectReportDatasResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_info_companySoapIn">
+    <wsdl:part name="parameters" element="tns:get_info_company" />
+  </wsdl:message>
+  <wsdl:message name="get_info_companySoapOut">
+    <wsdl:part name="parameters" element="tns:get_info_companyResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectSalaryObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:selectSalaryObject" />
+  </wsdl:message>
+  <wsdl:message name="selectSalaryObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:selectSalaryObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelecAllCodeDynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:SelecAllCodeDynamic" />
+  </wsdl:message>
+  <wsdl:message name="SelecAllCodeDynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:SelecAllCodeDynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectCiTyDynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectCiTyDynamic" />
+  </wsdl:message>
+  <wsdl:message name="SelectCiTyDynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectCiTyDynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectDistrictDynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectDistrictDynamic" />
+  </wsdl:message>
+  <wsdl:message name="SelectDistrictDynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectDistrictDynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectWardDynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectWardDynamic" />
+  </wsdl:message>
+  <wsdl:message name="SelectWardDynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectWardDynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectCountriesDynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectCountriesDynamic" />
+  </wsdl:message>
+  <wsdl:message name="SelectCountriesDynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectCountriesDynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectMeasurementSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectMeasurement" />
+  </wsdl:message>
+  <wsdl:message name="SelectMeasurementSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectMeasurementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectMeasurementsDynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectMeasurementsDynamic" />
+  </wsdl:message>
+  <wsdl:message name="SelectMeasurementsDynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectMeasurementsDynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectReservation" />
+  </wsdl:message>
+  <wsdl:message name="SelectReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectReservationsDynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectReservationsDynamic" />
+  </wsdl:message>
+  <wsdl:message name="SelectReservationsDynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectReservationsDynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectResoureSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectResoure" />
+  </wsdl:message>
+  <wsdl:message name="SelectResoureSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectResoureResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectResouresDynamicSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectResouresDynamic" />
+  </wsdl:message>
+  <wsdl:message name="SelectResouresDynamicSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectResouresDynamicResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectBySqlSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectBySql" />
+  </wsdl:message>
+  <wsdl:message name="SelectBySqlSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectBySqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectCurrentLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectCurrentLogin" />
+  </wsdl:message>
+  <wsdl:message name="SelectCurrentLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectCurrentLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="listUserLogInSoapIn">
+    <wsdl:part name="parameters" element="tns:listUserLogIn" />
+  </wsdl:message>
+  <wsdl:message name="listUserLogInSoapOut">
+    <wsdl:part name="parameters" element="tns:listUserLogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="getListFileBkSoapIn">
+    <wsdl:part name="parameters" element="tns:getListFileBk" />
+  </wsdl:message>
+  <wsdl:message name="getListFileBkSoapOut">
+    <wsdl:part name="parameters" element="tns:getListFileBkResponse" />
+  </wsdl:message>
+  <wsdl:message name="getListFileInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getListFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="getListFileInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getListFileInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectFileObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:selectFileObject" />
+  </wsdl:message>
+  <wsdl:message name="selectFileObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:selectFileObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="backupDataSoapIn">
+    <wsdl:part name="parameters" element="tns:backupData" />
+  </wsdl:message>
+  <wsdl:message name="backupDataSoapOut">
+    <wsdl:part name="parameters" element="tns:backupDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="restoreDataSoapIn">
+    <wsdl:part name="parameters" element="tns:restoreData" />
+  </wsdl:message>
+  <wsdl:message name="restoreDataSoapOut">
+    <wsdl:part name="parameters" element="tns:restoreDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUpdateTrustSoapIn">
+    <wsdl:part name="parameters" element="tns:insertUpdateTrust" />
+  </wsdl:message>
+  <wsdl:message name="insertUpdateTrustSoapOut">
+    <wsdl:part name="parameters" element="tns:insertUpdateTrustResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllTrustSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllTrust" />
+  </wsdl:message>
+  <wsdl:message name="selectAllTrustSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllTrustResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectTrustSoapIn">
+    <wsdl:part name="parameters" element="tns:selectTrust" />
+  </wsdl:message>
+  <wsdl:message name="selectTrustSoapOut">
+    <wsdl:part name="parameters" element="tns:selectTrustResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteTrustSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteTrust" />
+  </wsdl:message>
+  <wsdl:message name="deleteTrustSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteTrustResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUpdatePlaceSoapIn">
+    <wsdl:part name="parameters" element="tns:insertUpdatePlace" />
+  </wsdl:message>
+  <wsdl:message name="insertUpdatePlaceSoapOut">
+    <wsdl:part name="parameters" element="tns:insertUpdatePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllPlaceSoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllPlace" />
+  </wsdl:message>
+  <wsdl:message name="selectAllPlaceSoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectPlaceSoapIn">
+    <wsdl:part name="parameters" element="tns:selectPlace" />
+  </wsdl:message>
+  <wsdl:message name="selectPlaceSoapOut">
+    <wsdl:part name="parameters" element="tns:selectPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="deletePlaceSoapIn">
+    <wsdl:part name="parameters" element="tns:deletePlace" />
+  </wsdl:message>
+  <wsdl:message name="deletePlaceSoapOut">
+    <wsdl:part name="parameters" element="tns:deletePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUpdateJourneySoapIn">
+    <wsdl:part name="parameters" element="tns:insertUpdateJourney" />
+  </wsdl:message>
+  <wsdl:message name="insertUpdateJourneySoapOut">
+    <wsdl:part name="parameters" element="tns:insertUpdateJourneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectJourneySoapIn">
+    <wsdl:part name="parameters" element="tns:selectJourney" />
+  </wsdl:message>
+  <wsdl:message name="selectJourneySoapOut">
+    <wsdl:part name="parameters" element="tns:selectJourneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteJourneySoapIn">
+    <wsdl:part name="parameters" element="tns:deleteJourney" />
+  </wsdl:message>
+  <wsdl:message name="deleteJourneySoapOut">
+    <wsdl:part name="parameters" element="tns:deleteJourneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllJourneySoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllJourney" />
+  </wsdl:message>
+  <wsdl:message name="selectAllJourneySoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllJourneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectAllCurrentJourneySoapIn">
+    <wsdl:part name="parameters" element="tns:selectAllCurrentJourney" />
+  </wsdl:message>
+  <wsdl:message name="selectAllCurrentJourneySoapOut">
+    <wsdl:part name="parameters" element="tns:selectAllCurrentJourneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectInformationAtTrustStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:selectInformationAtTrustStore" />
+  </wsdl:message>
+  <wsdl:message name="selectInformationAtTrustStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:selectInformationAtTrustStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectInformationAtTrustGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:selectInformationAtTrustGroup" />
+  </wsdl:message>
+  <wsdl:message name="selectInformationAtTrustGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:selectInformationAtTrustGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertJourneyCardGPSSoapIn">
+    <wsdl:part name="parameters" element="tns:insertJourneyCardGPS" />
+  </wsdl:message>
+  <wsdl:message name="insertJourneyCardGPSSoapOut">
+    <wsdl:part name="parameters" element="tns:insertJourneyCardGPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleSystemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScheduleSystem" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleSystemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScheduleSystemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulePropertySoapIn">
+    <wsdl:part name="parameters" element="tns:GetScheduleProperty" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulePropertySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSchedulePropertyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceDuyTanSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loginUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login Users</wsdl:documentation>
+      <wsdl:input message="tns:loginUserSoapIn" />
+      <wsdl:output message="tns:loginUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert User</wsdl:documentation>
+      <wsdl:input message="tns:insertUserSoapIn" />
+      <wsdl:output message="tns:insertUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Login Users</wsdl:documentation>
+      <wsdl:input message="tns:updateUserSoapIn" />
+      <wsdl:output message="tns:updateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="resetPass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Reset Pass </wsdl:documentation>
+      <wsdl:input message="tns:resetPassSoapIn" />
+      <wsdl:output message="tns:resetPassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get Object User </wsdl:documentation>
+      <wsdl:input message="tns:selectUserSoapIn" />
+      <wsdl:output message="tns:selectUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectUserByUserName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get Object User by username</wsdl:documentation>
+      <wsdl:input message="tns:selectUserByUserNameSoapIn" />
+      <wsdl:output message="tns:selectUserByUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get list User</wsdl:documentation>
+      <wsdl:input message="tns:selectAllUserSoapIn" />
+      <wsdl:output message="tns:selectAllUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lookUnlokUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">lock and unlock user</wsdl:documentation>
+      <wsdl:input message="tns:lookUnlokUserSoapIn" />
+      <wsdl:output message="tns:lookUnlokUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lookUpUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Look up User</wsdl:documentation>
+      <wsdl:input message="tns:lookUpUserSoapIn" />
+      <wsdl:output message="tns:lookUpUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete User</wsdl:documentation>
+      <wsdl:input message="tns:deleteUserSoapIn" />
+      <wsdl:output message="tns:deleteUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="logOut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete User</wsdl:documentation>
+      <wsdl:input message="tns:logOutSoapIn" />
+      <wsdl:output message="tns:logOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkLienceKey">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">check LienceKey</wsdl:documentation>
+      <wsdl:input message="tns:checkLienceKeySoapIn" />
+      <wsdl:output message="tns:checkLienceKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertGroupUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Group User</wsdl:documentation>
+      <wsdl:input message="tns:insertGroupUserSoapIn" />
+      <wsdl:output message="tns:insertGroupUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUserDymanic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select GroupUser Dynamic</wsdl:documentation>
+      <wsdl:input message="tns:selectGroupUserDymanicSoapIn" />
+      <wsdl:output message="tns:selectGroupUserDymanicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Group User</wsdl:documentation>
+      <wsdl:input message="tns:selectGroupUserSoapIn" />
+      <wsdl:output message="tns:selectGroupUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUserByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Group User By Name</wsdl:documentation>
+      <wsdl:input message="tns:selectGroupUserByNameSoapIn" />
+      <wsdl:output message="tns:selectGroupUserByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateGroupUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">update GroupUser</wsdl:documentation>
+      <wsdl:input message="tns:updateGroupUserSoapIn" />
+      <wsdl:output message="tns:updateGroupUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteGroupUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete GroupUser </wsdl:documentation>
+      <wsdl:input message="tns:deleteGroupUserSoapIn" />
+      <wsdl:output message="tns:deleteGroupUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lookUpGroupUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select all group User </wsdl:documentation>
+      <wsdl:input message="tns:lookUpGroupUserSoapIn" />
+      <wsdl:output message="tns:lookUpGroupUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectEmployee">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select  Employee </wsdl:documentation>
+      <wsdl:input message="tns:selectEmployeeSoapIn" />
+      <wsdl:output message="tns:selectEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllEmployee">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get list Employee</wsdl:documentation>
+      <wsdl:input message="tns:selectAllEmployeeSoapIn" />
+      <wsdl:output message="tns:selectAllEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Employee</wsdl:documentation>
+      <wsdl:input message="tns:deleteEmployeeSoapIn" />
+      <wsdl:output message="tns:deleteEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateEmployee">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Update Employee </wsdl:documentation>
+      <wsdl:input message="tns:insertUpdateEmployeeSoapIn" />
+      <wsdl:output message="tns:insertUpdateEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllMenuItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get All Menu Items</wsdl:documentation>
+      <wsdl:input message="tns:selectAllMenuItemSoapIn" />
+      <wsdl:output message="tns:selectAllMenuItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAuthorizeMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update AuthorizeMenu</wsdl:documentation>
+      <wsdl:input message="tns:updateAuthorizeMenuSoapIn" />
+      <wsdl:output message="tns:updateAuthorizeMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorizeMenus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get Authorize Menu items</wsdl:documentation>
+      <wsdl:input message="tns:getAuthorizeMenusSoapIn" />
+      <wsdl:output message="tns:getAuthorizeMenusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectMenuObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">select Menu Object</wsdl:documentation>
+      <wsdl:input message="tns:selectMenuObjectSoapIn" />
+      <wsdl:output message="tns:selectMenuObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checkAuthorizeManage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">check Authorize Manage</wsdl:documentation>
+      <wsdl:input message="tns:checkAuthorizeManageSoapIn" />
+      <wsdl:output message="tns:checkAuthorizeManageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectListReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">select List Report </wsdl:documentation>
+      <wsdl:input message="tns:selectListReportSoapIn" />
+      <wsdl:output message="tns:selectListReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecProcedureToArr">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ExcecProcedure to Array </wsdl:documentation>
+      <wsdl:input message="tns:ExecProcedureToArrSoapIn" />
+      <wsdl:output message="tns:ExecProcedureToArrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectReportPara">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Report Para </wsdl:documentation>
+      <wsdl:input message="tns:selectReportParaSoapIn" />
+      <wsdl:output message="tns:selectReportParaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectReportDatas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Report Data</wsdl:documentation>
+      <wsdl:input message="tns:selectReportDatasSoapIn" />
+      <wsdl:output message="tns:selectReportDatasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_info_company">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get info company </wsdl:documentation>
+      <wsdl:input message="tns:get_info_companySoapIn" />
+      <wsdl:output message="tns:get_info_companySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectSalaryObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">select Salary Object</wsdl:documentation>
+      <wsdl:input message="tns:selectSalaryObjectSoapIn" />
+      <wsdl:output message="tns:selectSalaryObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelecAllCodeDynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select AllCode</wsdl:documentation>
+      <wsdl:input message="tns:SelecAllCodeDynamicSoapIn" />
+      <wsdl:output message="tns:SelecAllCodeDynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCiTyDynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select City</wsdl:documentation>
+      <wsdl:input message="tns:SelectCiTyDynamicSoapIn" />
+      <wsdl:output message="tns:SelectCiTyDynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectDistrictDynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select District </wsdl:documentation>
+      <wsdl:input message="tns:SelectDistrictDynamicSoapIn" />
+      <wsdl:output message="tns:SelectDistrictDynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectWardDynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Ward </wsdl:documentation>
+      <wsdl:input message="tns:SelectWardDynamicSoapIn" />
+      <wsdl:output message="tns:SelectWardDynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCountriesDynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Countries </wsdl:documentation>
+      <wsdl:input message="tns:SelectCountriesDynamicSoapIn" />
+      <wsdl:output message="tns:SelectCountriesDynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectMeasurement">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Measurement </wsdl:documentation>
+      <wsdl:input message="tns:SelectMeasurementSoapIn" />
+      <wsdl:output message="tns:SelectMeasurementSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectMeasurementsDynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Measurements </wsdl:documentation>
+      <wsdl:input message="tns:SelectMeasurementsDynamicSoapIn" />
+      <wsdl:output message="tns:SelectMeasurementsDynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectReservation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Reservation </wsdl:documentation>
+      <wsdl:input message="tns:SelectReservationSoapIn" />
+      <wsdl:output message="tns:SelectReservationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectReservationsDynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Reservation </wsdl:documentation>
+      <wsdl:input message="tns:SelectReservationsDynamicSoapIn" />
+      <wsdl:output message="tns:SelectReservationsDynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectResoure">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Resoure </wsdl:documentation>
+      <wsdl:input message="tns:SelectResoureSoapIn" />
+      <wsdl:output message="tns:SelectResoureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectResouresDynamic">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Resoure </wsdl:documentation>
+      <wsdl:input message="tns:SelectResouresDynamicSoapIn" />
+      <wsdl:output message="tns:SelectResouresDynamicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectBySql">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select By sql </wsdl:documentation>
+      <wsdl:input message="tns:SelectBySqlSoapIn" />
+      <wsdl:output message="tns:SelectBySqlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectCurrentLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select Current Login </wsdl:documentation>
+      <wsdl:input message="tns:SelectCurrentLoginSoapIn" />
+      <wsdl:output message="tns:SelectCurrentLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="listUserLogIn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Select list LoginAll </wsdl:documentation>
+      <wsdl:input message="tns:listUserLogInSoapIn" />
+      <wsdl:output message="tns:listUserLogInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getListFileBk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">getListFileBk</wsdl:documentation>
+      <wsdl:input message="tns:getListFileBkSoapIn" />
+      <wsdl:output message="tns:getListFileBkSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getListFileInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get List File Info</wsdl:documentation>
+      <wsdl:input message="tns:getListFileInfoSoapIn" />
+      <wsdl:output message="tns:getListFileInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectFileObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">select FileObject</wsdl:documentation>
+      <wsdl:input message="tns:selectFileObjectSoapIn" />
+      <wsdl:output message="tns:selectFileObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="backupData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">backupData</wsdl:documentation>
+      <wsdl:input message="tns:backupDataSoapIn" />
+      <wsdl:output message="tns:backupDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="restoreData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">restoreData</wsdl:documentation>
+      <wsdl:input message="tns:restoreDataSoapIn" />
+      <wsdl:output message="tns:restoreDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateTrust">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">insertUpdate Trust</wsdl:documentation>
+      <wsdl:input message="tns:insertUpdateTrustSoapIn" />
+      <wsdl:output message="tns:insertUpdateTrustSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllTrust">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get list Trust</wsdl:documentation>
+      <wsdl:input message="tns:selectAllTrustSoapIn" />
+      <wsdl:output message="tns:selectAllTrustSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectTrust">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get Trust</wsdl:documentation>
+      <wsdl:input message="tns:selectTrustSoapIn" />
+      <wsdl:output message="tns:selectTrustSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteTrust">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Trust</wsdl:documentation>
+      <wsdl:input message="tns:deleteTrustSoapIn" />
+      <wsdl:output message="tns:deleteTrustSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdatePlace">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">insertUpdate Place</wsdl:documentation>
+      <wsdl:input message="tns:insertUpdatePlaceSoapIn" />
+      <wsdl:output message="tns:insertUpdatePlaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllPlace">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get list Palce</wsdl:documentation>
+      <wsdl:input message="tns:selectAllPlaceSoapIn" />
+      <wsdl:output message="tns:selectAllPlaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectPlace">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> select Place</wsdl:documentation>
+      <wsdl:input message="tns:selectPlaceSoapIn" />
+      <wsdl:output message="tns:selectPlaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deletePlace">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Place</wsdl:documentation>
+      <wsdl:input message="tns:deletePlaceSoapIn" />
+      <wsdl:output message="tns:deletePlaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateJourney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">insertUpdate Journey</wsdl:documentation>
+      <wsdl:input message="tns:insertUpdateJourneySoapIn" />
+      <wsdl:output message="tns:insertUpdateJourneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectJourney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Select Journey</wsdl:documentation>
+      <wsdl:input message="tns:selectJourneySoapIn" />
+      <wsdl:output message="tns:selectJourneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteJourney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Delete Journey</wsdl:documentation>
+      <wsdl:input message="tns:deleteJourneySoapIn" />
+      <wsdl:output message="tns:deleteJourneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllJourney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get list Journey</wsdl:documentation>
+      <wsdl:input message="tns:selectAllJourneySoapIn" />
+      <wsdl:output message="tns:selectAllJourneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectAllCurrentJourney">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get Current Journey</wsdl:documentation>
+      <wsdl:input message="tns:selectAllCurrentJourneySoapIn" />
+      <wsdl:output message="tns:selectAllCurrentJourneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectInformationAtTrustStore">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get selectInformationAtTrustStore</wsdl:documentation>
+      <wsdl:input message="tns:selectInformationAtTrustStoreSoapIn" />
+      <wsdl:output message="tns:selectInformationAtTrustStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectInformationAtTrustGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Get selectInformationAtTrustStore</wsdl:documentation>
+      <wsdl:input message="tns:selectInformationAtTrustGroupSoapIn" />
+      <wsdl:output message="tns:selectInformationAtTrustGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertJourneyCardGPS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">insert Journey Card GPS</wsdl:documentation>
+      <wsdl:input message="tns:insertJourneyCardGPSSoapIn" />
+      <wsdl:output message="tns:insertJourneyCardGPSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleSystem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ScheduleSystem</wsdl:documentation>
+      <wsdl:input message="tns:GetScheduleSystemSoapIn" />
+      <wsdl:output message="tns:GetScheduleSystemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleProperty">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get tScheduleProperty</wsdl:documentation>
+      <wsdl:input message="tns:GetSchedulePropertySoapIn" />
+      <wsdl:output message="tns:GetSchedulePropertySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceDuyTanSoap" type="tns:WebServiceDuyTanSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginUser">
+      <soap:operation soapAction="http://tempuri.org/loginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUser">
+      <soap:operation soapAction="http://tempuri.org/insertUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap:operation soapAction="http://tempuri.org/updateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetPass">
+      <soap:operation soapAction="http://tempuri.org/resetPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectUser">
+      <soap:operation soapAction="http://tempuri.org/selectUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectUserByUserName">
+      <soap:operation soapAction="http://tempuri.org/selectUserByUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllUser">
+      <soap:operation soapAction="http://tempuri.org/selectAllUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookUnlokUser">
+      <soap:operation soapAction="http://tempuri.org/lookUnlokUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookUpUser">
+      <soap:operation soapAction="http://tempuri.org/lookUpUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap:operation soapAction="http://tempuri.org/deleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logOut">
+      <soap:operation soapAction="http://tempuri.org/logOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLienceKey">
+      <soap:operation soapAction="http://tempuri.org/checkLienceKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertGroupUser">
+      <soap:operation soapAction="http://tempuri.org/insertGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUserDymanic">
+      <soap:operation soapAction="http://tempuri.org/selectGroupUserDymanic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUser">
+      <soap:operation soapAction="http://tempuri.org/selectGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUserByName">
+      <soap:operation soapAction="http://tempuri.org/selectGroupUserByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGroupUser">
+      <soap:operation soapAction="http://tempuri.org/updateGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteGroupUser">
+      <soap:operation soapAction="http://tempuri.org/deleteGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookUpGroupUser">
+      <soap:operation soapAction="http://tempuri.org/lookUpGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectEmployee">
+      <soap:operation soapAction="http://tempuri.org/selectEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllEmployee">
+      <soap:operation soapAction="http://tempuri.org/selectAllEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+      <soap:operation soapAction="http://tempuri.org/deleteEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateEmployee">
+      <soap:operation soapAction="http://tempuri.org/insertUpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllMenuItem">
+      <soap:operation soapAction="http://tempuri.org/selectAllMenuItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuthorizeMenu">
+      <soap:operation soapAction="http://tempuri.org/updateAuthorizeMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorizeMenus">
+      <soap:operation soapAction="http://tempuri.org/getAuthorizeMenus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectMenuObject">
+      <soap:operation soapAction="http://tempuri.org/selectMenuObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAuthorizeManage">
+      <soap:operation soapAction="http://tempuri.org/checkAuthorizeManage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectListReport">
+      <soap:operation soapAction="http://tempuri.org/selectListReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecProcedureToArr">
+      <soap:operation soapAction="http://tempuri.org/ExecProcedureToArr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectReportPara">
+      <soap:operation soapAction="http://tempuri.org/selectReportPara" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectReportDatas">
+      <soap:operation soapAction="http://tempuri.org/selectReportDatas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_info_company">
+      <soap:operation soapAction="http://tempuri.org/get_info_company" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectSalaryObject">
+      <soap:operation soapAction="http://tempuri.org/selectSalaryObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelecAllCodeDynamic">
+      <soap:operation soapAction="http://tempuri.org/SelecAllCodeDynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCiTyDynamic">
+      <soap:operation soapAction="http://tempuri.org/SelectCiTyDynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectDistrictDynamic">
+      <soap:operation soapAction="http://tempuri.org/SelectDistrictDynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWardDynamic">
+      <soap:operation soapAction="http://tempuri.org/SelectWardDynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCountriesDynamic">
+      <soap:operation soapAction="http://tempuri.org/SelectCountriesDynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectMeasurement">
+      <soap:operation soapAction="http://tempuri.org/SelectMeasurement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectMeasurementsDynamic">
+      <soap:operation soapAction="http://tempuri.org/SelectMeasurementsDynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectReservation">
+      <soap:operation soapAction="http://tempuri.org/SelectReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectReservationsDynamic">
+      <soap:operation soapAction="http://tempuri.org/SelectReservationsDynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectResoure">
+      <soap:operation soapAction="http://tempuri.org/SelectResoure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectResouresDynamic">
+      <soap:operation soapAction="http://tempuri.org/SelectResouresDynamic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectBySql">
+      <soap:operation soapAction="http://tempuri.org/SelectBySql" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCurrentLogin">
+      <soap:operation soapAction="http://tempuri.org/SelectCurrentLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listUserLogIn">
+      <soap:operation soapAction="http://tempuri.org/listUserLogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListFileBk">
+      <soap:operation soapAction="http://tempuri.org/getListFileBk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListFileInfo">
+      <soap:operation soapAction="http://tempuri.org/getListFileInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectFileObject">
+      <soap:operation soapAction="http://tempuri.org/selectFileObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="backupData">
+      <soap:operation soapAction="http://tempuri.org/backupData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreData">
+      <soap:operation soapAction="http://tempuri.org/restoreData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateTrust">
+      <soap:operation soapAction="http://tempuri.org/insertUpdateTrust" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllTrust">
+      <soap:operation soapAction="http://tempuri.org/selectAllTrust" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTrust">
+      <soap:operation soapAction="http://tempuri.org/selectTrust" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTrust">
+      <soap:operation soapAction="http://tempuri.org/deleteTrust" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdatePlace">
+      <soap:operation soapAction="http://tempuri.org/insertUpdatePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllPlace">
+      <soap:operation soapAction="http://tempuri.org/selectAllPlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPlace">
+      <soap:operation soapAction="http://tempuri.org/selectPlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePlace">
+      <soap:operation soapAction="http://tempuri.org/deletePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateJourney">
+      <soap:operation soapAction="http://tempuri.org/insertUpdateJourney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectJourney">
+      <soap:operation soapAction="http://tempuri.org/selectJourney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteJourney">
+      <soap:operation soapAction="http://tempuri.org/deleteJourney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllJourney">
+      <soap:operation soapAction="http://tempuri.org/selectAllJourney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllCurrentJourney">
+      <soap:operation soapAction="http://tempuri.org/selectAllCurrentJourney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectInformationAtTrustStore">
+      <soap:operation soapAction="http://tempuri.org/selectInformationAtTrustStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectInformationAtTrustGroup">
+      <soap:operation soapAction="http://tempuri.org/selectInformationAtTrustGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertJourneyCardGPS">
+      <soap:operation soapAction="http://tempuri.org/insertJourneyCardGPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleSystem">
+      <soap:operation soapAction="http://tempuri.org/GetScheduleSystem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleProperty">
+      <soap:operation soapAction="http://tempuri.org/GetScheduleProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceDuyTanSoap12" type="tns:WebServiceDuyTanSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loginUser">
+      <soap12:operation soapAction="http://tempuri.org/loginUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUser">
+      <soap12:operation soapAction="http://tempuri.org/insertUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateUser">
+      <soap12:operation soapAction="http://tempuri.org/updateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetPass">
+      <soap12:operation soapAction="http://tempuri.org/resetPass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectUser">
+      <soap12:operation soapAction="http://tempuri.org/selectUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectUserByUserName">
+      <soap12:operation soapAction="http://tempuri.org/selectUserByUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllUser">
+      <soap12:operation soapAction="http://tempuri.org/selectAllUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookUnlokUser">
+      <soap12:operation soapAction="http://tempuri.org/lookUnlokUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookUpUser">
+      <soap12:operation soapAction="http://tempuri.org/lookUpUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap12:operation soapAction="http://tempuri.org/deleteUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logOut">
+      <soap12:operation soapAction="http://tempuri.org/logOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkLienceKey">
+      <soap12:operation soapAction="http://tempuri.org/checkLienceKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertGroupUser">
+      <soap12:operation soapAction="http://tempuri.org/insertGroupUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUserDymanic">
+      <soap12:operation soapAction="http://tempuri.org/selectGroupUserDymanic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUser">
+      <soap12:operation soapAction="http://tempuri.org/selectGroupUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectGroupUserByName">
+      <soap12:operation soapAction="http://tempuri.org/selectGroupUserByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGroupUser">
+      <soap12:operation soapAction="http://tempuri.org/updateGroupUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteGroupUser">
+      <soap12:operation soapAction="http://tempuri.org/deleteGroupUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookUpGroupUser">
+      <soap12:operation soapAction="http://tempuri.org/lookUpGroupUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectEmployee">
+      <soap12:operation soapAction="http://tempuri.org/selectEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllEmployee">
+      <soap12:operation soapAction="http://tempuri.org/selectAllEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEmployee">
+      <soap12:operation soapAction="http://tempuri.org/deleteEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateEmployee">
+      <soap12:operation soapAction="http://tempuri.org/insertUpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllMenuItem">
+      <soap12:operation soapAction="http://tempuri.org/selectAllMenuItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuthorizeMenu">
+      <soap12:operation soapAction="http://tempuri.org/updateAuthorizeMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAuthorizeMenus">
+      <soap12:operation soapAction="http://tempuri.org/getAuthorizeMenus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectMenuObject">
+      <soap12:operation soapAction="http://tempuri.org/selectMenuObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkAuthorizeManage">
+      <soap12:operation soapAction="http://tempuri.org/checkAuthorizeManage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectListReport">
+      <soap12:operation soapAction="http://tempuri.org/selectListReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecProcedureToArr">
+      <soap12:operation soapAction="http://tempuri.org/ExecProcedureToArr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectReportPara">
+      <soap12:operation soapAction="http://tempuri.org/selectReportPara" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectReportDatas">
+      <soap12:operation soapAction="http://tempuri.org/selectReportDatas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_info_company">
+      <soap12:operation soapAction="http://tempuri.org/get_info_company" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectSalaryObject">
+      <soap12:operation soapAction="http://tempuri.org/selectSalaryObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelecAllCodeDynamic">
+      <soap12:operation soapAction="http://tempuri.org/SelecAllCodeDynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCiTyDynamic">
+      <soap12:operation soapAction="http://tempuri.org/SelectCiTyDynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectDistrictDynamic">
+      <soap12:operation soapAction="http://tempuri.org/SelectDistrictDynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectWardDynamic">
+      <soap12:operation soapAction="http://tempuri.org/SelectWardDynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCountriesDynamic">
+      <soap12:operation soapAction="http://tempuri.org/SelectCountriesDynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectMeasurement">
+      <soap12:operation soapAction="http://tempuri.org/SelectMeasurement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectMeasurementsDynamic">
+      <soap12:operation soapAction="http://tempuri.org/SelectMeasurementsDynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectReservation">
+      <soap12:operation soapAction="http://tempuri.org/SelectReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectReservationsDynamic">
+      <soap12:operation soapAction="http://tempuri.org/SelectReservationsDynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectResoure">
+      <soap12:operation soapAction="http://tempuri.org/SelectResoure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectResouresDynamic">
+      <soap12:operation soapAction="http://tempuri.org/SelectResouresDynamic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectBySql">
+      <soap12:operation soapAction="http://tempuri.org/SelectBySql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectCurrentLogin">
+      <soap12:operation soapAction="http://tempuri.org/SelectCurrentLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listUserLogIn">
+      <soap12:operation soapAction="http://tempuri.org/listUserLogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListFileBk">
+      <soap12:operation soapAction="http://tempuri.org/getListFileBk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getListFileInfo">
+      <soap12:operation soapAction="http://tempuri.org/getListFileInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectFileObject">
+      <soap12:operation soapAction="http://tempuri.org/selectFileObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="backupData">
+      <soap12:operation soapAction="http://tempuri.org/backupData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restoreData">
+      <soap12:operation soapAction="http://tempuri.org/restoreData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateTrust">
+      <soap12:operation soapAction="http://tempuri.org/insertUpdateTrust" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllTrust">
+      <soap12:operation soapAction="http://tempuri.org/selectAllTrust" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectTrust">
+      <soap12:operation soapAction="http://tempuri.org/selectTrust" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteTrust">
+      <soap12:operation soapAction="http://tempuri.org/deleteTrust" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdatePlace">
+      <soap12:operation soapAction="http://tempuri.org/insertUpdatePlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllPlace">
+      <soap12:operation soapAction="http://tempuri.org/selectAllPlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectPlace">
+      <soap12:operation soapAction="http://tempuri.org/selectPlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePlace">
+      <soap12:operation soapAction="http://tempuri.org/deletePlace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUpdateJourney">
+      <soap12:operation soapAction="http://tempuri.org/insertUpdateJourney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectJourney">
+      <soap12:operation soapAction="http://tempuri.org/selectJourney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteJourney">
+      <soap12:operation soapAction="http://tempuri.org/deleteJourney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllJourney">
+      <soap12:operation soapAction="http://tempuri.org/selectAllJourney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectAllCurrentJourney">
+      <soap12:operation soapAction="http://tempuri.org/selectAllCurrentJourney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectInformationAtTrustStore">
+      <soap12:operation soapAction="http://tempuri.org/selectInformationAtTrustStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectInformationAtTrustGroup">
+      <soap12:operation soapAction="http://tempuri.org/selectInformationAtTrustGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertJourneyCardGPS">
+      <soap12:operation soapAction="http://tempuri.org/insertJourneyCardGPS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleSystem">
+      <soap12:operation soapAction="http://tempuri.org/GetScheduleSystem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleProperty">
+      <soap12:operation soapAction="http://tempuri.org/GetScheduleProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceDuyTan">
+    <wsdl:port name="WebServiceDuyTanSoap" binding="tns:WebServiceDuyTanSoap">
+      <soap:address location="http://localhost/WebServiceDuyTan/WebServiceDuyTan.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceDuyTanSoap12" binding="tns:WebServiceDuyTanSoap12">
+      <soap12:address location="http://localhost/WebServiceDuyTan/WebServiceDuyTan.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1321,5 +1321,56 @@ namespace WebServiceDuyTan
 
         
         #endregion 
+        #region JobJourney
+        [WebMethod(Description = "insert Journey Card GPS")]
+        public bool insertJourneyCardGPS(JourneyCarGPSObj obj)
+        {
+            bool bCheck = false;
+            JourneyCarGPSDB objDB = new JourneyCarGPSDB();
+            try
+            {
+                bCheck = objDB.insertJourneyCarGPS(obj);
+            }
+            catch (Exception ex)
+            {
+                bCheck = false;
+
+            }
+            return bCheck;
+        }
+
+        [WebMethod(Description = "Get ScheduleSystem")]
+        public DataSet GetScheduleSystem()
+        {
+            DataSet ds = new DataSet();
+            ScheduleDB objDb = new ScheduleDB();
+            try
+            {
+                ds = objDb.GetScheduleSystem();
+            }
+            catch (Exception ex)
+            {
+                ds = null;
+            }
+            return ds;
+        }
+
+        [WebMethod(Description = "Get tScheduleProperty")]
+        public DataSet GetScheduleProperty()
+        {
+            DataSet ds = new DataSet();
+            ScheduleDB objDb = new ScheduleDB();
+            try
+            {
+                ds = objDb.GetScheduleProperty();
+            }
+            catch (Exception ex)
+            {
+                ds = null;
+            }
+            return ds;
+        }
+        #endregion
+        
     }
 }

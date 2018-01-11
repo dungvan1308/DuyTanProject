@@ -100,11 +100,8 @@ C:\Works\DuyTan\Soure\DuyTanProject\ScheduleSystem\ScheduleSvc\obj\Debug\Schedul
 C:\Works\DuyTan\Soure\DuyTanProject\ScheduleSystem\ScheduleSvc\obj\Debug\ScheduleSvc.csproj.GenerateResource.Cache
 C:\Works\DuyTan\Soure\DuyTanProject\ScheduleSystem\ScheduleSvc\obj\Debug\ScheduleSvc.exe
 C:\Works\DuyTan\Soure\DuyTanProject\ScheduleSystem\ScheduleSvc\obj\Debug\ScheduleSvc.pdb
-C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\obj\Debug\ScheduleSvc.csprojResolveAssemblyReference.cache
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\obj\Debug\ScheduleSvc.ProjectInstaller.resources
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\obj\Debug\ScheduleSvc.csproj.GenerateResource.Cache
-C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\obj\Debug\ScheduleSvc.exe
-C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\obj\Debug\ScheduleSvc.pdb
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\bin\Debug\log4net.config
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\bin\Debug\ScheduleSvc.exe.config
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\bin\Debug\ScheduleSvc.exe
@@ -120,3 +117,6 @@ C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\bin\Debug\ServiceStack.
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\bin\Debug\ServiceStack.Client.xml
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\bin\Debug\ServiceStack.Common.xml
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\bin\Debug\ServiceStack.Text.xml
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\obj\Debug\ScheduleSvc.exe
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\obj\Debug\ScheduleSvc.pdb
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ScheduleSvc\obj\Debug\ScheduleSvc.csprojResolveAssemblyReference.cache

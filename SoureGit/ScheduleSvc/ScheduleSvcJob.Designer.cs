@@ -1,6 +1,6 @@
 ﻿namespace ScheduleSvc
 {
-    partial class ScheduleSvc
+    partial class ScheduleSvcJob
     {
         /// <summary> 
         /// Required designer variable.

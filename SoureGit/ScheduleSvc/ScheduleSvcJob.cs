@@ -16,12 +16,12 @@ using ScheduleSvc.Execute;
 
 namespace ScheduleSvc
 {
-    public partial class ScheduleSvc : ServiceBase
+    public partial class ScheduleSvcJob : ServiceBase
     {
-        private readonly ILog _log = LogManager.GetLogger(typeof(ScheduleSvc));
+        private readonly ILog _log = LogManager.GetLogger(typeof(ScheduleSvcJob));
         private AppHostHTTPListener _appHostHTTP;
 
-        public ScheduleSvc()
+        public ScheduleSvcJob()
         {
             InitializeComponent();
         }
@@ -76,11 +76,11 @@ namespace ScheduleSvc
         {
             if (bool.Parse(ConfigurationManager.AppSettings["IsRunAsService"]))
             {
-                Run(new ScheduleSvc());
+                Run(new ScheduleSvcJob());
             }
             else
             {
-                ScheduleSvc service = new ScheduleSvc();
+                ScheduleSvcJob service = new ScheduleSvcJob();
                 service.OnStart(null);
                 Console.ReadLine();
                 Thread.Sleep(1000000);
