@@ -78,92 +78,123 @@ namespace GYM.frm
                 dtgResult.Columns[4].Caption = "Tài Xế";
                 dtgResult.Columns[4].Width = 120;
 
-                dtgResult.Columns[5].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                dtgResult.Columns[5].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                dtgResult.Columns[5].Caption = "Giao hàng 1";
-                dtgResult.Columns[5].Width = 120;
-
+                dtgResult.Columns[5].Visible = false;
 
                 dtgResult.Columns[6].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[6].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                dtgResult.Columns[6].Caption = "Giao hàng 2";
+                dtgResult.Columns[6].Caption = "Giao hàng 1";
                 dtgResult.Columns[6].Width = 120;
+
 
                 dtgResult.Columns[7].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[7].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                dtgResult.Columns[7].Caption = "Điểm xuất phát";
+                dtgResult.Columns[7].Caption = "Giao hàng 2";
                 dtgResult.Columns[7].Width = 120;
 
-
                 dtgResult.Columns[8].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                dtgResult.Columns[8].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[8].Caption = "Thời gian đi";
-                dtgResult.Columns[8].Width = 140;
-                dtgResult.Columns[8].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
+                dtgResult.Columns[8].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                dtgResult.Columns[8].Caption = "Điểm xuất phát 1";
+                dtgResult.Columns[8].Width = 120;
+
 
                 dtgResult.Columns[9].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[9].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[9].Caption = "Điểm giao hàng 1";
-                dtgResult.Columns[9].Width = 100;
+                dtgResult.Columns[9].Caption = "Giờ Xuất Phát 1";
+                dtgResult.Columns[9].Width = 140;
+                dtgResult.Columns[9].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
 
                 dtgResult.Columns[10].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[10].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[10].Caption = "Thời gian đến KH 1";
-                dtgResult.Columns[10].Width = 140;
+                dtgResult.Columns[10].Caption = "Điểm giao hàng 1";
+                dtgResult.Columns[10].Width = 100;
 
                 dtgResult.Columns[11].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[11].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[11].Caption = "Thời gian đi 2";
+                dtgResult.Columns[11].Caption = "Giờ đến Kế Hoạch 1";
                 dtgResult.Columns[11].Width = 140;
-                dtgResult.Columns[11].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
 
-                dtgResult.Columns[12].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                dtgResult.Columns[12].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[12].Caption = "Điểm giao hàng 2";
-                dtgResult.Columns[12].Width = 100;
+                dtgResult.Columns[12].Visible = false;
+                dtgResult.Columns[12].Caption = "Giờ đến thực tế 1,";
+
 
                 dtgResult.Columns[13].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[13].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[13].Caption = "Thời gian đến KH 2";
+                dtgResult.Columns[13].Caption = "Giờ xuất phát 2";
                 dtgResult.Columns[13].Width = 140;
                 dtgResult.Columns[13].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
 
                 dtgResult.Columns[14].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[14].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[14].Caption = "Thời gian đi 3";
-                dtgResult.Columns[14].Width = 140;
-                dtgResult.Columns[14].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
+                dtgResult.Columns[14].Caption = "Điểm giao hàng 2";
+                dtgResult.Columns[14].Width = 100;
 
                 dtgResult.Columns[15].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[15].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[15].Caption = "Điểm giao hàng 3";
-                dtgResult.Columns[15].Width = 120;
+                dtgResult.Columns[15].Caption = "Giờ đến Kế Hoạch 2";
+                dtgResult.Columns[15].Width = 140;
+                dtgResult.Columns[15].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
 
-                dtgResult.Columns[16].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                dtgResult.Columns[16].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[16].Caption = "Thời gian đến KH 3";
-                dtgResult.Columns[16].Width = 140;
-                dtgResult.Columns[16].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
-
+                dtgResult.Columns[16].Visible = false;
+                dtgResult.Columns[16].Caption = "Giờ đến thực tế 2,";
 
                 dtgResult.Columns[17].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[17].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[17].Caption = "Thời gian về";
+                dtgResult.Columns[17].Caption = "Giờ xuất phát 3";
                 dtgResult.Columns[17].Width = 140;
                 dtgResult.Columns[17].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
 
-
                 dtgResult.Columns[18].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[18].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[18].Caption = "Trạng thái giao hàng";
+                dtgResult.Columns[18].Caption = "Điểm giao hàng 3";
                 dtgResult.Columns[18].Width = 120;
 
                 dtgResult.Columns[19].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
                 dtgResult.Columns[19].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-                dtgResult.Columns[19].Caption = "Cổng ";
-                dtgResult.Columns[19].Width = 120;
+                dtgResult.Columns[19].Caption = "Giờ đến Kế Hoạch 3";
+                dtgResult.Columns[19].Width = 140;
+                dtgResult.Columns[19].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
+
+             
+
+                dtgResult.Columns[20].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                dtgResult.Columns[20].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                dtgResult.Columns[20].Caption = "Giờ đến thực tế cuối cùng";
+                dtgResult.Columns[20].Width = 140;
+                dtgResult.Columns[20].DisplayFormat.FormatString = "dd/MM/yyyy hh:mm:ss";
 
 
+                dtgResult.Columns[21].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                dtgResult.Columns[21].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                dtgResult.Columns[21].Caption = "Trạng thái giao hàng";
+                dtgResult.Columns[21].Width = 120;
+
+                /*
+                dtgResult.Columns[22].Caption = "Trạng Thái Khởi Hành"; // Trang thai xe
+                dtgResult.Columns[22].Visible = false;
+                */
+
+                dtgResult.Columns[22].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                dtgResult.Columns[22].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                dtgResult.Columns[22].Caption = "Trạng Thái Khởi Hành";
+                dtgResult.Columns[22].Width = 120;
+
+
+                dtgResult.Columns[23].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                dtgResult.Columns[23].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                dtgResult.Columns[23].Caption = "Cổng Giao hàng";
+                dtgResult.Columns[23].Width = 120;
+
+                dtgResult.Columns[24].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                dtgResult.Columns[24].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                dtgResult.Columns[24].Caption = "Ghi Chú ";
+                dtgResult.Columns[24].Width = 120;
+
+                
+
+                dtgResult.Columns[25].AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                dtgResult.Columns[25].AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+                dtgResult.Columns[25].Caption = "Trạng thái hành trình";
+                dtgResult.Columns[25].Width = 120;
 
             }
             else

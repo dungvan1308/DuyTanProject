@@ -260,9 +260,15 @@ namespace WebServiceDuyTan.DbObjects
              * Dungnv : 25/12/2017 
              */
  
+           
+
             DataSet ds = new DataSet();
             try
             {
+                //Test Job 
+                processJobUpdateJourney();
+                //End Test Job
+
                 ds = SqlHelper.ExecuteDataset(strConection, "usp_selectAllCurrentJourney");
             }
             catch (Exception ex)
@@ -371,6 +377,7 @@ namespace WebServiceDuyTan.DbObjects
           
             #region Xử lý xe xuất phát 
             string strsql = "";
+            string strSqlTest = "";
 
             if (dt_currentTime > dt_timePlan)
             {
@@ -388,6 +395,9 @@ namespace WebServiceDuyTan.DbObjects
 
 
             }
+
+            strSqlTest = strSqlTest + "set dateformat dmy   update Journey set Status='R', StartTime1='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + "'  where JourneyID='" + obj.JourneyID + "'";
+
             #endregion 
 
             #region Xử lý thời gian, trạng thái hành trình tại điểm đến 1
@@ -402,9 +412,11 @@ namespace WebServiceDuyTan.DbObjects
             if(db_distince < para_Distance & obj.ArrivalTime1==null)
             {
                 
-                strsql = "set dateformat dmy   update Journey set  ArrivalTime1='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + " d   where JourneyID='" + obj.JourneyID + "'";
+                strsql = "set dateformat dmy   update Journey set  ArrivalTime1='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + "' where JourneyID='" + obj.JourneyID + "'";
                 
             }
+
+            strSqlTest = strSqlTest + " set dateformat dmy   update Journey set  ArrivalTime1='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + "'  where JourneyID='" + obj.JourneyID + "'";
            
             //Nếu như khoản cách > 500 và thời gian hiện tại lớn hơn thời gian kế hoạch 1, và thời gian đến điểm 1 là null => Xe bị trễ
             if(db_distince > para_Distance & obj.ArrivalTime1 ==null)
@@ -412,8 +424,8 @@ namespace WebServiceDuyTan.DbObjects
                 //Tre
                 if(dt_currentTime > obj.ArrivalTimePlan1)
                 {
-                    strsql = "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE;
-                    strsql = "',DescHistoryJourney='Cách điểm 1 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+                    strsql = "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE
+                    + "',DescHistoryJourney='Cách điểm 1 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
                 }
                 else //Khong tre
                 {
@@ -421,7 +433,11 @@ namespace WebServiceDuyTan.DbObjects
                 }
                 
             }
-           
+
+            strSqlTest = strSqlTest + "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE
+                        + "',DescHistoryJourney='Cách điểm 1 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+
+            strSqlTest = strSqlTest + " update Journey set  DescHistoryJourney='Cách điểm 1 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
 
 
             #endregion 
@@ -436,9 +452,11 @@ namespace WebServiceDuyTan.DbObjects
             if (db_distince <= para_Distance & obj.ArrivalTime2 == null)
             {
 
-                strsql = "set dateformat dmy   update Journey set  ArrivalTime2='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + " d   where JourneyID='" + obj.JourneyID + "'";
+                strsql = "set dateformat dmy   update Journey set  ArrivalTime2='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + "'  where JourneyID='" + obj.JourneyID + "'";
 
             }
+
+            strSqlTest = strSqlTest + " set dateformat dmy   update Journey set  ArrivalTime2='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) + "'   where JourneyID='" + obj.JourneyID + "'";
 
             //Nếu như khoản cách > 500 và thời gian hiện tại lớn hơn thời gian kế hoạch 2, và thời gian đến điểm 2 là null => Xe bị trễ
             if (db_distince > para_Distance & obj.ArrivalTime2 == null)
@@ -446,8 +464,8 @@ namespace WebServiceDuyTan.DbObjects
                 //Tre
                 if (dt_currentTime > obj.ArrivalTimePlan2)
                 {
-                    strsql = "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE + "'  where JourneyID='" + obj.JourneyID + "'";
-                    strsql = strsql + "update Journey set  DescHistoryJourney='Cách điểm 2 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+                    strsql = " set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE + "'  where JourneyID='" + obj.JourneyID + "'"
+                     + "update Journey set  DescHistoryJourney='Cách điểm 2 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
                     
                 }
                 else
@@ -456,6 +474,13 @@ namespace WebServiceDuyTan.DbObjects
                 }
                 
             }
+
+
+            strSqlTest = strSqlTest + "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE + "'  where JourneyID='" + obj.JourneyID + "'"
+                     + "update Journey set  DescHistoryJourney='Cách điểm 2 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+
+            strSqlTest = strSqlTest + " update Journey set  DescHistoryJourney='Cách điểm 2 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+
 
             #endregion 
 
@@ -469,8 +494,8 @@ namespace WebServiceDuyTan.DbObjects
             if (db_distince <= para_Distance & obj.ArrivalTime3 == null)
             {
 
-                strsql = "set dateformat dmy   update Journey set  ArrivalTime3='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) ;
-                strsql ="' where JourneyID='" + obj.JourneyID + "'";
+                strsql = " set dateformat dmy   update Journey set  ArrivalTime3='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS) 
+                    + "' where JourneyID='" + obj.JourneyID + "'";
                 
                 //Cap nhap cho dau xe khi xe quay ve 
                 strsql = strsql + " update Trust set PackingPlace ='" + obj.DeliveryPlace3 + "' where VehicleNumber='" + obj.VehicleNumber + "'";
@@ -478,13 +503,19 @@ namespace WebServiceDuyTan.DbObjects
 
             }
 
+            strSqlTest = strSqlTest + " set dateformat dmy   update Journey set  ArrivalTime3='" + clsCommon.convertDateTimeToString(dt_currentTime, clsCommon.DATE_FORMAT_DD_MM_YYYY_HH_MM_SS)
+                    + "' where JourneyID='" + obj.JourneyID + "'";
+            strSqlTest = strSqlTest + " update Trust set PackingPlace ='" + obj.DeliveryPlace3 + "' where VehicleNumber='" + obj.VehicleNumber + "'";
+
+
+
             //Nếu như khoản cách > 500 và thời gian hiện tại lớn hơn thời gian kế hoạch 2, và thời gian đến điểm 2 là null => Xe bị trễ
             if (db_distince > para_Distance & obj.ArrivalTime3 == null)
             {
                 if(dt_currentTime > obj.ArrivalTimePlan3)
                 {
-                    strsql = "set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE + "'  where JourneyID='" + obj.JourneyID + "'";
-                    strsql = strsql + "update Journey set  DescHistoryJourney='Cách điểm 3 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+                    strsql = " set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE + "'  where JourneyID='" + obj.JourneyID + "'"
+                     + " update Journey set  DescHistoryJourney='Cách điểm 3 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
 
                     //Can xu ly them viec add thoi gian ke hoach tiep theo
                 }
@@ -494,6 +525,14 @@ namespace WebServiceDuyTan.DbObjects
                 }
                 
             }
+
+
+            strSqlTest = strSqlTest + " set dateformat dmy   update Journey set  TransactionStatus='" + clsCommon.JOURNEY_TRANSACTIONSTATUS_LATE + "'  where JourneyID='" + obj.JourneyID + "'"
+                     + " update Journey set  DescHistoryJourney='Cách điểm 3 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+
+            strSqlTest = strSqlTest + " update Journey set  DescHistoryJourney='Cách điểm 3 " + db_distince.ToString() + " km '  where JourneyID='" + obj.JourneyID + "'";
+
+
 
             #endregion 
 
@@ -524,7 +563,7 @@ namespace WebServiceDuyTan.DbObjects
             DataSet ds = new DataSet();
             try
             {
-                ds = SqlHelper.ExecuteDataset(strConection, "usp_selectAllCurrentJourney");
+                ds = SqlHelper.ExecuteDataset(strConection, "usp_jobUpdateJourney");
                 if (ds != null)
                 {
                     foreach (DataRow row in ds.Tables[0].Rows)
