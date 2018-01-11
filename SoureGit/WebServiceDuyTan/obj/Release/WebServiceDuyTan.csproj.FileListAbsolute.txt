@@ -1,0 +1,11 @@
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\WebServiceDuyTan.dll.config
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\WebServiceDuyTan.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\WebServiceDuyTan.pdb
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibrary.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibraryCommon.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\Microsoft.ApplicationBlocks.Data.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibrary.pdb
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibraryCommon.pdb
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Release\WebServiceDuyTan.csprojResolveAssemblyReference.cache
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Release\WebServiceDuyTan.dll
+C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Release\WebServiceDuyTan.pdb
