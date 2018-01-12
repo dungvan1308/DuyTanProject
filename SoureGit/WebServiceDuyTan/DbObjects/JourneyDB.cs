@@ -644,5 +644,108 @@ namespace WebServiceDuyTan.DbObjects
                 
         }
 
+        public void processJobUpdateOnJourney(string VehicleNumber, string datetime)
+        {
+            /*
+             * Dungnv   :   10/01/2018
+             * Purpose  :   Xử lý cập nhập trạng thai của hanh trình
+             *              Này nên thiết lập 1 Job định kì 
+             * 
+             */
+            DataSet ds = new DataSet();
+            try
+            {
+                string journeyDate = clsCommon.convertYYYYMMDDToYYYYMMDD(datetime.Substring(0,8));
+                SqlParameter[] aParams = new SqlParameter[3];
+                aParams[0] = new SqlParameter("@VehicleNumber", System.Data.SqlDbType.VarChar);
+                aParams[0].Value = VehicleNumber;
+
+                aParams[1] = new SqlParameter("@JourneyDate", System.Data.SqlDbType.VarChar);
+                aParams[1].Value = journeyDate;
+
+                aParams[2] = new SqlParameter("@Datetime", System.Data.SqlDbType.VarChar);
+                aParams[2].Value = datetime;
+
+                ds = SqlHelper.ExecuteDataset(strConection, "usp_jobUpdateJourneyCar");
+                if (ds != null)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        double db_Lat = 0;
+                        double db_Lon = 0;
+                        double db_out = 0;
+
+                        //locationStartPlace
+                        double.TryParse(row["StartPlace_Lat"].ToString(), out db_out);
+                        db_Lat = db_out;
+                        double.TryParse(row["StartPlace_Lon"].ToString(), out db_out);
+                        db_Lon = db_out;
+                        Coordinates locationStartPlace = new Coordinates(db_Lat, db_Lon);
+
+
+                        //locationGPS
+                        double.TryParse(row["Lat"].ToString(), out db_out);
+                        db_Lat = db_out;
+                        double.TryParse(row["Lon"].ToString(), out db_out);
+                        db_Lon = db_out;
+                        Coordinates locationGPS = new Coordinates(db_Lat, db_Lon);
+
+                        //location1
+                        double.TryParse(row["DeliveryPlace1_Lat"].ToString(), out db_out);
+                        db_Lat = db_out;
+                        double.TryParse(row["DeliveryPlace1_Lon"].ToString(), out db_out);
+                        db_Lon = db_out;
+                        Coordinates location1 = new Coordinates(db_Lat, db_Lon);
+
+                        //location2
+                        double.TryParse(row["DeliveryPlace2_Lat"].ToString(), out db_out);
+                        db_Lat = db_out;
+                        double.TryParse(row["DeliveryPlace2_Lon"].ToString(), out db_out);
+                        db_Lon = db_out;
+                        Coordinates location2 = new Coordinates(db_Lat, db_Lon);
+
+                        //location3
+                        double.TryParse(row["DeliveryPlace3_Lat"].ToString(), out db_out);
+                        db_Lat = db_out;
+                        double.TryParse(row["DeliveryPlace3_Lon"].ToString(), out db_out);
+                        db_Lon = db_out;
+                        Coordinates location3 = new Coordinates(db_Lat, db_Lon);
+
+                        JourneyObject obj = new JourneyObject();
+                        int ID = 0;
+
+                        // Set gia tri cho JourneyObject
+                        obj.JourneyID = Int32.Parse(ds.Tables[0].Rows[0]["JourneyID"].ToString());
+                        obj.ArrivalTime1 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime1"].ToString());
+                        obj.ArrivalTime2 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime2"].ToString());
+                        obj.ArrivalTime3 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTime3"].ToString());
+
+                        obj.ArrivalTimePlan1 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan1"].ToString());
+                        obj.ArrivalTimePlan2 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan2"].ToString());
+                        obj.ArrivalTimePlan3 = DateTime.Parse(ds.Tables[0].Rows[0]["ArrivalTimePlan3"].ToString());
+
+                        obj.VehicleNumber = ds.Tables[0].Rows[0]["VehicleNumber"].ToString();
+                        obj.StartTime1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime1"].ToString());
+                        obj.StartTime2 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime2"].ToString());
+                        obj.StartTime3 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTime3"].ToString());
+                        obj.StartTimePlan1 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan1"].ToString());
+                        obj.StartTimePlan2 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan2"].ToString());
+                        obj.StartTimePlan3 = DateTime.Parse(ds.Tables[0].Rows[0]["StartTimePlan3"].ToString());
+                        obj.Status = ds.Tables[0].Rows[0]["Status"].ToString();
+
+                        //Thực hiện update 
+                        processJourney(obj, locationStartPlace, locationGPS, location1, location2, location3);
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+
+
+        }
+
     }
 }

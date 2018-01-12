@@ -64,3 +64,14 @@ C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibraryCo
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.dll
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.pdb
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.csprojResolveAssemblyReference.cache
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\bin\WebServiceDuyTan.dll.config
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\bin\WebServiceDuyTan.dll
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\bin\WebServiceDuyTan.pdb
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibrary.dll
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibraryCommon.dll
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\bin\Microsoft.ApplicationBlocks.Data.dll
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibrary.pdb
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\bin\ClassLibraryCommon.pdb
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.csprojResolveAssemblyReference.cache
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.dll
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\WebServiceDuyTan\obj\Debug\WebServiceDuyTan.pdb

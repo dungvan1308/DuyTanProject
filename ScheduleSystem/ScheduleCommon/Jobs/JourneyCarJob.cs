@@ -8,28 +8,32 @@ using System.Text;
 using System.Threading.Tasks;
 using log4net;
 using ScheduleEntity;
-using ServiceStack.Text;
 using ScheduleCommon.JourneyCarWS;
 using System.Data;
 using ScheduleCommon.Object;
 using ScheduleDBCore.Service;
 using ScheduleDBCore.Enum;
+using ScheduleCommon.ServiceReferenceDuyTan;
 
 namespace ScheduleCommon.Jobs
 {
     public class JourneyCarJob : JobBase
     {
         private static ILog _log = LogManager.GetLogger(typeof(JourneyCarJob));
-        private bool flag = false;
+        private bool flag =false;
         public override void Process()
         {
             try
-            {                
+            {
+                if (flag) return;
+                flag = true;
                 string _UserName = ConfigurationManager.AppSettings["UserName"];
                 string _Password = ConfigurationManager.AppSettings["Password"];
                 string _Serial = ConfigurationManager.AppSettings["Serial"];
                 string _Version = ConfigurationManager.AppSettings["Version"];
                 ScheduleCommon.JourneyCarWS.Service _Service = new ScheduleCommon.JourneyCarWS.Service();
+                WebServiceDuyTanSoapClient ws = new WebServiceDuyTanSoapClient();
+                JourneyCarObj journeyCarObj;
                 string kq =_Service.CheckLogin(_UserName, _Password, _Serial, _Version);
                 string msg = GetLoginMessage(kq);
                 if (!string.IsNullOrEmpty(msg))
@@ -44,9 +48,7 @@ namespace ScheduleCommon.Jobs
                         _log.Info("No data");
                     }
                     else
-                    {
-                        JourneyCarObj journeyCarObj = new JourneyCarObj();
-                        JourneyCarSvc JourneyCarSvc = new JourneyCarSvc(1, ConnectionType.ScheduleDB);
+                    {   
                         string importDatetime = DateTime.Now.ToString("yyyyMMddHHmmss");
                         foreach (DataRow row in ds.Tables[0].Rows)
                         {
@@ -81,19 +83,20 @@ namespace ScheduleCommon.Jobs
                             journeyCarObj.Phone = row["Phone"].ToString();
                             journeyCarObj.LoaiXe = row["LoaiXe"].ToString();
                             journeyCarObj.HanKiemDinh = row["HanKiemDinh"].ToString();
-                            JourneyCarSvc.InsertData(journeyCarObj.LicenseCard, journeyCarObj.Lat, journeyCarObj.Lon,
-                                    journeyCarObj.Heading, journeyCarObj.Speed, journeyCarObj.MaxSpeed,
-                                    journeyCarObj.sDateTime, journeyCarObj.TotalMil, journeyCarObj.CurrentMil,
-                                    journeyCarObj.TotalTripTime, journeyCarObj.NDT, journeyCarObj.EquipmentID,
-                                    journeyCarObj.CompanyName, journeyCarObj.ConnectedFrom, journeyCarObj.Duration,
-                                    journeyCarObj.LiveStatus, journeyCarObj.sColor, journeyCarObj.IDLE,
-                                    journeyCarObj.Engine, journeyCarObj.Door, journeyCarObj.AreaName,
-                                    journeyCarObj.Fuel, journeyCarObj.MayLanh, journeyCarObj.MMC_ID,
-                                    journeyCarObj.CarGroupName, journeyCarObj.MaTaiXe, journeyCarObj.FullName,
-                                    journeyCarObj.Phone, journeyCarObj.LoaiXe, journeyCarObj.HanKiemDinh,
-                                    importDatetime);
-                        }
-                        JourneyCarSvc.Dispose();
+                            
+                            if (journeyCarObj.LicenseCard.Trim() == "54Z-3311")
+                                ws.insertJourneyCardGPS(journeyCarObj.LicenseCard, journeyCarObj.Lat, journeyCarObj.Lon,
+                                        journeyCarObj.Heading, journeyCarObj.Speed, journeyCarObj.MaxSpeed,
+                                        journeyCarObj.sDateTime, journeyCarObj.TotalMil, journeyCarObj.CurrentMil,
+                                        journeyCarObj.TotalTripTime, journeyCarObj.NDT, journeyCarObj.EquipmentID,
+                                        journeyCarObj.CompanyName, journeyCarObj.ConnectedFrom, journeyCarObj.Duration,
+                                        journeyCarObj.LiveStatus, journeyCarObj.sColor, journeyCarObj.IDLE,
+                                        journeyCarObj.Engine, journeyCarObj.Door, journeyCarObj.AreaName,
+                                        journeyCarObj.Fuel, journeyCarObj.MayLanh, journeyCarObj.MMC_ID,
+                                        journeyCarObj.CarGroupName, journeyCarObj.MaTaiXe, journeyCarObj.FullName,
+                                        journeyCarObj.Phone, journeyCarObj.LoaiXe, journeyCarObj.HanKiemDinh,
+                                        importDatetime);                        
+                        }                        
                     }                    
                 }
 

@@ -45,3 +45,16 @@ C:\Works\DuyTan\Soure\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\Serv
 C:\Works\DuyTan\Soure\DuyTanProject\ScheduleSystem\ScheduleEntity\obj\Debug\ScheduleEntity.csprojResolveAssemblyReference.cache
 C:\Works\DuyTan\Soure\DuyTanProject\ScheduleSystem\ScheduleEntity\obj\Debug\ScheduleEntity.dll
 C:\Works\DuyTan\Soure\DuyTanProject\ScheduleSystem\ScheduleEntity\obj\Debug\ScheduleEntity.pdb
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ScheduleEntity.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ScheduleEntity.pdb
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\log4net.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ServiceStack.Common.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ServiceStack.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ServiceStack.Interfaces.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ServiceStack.Text.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\log4net.xml
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ServiceStack.xml
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ServiceStack.Common.xml
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\bin\Debug\ServiceStack.Text.xml
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\obj\Debug\ScheduleEntity.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleEntity\obj\Debug\ScheduleEntity.pdb

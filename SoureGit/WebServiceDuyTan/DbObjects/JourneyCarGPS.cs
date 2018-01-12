@@ -46,7 +46,131 @@ namespace WebServiceDuyTan.DbObjects
 
         }
 
-        public bool insertJourneyCarGPS(JourneyCarGPSObj obj)
+        public bool insertJourneyCarGPS(string LicenseCard, string Lat, string Lon, string Heading, string Speed, string MaxSpeed, string sDateTime, string TotalMil, string CurrentMil, string TotalTripTime, string NDT, string EquipmentID, string CompanyName, string ConnectedFrom, string Duration, string LiveStatus, string sColor, string IDLE, string Engine, string Door, string AreaName, string Fuel, string MayLanh, string MMC_ID, string CarGroupName, string MaTaiXe, string FullName, string Phone, string LoaiXe, string HanKiemDinh, string importdatetime)
+        {
+            /*
+           * Dungnv    :   18/10/2014
+           * Purpose   :   Insert
+           * Output    :   Ma outUserId
+           */
+            Double dec = 0;
+            SqlParameter[] aParams = new SqlParameter[32];
+            string importDatetime = DateTime.Now.ToString("yyyyMMddHHmmss");
+
+            aParams[0] = new SqlParameter("@Activity", System.Data.SqlDbType.VarChar);
+            aParams[0].Value = "ImportData";
+
+            aParams[1] = new SqlParameter("@LicenseCard", System.Data.SqlDbType.VarChar);
+            aParams[1].Value = LicenseCard;
+
+            aParams[2] = new SqlParameter("@Lat", System.Data.SqlDbType.Decimal);
+            aParams[2].Value = Lat;
+
+            aParams[3] = new SqlParameter("@Lon", System.Data.SqlDbType.Decimal);
+            aParams[3].Value = Lon;
+
+            aParams[4] = new SqlParameter("@Heading", System.Data.SqlDbType.Decimal);
+            aParams[4].Value = Heading;
+
+            aParams[5] = new SqlParameter("@Speed", System.Data.SqlDbType.Decimal);
+            aParams[5].Value = Speed;
+
+            aParams[6] = new SqlParameter("@MaxSpeed", System.Data.SqlDbType.Decimal);
+            aParams[6].Value = MaxSpeed;
+
+            aParams[7] = new SqlParameter("@sDateTime", System.Data.SqlDbType.DateTime);
+            aParams[7].Value = sDateTime;
+
+            aParams[8] = new SqlParameter("@TotalMil", System.Data.SqlDbType.Decimal);
+            aParams[8].Value = TotalMil;
+
+            aParams[9] = new SqlParameter("@CurrentMil", System.Data.SqlDbType.Decimal);
+            aParams[9].Value = CurrentMil;
+
+            aParams[10] = new SqlParameter("@TotalTripTime", System.Data.SqlDbType.VarChar);
+            aParams[10].Value = TotalTripTime;
+
+            aParams[11] = new SqlParameter("@NDT", System.Data.SqlDbType.VarChar);
+            aParams[11].Value = NDT;
+
+            aParams[12] = new SqlParameter("@EquipmentID", System.Data.SqlDbType.VarChar);
+            aParams[12].Value = EquipmentID;
+
+            aParams[13] = new SqlParameter("@CompanyName", System.Data.SqlDbType.VarChar);
+            aParams[13].Value = CompanyName;
+
+            aParams[14] = new SqlParameter("@ConnectedFrom", System.Data.SqlDbType.VarChar);
+            aParams[14].Value = ConnectedFrom;
+
+            aParams[15] = new SqlParameter("@Duration", System.Data.SqlDbType.VarChar);
+            aParams[15].Value = Duration;
+
+            aParams[16] = new SqlParameter("@LiveStatus", System.Data.SqlDbType.VarChar);
+            aParams[16].Value = LiveStatus;
+
+            aParams[17] = new SqlParameter("@sColor", System.Data.SqlDbType.VarChar);
+            aParams[17].Value = sColor;
+
+            aParams[18] = new SqlParameter("@IDLE", System.Data.SqlDbType.VarChar);
+            aParams[18].Value = IDLE;
+
+            aParams[19] = new SqlParameter("@Engine", System.Data.SqlDbType.VarChar);
+            aParams[19].Value = Engine;
+
+            aParams[20] = new SqlParameter("@Door", System.Data.SqlDbType.VarChar);
+            aParams[20].Value = Door;
+
+            aParams[21] = new SqlParameter("@AreaName", System.Data.SqlDbType.VarChar);
+            aParams[21].Value = AreaName;
+
+            aParams[22] = new SqlParameter("@Fuel", System.Data.SqlDbType.VarChar);
+            aParams[22].Value = Fuel;
+
+            aParams[23] = new SqlParameter("@MayLanh", System.Data.SqlDbType.VarChar);
+            aParams[23].Value = MayLanh;
+
+            aParams[24] = new SqlParameter("@MMC_ID", System.Data.SqlDbType.VarChar);
+            aParams[24].Value = MMC_ID;
+
+            aParams[25] = new SqlParameter("@CarGroupName", System.Data.SqlDbType.VarChar);
+            aParams[25].Value = CarGroupName;
+
+            aParams[26] = new SqlParameter("@MaTaiXe", System.Data.SqlDbType.VarChar);
+            aParams[26].Value = MaTaiXe;
+
+            aParams[27] = new SqlParameter("@FullName", System.Data.SqlDbType.NVarChar);
+            aParams[27].Value = FullName;
+
+            aParams[28] = new SqlParameter("@Phone", System.Data.SqlDbType.VarChar);
+            aParams[28].Value = Phone;
+
+            aParams[29] = new SqlParameter("@LoaiXe", System.Data.SqlDbType.NVarChar);
+            aParams[29].Value = LoaiXe;
+
+            aParams[30] = new SqlParameter("@HanKiemDinh", System.Data.SqlDbType.VarChar);
+            aParams[30].Value = HanKiemDinh;
+
+            aParams[31] = new SqlParameter("@ImportDatetime", System.Data.SqlDbType.VarChar);
+            aParams[31].Value = importDatetime;
+
+            try
+            {
+                dec = SqlHelper.ExecuteNonQuery(strConection, CommandType.StoredProcedure, "usp_JourneyCarGPS", aParams);
+                JourneyDB objJourneyDB = new JourneyDB();
+                objJourneyDB.processJobUpdateOnJourney(LicenseCard, importDatetime);
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                dec = -1000;
+
+                return false;
+            }
+        }
+
+
+        public bool insertJourneyCarGPSObj(JourneyCarGPSObj obj)
         {
             /*
            * Dungnv    :   18/10/2014
@@ -156,7 +280,6 @@ namespace WebServiceDuyTan.DbObjects
             try
             {
                 dec = SqlHelper.ExecuteNonQuery(strConection, CommandType.StoredProcedure, "usp_JourneyCarGPS", aParams);
-
                 return true;
 
             }
@@ -190,5 +313,5 @@ namespace WebServiceDuyTan.DbObjects
         }
 
     }
-    
+
 }

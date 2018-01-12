@@ -1321,15 +1321,33 @@ namespace WebServiceDuyTan
 
         
         #endregion 
+
         #region JobJourney
         [WebMethod(Description = "insert Journey Card GPS")]
-        public bool insertJourneyCardGPS(JourneyCarGPSObj obj)
+        public bool insertJourneyCardGPSObj(JourneyCarGPSObj obj)
         {
             bool bCheck = false;
             JourneyCarGPSDB objDB = new JourneyCarGPSDB();
             try
             {
-                bCheck = objDB.insertJourneyCarGPS(obj);
+                bCheck = objDB.insertJourneyCarGPSObj(obj);
+            }
+            catch (Exception ex)
+            {
+                bCheck = false;
+
+            }
+            return bCheck;
+        }
+
+        [WebMethod(Description = "insert Journey Card GPS List")]
+        public bool insertJourneyCardGPS(string LicenseCard, string Lat, string Lon, string Heading, string Speed, string MaxSpeed, string sDateTime, string TotalMil, string CurrentMil, string TotalTripTime, string NDT, string EquipmentID, string CompanyName, string ConnectedFrom, string Duration, string LiveStatus, string sColor, string IDLE, string Engine, string Door, string AreaName, string Fuel, string MayLanh, string MMC_ID, string CarGroupName, string MaTaiXe, string FullName, string Phone, string LoaiXe, string HanKiemDinh, string importdatetime)
+        {
+            bool bCheck = false;
+            JourneyCarGPSDB objDB = new JourneyCarGPSDB();
+            try
+            {
+                bCheck = objDB.insertJourneyCarGPS(LicenseCard, Lat, Lon, Heading, Speed, MaxSpeed, sDateTime, TotalMil, CurrentMil, TotalTripTime, NDT, EquipmentID, CompanyName, ConnectedFrom, Duration, LiveStatus, sColor, IDLE, Engine, Door, AreaName, Fuel, MayLanh, MMC_ID, CarGroupName, MaTaiXe, FullName, Phone, LoaiXe, HanKiemDinh, importdatetime);
             }
             catch (Exception ex)
             {

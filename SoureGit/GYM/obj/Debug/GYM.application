@@ -3,20 +3,20 @@
   <assemblyIdentity name="GYM.application" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <description asmv2:publisher="GYM" asmv2:product="GYM" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true">
-    <deploymentProvider codebase="http://csglanbk-233-15/GYM/GYM.application" />
+    <deploymentProvider codebase="http://phutt/GYM/GYM.application" />
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="GYM.exe.manifest" size="157202">
+    <dependentAssembly dependencyType="install" codebase="GYM.exe.manifest" size="163802">
       <assemblyIdentity name="GYM.exe" version="1.0.0.4" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yL0U5+9c0ZiVy3CI1rSG+SWaw7g=</dsig:DigestValue>
+        <dsig:DigestValue>o0Vdh7lONCviuJZOSlRUSmnkNkU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

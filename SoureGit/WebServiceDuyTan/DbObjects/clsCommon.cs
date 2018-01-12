@@ -40,6 +40,11 @@ namespace WebServiceDuyTan.DbObjects
             return dateTime.ToString(dateFormat);
         }
 
+        public static string convertYYYYMMDDToYYYYMMDD(string strDate)
+        {
+            return strDate.Substring(0, 4) + "-" + strDate.Substring(4, 2) + "-" + strDate.Substring(6, 2);
+        }
+
         public static DateTime convertStringToDate(string strDate, string FormatDate)
         {
             //CultureInfo provider = CultureInfo.InvariantCulture;

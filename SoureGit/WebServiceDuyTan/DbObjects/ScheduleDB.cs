@@ -9,8 +9,11 @@ using System.Configuration;
 using ClassLibraryObjects;
 using ClassLibraryCommon;
 
+
 namespace WebServiceDuyTan.DbObjects
 {
+ 
+    
     public class ScheduleDB
     {
         protected string strConection = ConfigurationManager.ConnectionStrings["SiteSqlServer"].ConnectionString;
@@ -28,7 +31,7 @@ namespace WebServiceDuyTan.DbObjects
             }
 
             return ds;
-        }
+        }       
 
         public DataSet GetScheduleProperty()
         {

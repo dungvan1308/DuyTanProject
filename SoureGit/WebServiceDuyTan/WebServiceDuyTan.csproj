@@ -18,10 +18,14 @@
    <UseIISExpress>true</UseIISExpress>
     -->
     <UseIISExpress>false</UseIISExpress>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -31,6 +35,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -101,6 +106,7 @@
     <Content Include="Scripts\proc_updateUser.sql" />
     <Content Include="Scripts\Script20160508.txt" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Scripts\usp_informationAtTrustGroup.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -132,7 +138,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="DbObjects\App_Data\" />
     <Folder Include="Documents\" />
     <Folder Include="Scripts\CreateTable\" />
   </ItemGroup>

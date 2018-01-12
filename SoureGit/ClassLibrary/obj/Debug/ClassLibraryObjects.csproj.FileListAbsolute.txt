@@ -34,3 +34,7 @@ C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibrary\bin\Debug\ClassLibrary
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibrary\bin\Debug\ClassLibrary.pdb
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibrary\obj\Debug\ClassLibrary.dll
 C:\Works\DuyTan\Soure\DuyTanProject\SoureGit\ClassLibrary\obj\Debug\ClassLibrary.pdb
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\ClassLibrary\bin\Debug\ClassLibrary.dll
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\ClassLibrary\bin\Debug\ClassLibrary.pdb
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\ClassLibrary\obj\Debug\ClassLibrary.dll
+D:\Freelancer\DuyTan\DuyTanProject\SoureGit\ClassLibrary\obj\Debug\ClassLibrary.pdb

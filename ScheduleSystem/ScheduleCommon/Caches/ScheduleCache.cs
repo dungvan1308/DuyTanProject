@@ -3,6 +3,7 @@ using ScheduleDBCore.DBService;
 using ScheduleEntity;
 using System;
 using System.Data;
+using ScheduleCommon.ServiceReferenceDuyTan;
 
 namespace ScheduleCommon.Caches
 {
@@ -66,29 +67,48 @@ namespace ScheduleCommon.Caches
         public override bool GetAll()
         {
             try
-            {
+            {                
                 Dictionary.Clear();
-                using (ScheduleDBSvc scheduleSvc = new ScheduleDBSvc(0, ScheduleDBCore.Enum.ConnectionType.ScheduleDB))
+                //using (ScheduleDBSvc scheduleSvc = new ScheduleDBSvc(0, ScheduleDBCore.Enum.ConnectionType.ScheduleDB))
+                //{
+                //    DataTable dtSchedule = scheduleSvc.GetSchedule();
+                //    DataTable dtProperty = scheduleSvc.GetProperty();
+                //    foreach (DataRow dr in dtSchedule.Rows)
+                //    {
+                //        ScheduleObject schedule = new ScheduleObject();
+                //        schedule.JobName = dr["JobName"].ToString();
+                //        schedule.StartTime = DateTime.Parse(dr["StartTime"].ToString());
+                //        schedule.EndTime = DateTime.Parse(dr["EndTime"].ToString());
+                //        schedule.IntervalTime = int.Parse(dr["IntervalTime"].ToString());
+                //        foreach (DataRow drProperty in dtProperty.Select(string.Format("JobName='{0}'", dr["JobName"].ToString())))
+                //        {
+                //            PropertyObject property = new PropertyObject();
+                //            property.PropertyName = drProperty["PropertyName"].ToString();
+                //            property.PropertyValue = drProperty["PropertyValue"].ToString();
+                //            schedule.Properties.Add(property.PropertyValue, property);
+                //        }
+                //        Add(schedule.JobName, schedule);
+                //    }
+                WebServiceDuyTanSoapClient ws = new WebServiceDuyTanSoapClient();
+                DataSet dtSchedule = ws.GetScheduleSystem();
+                DataSet dtProperty = ws.GetScheduleProperty();
+                foreach (DataRow dr in dtSchedule.Tables[0].Rows)
                 {
-                    DataTable dtSchedule = scheduleSvc.GetSchedule();
-                    DataTable dtProperty = scheduleSvc.GetProperty();
-                    foreach (DataRow dr in dtSchedule.Rows)
+                    ScheduleObject schedule = new ScheduleObject();
+                    schedule.JobName = dr["JobName"].ToString();
+                    schedule.StartTime = DateTime.Parse(dr["StartTime"].ToString());
+                    schedule.EndTime = DateTime.Parse(dr["EndTime"].ToString());
+                    schedule.IntervalTime = int.Parse(dr["IntervalTime"].ToString());
+                    foreach (DataRow drProperty in dtProperty.Tables[0].Select(string.Format("JobName='{0}'", dr["JobName"].ToString())))
                     {
-                        ScheduleObject schedule = new ScheduleObject();
-                        schedule.JobName = dr["JobName"].ToString();
-                        schedule.StartTime = DateTime.Parse(dr["StartTime"].ToString());
-                        schedule.EndTime = DateTime.Parse(dr["EndTime"].ToString());
-                        schedule.IntervalTime = int.Parse(dr["IntervalTime"].ToString());
-                        foreach (DataRow drProperty in dtProperty.Select(string.Format("JobName='{0}'", dr["JobName"].ToString())))
-                        {
-                            PropertyObject property = new PropertyObject();
-                            property.PropertyName = drProperty["PropertyName"].ToString();
-                            property.PropertyValue = drProperty["PropertyValue"].ToString();
-                            schedule.Properties.Add(property.PropertyValue, property);
-                        }
-                        Add(schedule.JobName, schedule);
+                        PropertyObject property = new PropertyObject();
+                        property.PropertyName = drProperty["PropertyName"].ToString();
+                        property.PropertyValue = drProperty["PropertyValue"].ToString();
+                        schedule.Properties.Add(property.PropertyValue, property);
                     }
+                    Add(schedule.JobName, schedule);
                 }
+                
                 return true;
             }
             catch (Exception ex)

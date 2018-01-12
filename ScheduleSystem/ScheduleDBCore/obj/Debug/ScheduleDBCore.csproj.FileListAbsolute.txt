@@ -1,0 +1,7 @@
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleDBCore\bin\Debug\ScheduleDBCore.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleDBCore\bin\Debug\ScheduleDBCore.pdb
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleDBCore\bin\Debug\log4net.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleDBCore\bin\Debug\log4net.xml
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleDBCore\obj\Debug\ScheduleDBCore.dll
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleDBCore\obj\Debug\ScheduleDBCore.pdb
+D:\Freelancer\DuyTan\DuyTanProject\ScheduleSystem\ScheduleDBCore\obj\Debug\ScheduleDBCore.csprojResolveAssemblyReference.cache
